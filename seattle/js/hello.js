@@ -1,3 +1,17 @@
+// masonry
+$(window).load(function() {
+  
+  $('div.thumbs').masonry({
+    itemSelector: 'div.thumb',
+    columnWidth: 200,
+  });
+  
+});
+
+jQuery(document).ready(function($) { //noconflict wrapper
+    $('input#submit').addClass('btn');
+});//end noconflict
+
 // COLORBOX
 $(document).ready(function() {
 	if ($(window).width() > 960) {
@@ -13,17 +27,3 @@ $(document).ready(function() {
 		});
 	}
 });
-
-// masonry
-$(function(){
-  
-  $('.thumbs').masonry({
-    itemSelector: '.thumb',
-    columnWidth: 200
-  });
-  
-});
-
-jQuery(document).ready(function($) { //noconflict wrapper
-    $('input#submit').addClass('btn');
-});//end noconflict

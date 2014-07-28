@@ -7,21 +7,12 @@
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
-	<?php if ( has_post_thumbnail() ) { ?>
-	<div class="photo">
-	<?php $large_image_url = wp_get_attachment_image_src( get_post_thumbnail_id(), 'large');
-	echo '<a href="' . $large_image_url[0] . '" title="' . the_title_attribute('echo=0') . '" >';
-	the_post_thumbnail('large');
-	echo '</a>'; ?> </div>
-	<?php } ?>
-
-
 	<header class="entry-header">
 		<h1 class="entry-title"><?php the_title(); ?></h1>
 
 		<div class="entry-meta">
-			<span class="borders"><i class="icon-time"></i> <?php seattle_posted_on(); ?>
-			<i class="icon-comment"></i> <?php comments_popup_link( __( 'No comments', 'seattle' ), __( '1 Comment', 'seattle' ), __( '% Comments', 'seattle' ) ); ?>
+			<span class="borders"><span class="glyphicon glyphicon-time"></span> <?php seattle_posted_on(); ?>
+			<span class="glyphicon glyphicon-comment"></span> <?php comments_popup_link( __( 'No comments', 'seattle' ), __( '1 Comment', 'seattle' ), __( '% Comments', 'seattle' ) ); ?>
 			</span>
 		</div><!-- .entry-meta -->
 	</header><!-- .entry-header -->
@@ -29,9 +20,18 @@
 	<div class="entry-content">
 		<?php the_content(); ?>
 		<?php wp_link_pages( array( 'before' => '<div class="page-links">' . __( 'Pages:', 'seattle' ), 'after' => '</div>' ) ); ?>
-	
 		
-		<div class="thumbs">
+		
+		<div class="gallery">
+		
+		<?php if ( has_post_thumbnail() ) { ?>
+		<div class="photo">
+		<?php $large_image_url = wp_get_attachment_image_src( get_post_thumbnail_id(), 'large');
+		echo '<a href="' . $large_image_url[0] . '" title="' . the_title_attribute('echo=0') . '" >';
+		the_post_thumbnail('large');
+		echo '</a>'; ?> </div>
+		<?php } ?>
+		
 		<?php
 		$thumb_ID = get_post_thumbnail_id( $post->ID );
 		$attachments = get_children(array(
@@ -51,9 +51,9 @@
 		        $abs_img_url = substr($full_img_url, $split_pos, $split_len);
 		        $full_info = @getimagesize(ABSPATH.$abs_img_url);
 		        ?>
-		        <div class="thumb">
+		        <div class="photo">
 					<a href="<?php echo $full_img_url; ?>" title="<?php echo $attachment->post_title; ?>" target="_blank">
-					<?php echo wp_get_attachment_image($attachment->ID, 'thumbnail'); ?> </a>
+					<?php echo wp_get_attachment_image($attachment->ID, 'large'); ?> </a>
 				</div>
 		<?php } ?>
 		

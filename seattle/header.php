@@ -26,8 +26,8 @@
 
 	?></title>
 	
-	<meta name="description" content="">
-	<meta name="author" content="">
+	<meta name="description" content="<?php bloginfo( 'description' ); ?>">
+	<meta name="author" content="Tyler Rilling">
 	
 	<link rel="profile" href="http://gmpg.org/xfn/11" />
 	<link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>" />
@@ -41,12 +41,14 @@
 	<link rel="apple-touch-icon-precomposed" sizes="72x72" href="/apple-touch-icon-72x72-precomposed.png">
 	<link rel="apple-touch-icon-precomposed" sizes="114x114" href="/apple-touch-icon-114x114-precomposed.png">
 
-	<!--[if lt IE 9]>
-	<script src="<?php echo get_template_directory_uri(); ?>/js/html5.js" type="text/javascript"></script>
-	<![endif]-->
+	<script src="<?php echo get_template_directory_uri(); ?>/js/modernizr.js" type="text/javascript"></script>
 	
 	<script type="text/javascript" src="//use.typekit.net/vco5ckf.js"></script>
 	<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+	<script src="<?php echo get_template_directory_uri(); ?>/js/jquery.colorbox-min.js" type="text/javascript"></script>
+	<script src="<?php echo get_template_directory_uri(); ?>/js/masonry.pkgd.min.js" type="text/javascript"></script>
+	<script src="<?php echo get_template_directory_uri(); ?>/js/hello.js" type="text/javascript"></script>
 
 <? // php wp_head(); ?>
 </head>

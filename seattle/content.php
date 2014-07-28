@@ -27,8 +27,8 @@
 
 		<?php if ( 'post' == get_post_type() ) : ?>
 		<div class="entry-meta">
-			<span class="borders"><i class="icon-time"></i> <?php seattle_posted_on(); ?>
-			<i class="icon-comment"></i> <?php comments_popup_link( __( 'No comments', 'seattle' ), __( '1 Comment', 'seattle' ), __( '% Comments', 'seattle' ) ); ?>
+			<span class="borders"><span class="glyphicon glyphicon-time"></span> <?php seattle_posted_on(); ?>
+			<span class="glyphicon glyphicon-comment"></span> <?php comments_popup_link( __( 'No comments', 'seattle' ), __( '1 Comment', 'seattle' ), __( '% Comments', 'seattle' ) ); ?>
 			</span>
 		</div><!-- .entry-meta -->
 		<?php endif; ?>
@@ -44,33 +44,33 @@
 		<?php wp_link_pages( array( 'before' => '<div class="page-links">' . __( 'Pages:', 'seattle' ), 'after' => '</div>' ) ); ?>
 	
 	
-	<div class="thumbs">
-	<?php
-	$thumb_ID = get_post_thumbnail_id( $post->ID );
-	$attachments = get_children(array(
-		'post_type' => 'attachment',
-		'numberposts' => -1,
-		'exclude' => $thumb_ID,
-		'post_parent' => $post->ID,
-		'post_status' => 'inherit',
-		'post_mime_type' => 'image',
-		'order' => 'ASC',
-		'orderby' => 'menu_order ID'));
-	
-	foreach($attachments as $att_id => $attachment) {
-		$full_img_url = wp_get_attachment_url($attachment->ID);
-	        $split_pos = strpos($full_img_url, 'wp-content');
-	        $split_len = (strlen($full_img_url) - $split_pos);
-	        $abs_img_url = substr($full_img_url, $split_pos, $split_len);
-	        $full_info = @getimagesize(ABSPATH.$abs_img_url);
-	        ?>
-	        <div class="thumb">
-				<a href="<?php echo $full_img_url; ?>" title="<?php echo $attachment->post_title; ?>" target="_blank">
-				<?php echo wp_get_attachment_image($attachment->ID, 'thumbnail'); ?> </a>
-			</div>
-	<?php } ?>
-	
-	</div>
+		<div class="thumbs">
+		<?php
+		$thumb_ID = get_post_thumbnail_id( $post->ID );
+		$attachments = get_children(array(
+			'post_type' => 'attachment',
+			'numberposts' => -1,
+			'exclude' => $thumb_ID,
+			'post_parent' => $post->ID,
+			'post_status' => 'inherit',
+			'post_mime_type' => 'image',
+			'order' => 'ASC',
+			'orderby' => 'menu_order ID'));
+		
+		foreach($attachments as $att_id => $attachment) {
+			$full_img_url = wp_get_attachment_url($attachment->ID);
+		        $split_pos = strpos($full_img_url, 'wp-content');
+		        $split_len = (strlen($full_img_url) - $split_pos);
+		        $abs_img_url = substr($full_img_url, $split_pos, $split_len);
+		        $full_info = @getimagesize(ABSPATH.$abs_img_url);
+		        ?>
+		        <div class="thumb">
+					<a href="<?php echo $full_img_url; ?>" title="<?php echo $attachment->post_title; ?>" target="_blank">
+					<?php $portimg = wp_get_attachment_image( $attachment->ID, 'thumbnail' );
+					echo preg_replace('#(width|height)="\d+"#','',$portimg); ?> </a>
+				</div>
+		<?php } ?>
+		</div>
 
 	
 	</div><!-- .entry-content -->

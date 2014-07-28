@@ -72,7 +72,7 @@ function seattle_setup() {
 	add_theme_support( 'post-formats', array( 'aside', 'gallery', 'image', ) );
 }
 
-if ( function_exists( 'add_image_size' ) ) { 
+if ( function_exists( 'add_image_size' ) ) {
 	add_image_size( 'seattle-thumb', 300, 9999 ); //300 pixels wide (and unlimited height)
 	add_image_size( 'seattle-large', 960, 9999  ); //960 pixels wide and unlimited height
 }
