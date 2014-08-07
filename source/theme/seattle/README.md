@@ -7,7 +7,7 @@ Seattle is a Wordpress photoblog theme based built on [Underscores](http://under
 
 ## Getting Started
 
-- Copy the 'seattle' folder located in 'source/theme/' to your themes directory in WordPress.
+- Copy the 'seattle' folder to your themes directory in WordPress.
 - Login to the WordPress dashboard. Under *Appearances > Themes*, click to enable the theme.
 - The theme does provide some basic customization options for the header area. This can be setup under *Appearances > Customize*.
 
