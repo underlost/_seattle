@@ -28,7 +28,7 @@ seattle/
         └── seattle/
 ```
 
-These are the only directories you should really be concerned about. 'dist/' contains all the static assets the theme uses. The theme itself is located in the 'source/theme/seattle/' directory. This should be the folder you should upload to the themes directory in your WordPress installation. The other files are used to compile the static assets. For more information on learning how to use them, visit my other github repo, [UnderTasker](https://github.com/underlost/UnderTasker/). If you're looking for *just* the theme itself, visit [tyler.codes/seattle/](tyler.codes/seattle/).
+These are the only directories you should really be concerned about. 'dist/' contains all the static assets the theme uses. The theme itself is located in the 'source/theme/seattle/' directory. This should be the folder you should upload to the themes directory in your WordPress installation. The other files are used to compile the static assets. For more information on learning how to use them, visit my other github repo, [UnderTasker](https://github.com/underlost/UnderTasker/). If you're looking for *just* the theme itself, visit [tyler.codes/seattle/](http://tyler.codes/seattle/).
 
 ## Example
 
