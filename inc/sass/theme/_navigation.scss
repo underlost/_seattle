@@ -1,0 +1,473 @@
+/* --------------------------------------------------------------
+5.0 Navigation
+-------------------------------------------------------------- */
+
+a {
+	color: $black;
+	text-decoration: none;
+
+}
+
+a:hover, a:focus, a:active {
+	color: #343E47;
+}
+
+/* --------------------------------------------------------------
+5.2 Menus
+-------------------------------------------------------------- */
+
+.mobile-overlay {
+	display: inline-block;
+	max-width: 65%;
+	vertical-align: top;
+	float: right;
+	-webkit-transition: .2s ease;
+	-moz-transition: .2s ease;
+	transition: .2s ease;
+
+	@include viewport(tablet) {
+		display: none;
+		max-width: 100%;
+		float: none;
+		right: -50%;
+	}
+}
+
+.mobile-overlay.mobile-active {
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	width: 100%;
+	z-index: 50;
+	overflow-x: hidden;
+	background: #343B44;
+	box-shadow: 0 3px 5px rgba(0,0,0,.2);
+	-webkit-animation-name: slideInDown;
+	animation-name: slideInDown;
+	-webkit-animation-duration: .5s;
+	animation-duration: .5s;
+	-webkit-animation-fill-mode: both;
+	animation-fill-mode: both;
+	display: inline-block;
+}
+
+.mobile-active .mobile-overlay-inside {
+	position: static;
+	padding: 70px 6% 8% 6%;
+}
+
+.admin-bar.mobile-active .mobile-overlay-inside {
+	padding-top: 110px;
+}
+
+button.menu-toggle {
+	width: 100%;
+	display: none;
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 100;
+	padding: 10px 6%;
+	font-size: 15px;
+	border-radius: 0;
+
+	@include viewport(tablet) {
+		display: inline-block;
+	}
+}
+
+.admin-bar .menu-toggle {
+	top: 32px;
+
+	@media screen and (max-width: 782px) {
+		top: 46px;
+	}
+}
+
+.button-close {
+	display: none;
+}
+
+.mobile-active {
+	.button-open {
+		display: none;
+	}
+	.button-close {
+		display: inline-block;
+	}
+}
+
+.main-navigation {
+	font-size: 16px;
+	display: inline-block;
+
+	@include viewport(tablet) {
+		display: none;
+	}
+}
+
+.wf-loading .main-navigation,
+.wf-active .main-navigation {
+	font-size: 18px;
+
+	@include viewport(tablet) {
+		font-size: 16px;
+	}
+}
+
+.main-navigation ul {
+	margin: 0;
+
+	li {
+		display: inline-block;
+		font-weight: normal;
+		list-style-type: none;
+		margin: 0;
+		padding: 0 10px;
+		position: relative;
+
+		a {
+			color: $gray;
+            text-transform: uppercase;
+			display: inline-block;
+			padding: 0 10px;
+			-webkit-transition: .2s ease;
+			-moz-transition: .2s ease;
+			transition: .2s ease;
+
+			&:hover {
+				color: $black;
+			}
+		}
+	}
+}
+
+.main-navigation .sub-menu,
+.main-navigation .children {
+	margin: 0;
+}
+
+.site-header .menu-item-has-children,
+.site-header .page_item_has_children {
+	-webkit-transition: .1s ease;
+	-moz-transition: .1s ease;
+	transition: .1s ease;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	padding-right: 30px;
+}
+
+.menu-item-has-children .toggle-sub {
+	position: absolute;
+	top: 0;
+	right: 0;
+	z-index: 200;
+	width: 40px;
+	height: 30px;
+	display: block;
+	text-align: center;
+	color: $gray;
+	-webkit-animation-name: fadeIn;
+	animation-name: fadeIn;
+	-webkit-animation-duration: .1s;
+	animation-duration: .1s;
+	-webkit-animation-fill-mode: both;
+	animation-fill-mode: both;
+}
+
+.menu-item-has-children .toggle-sub:hover {
+	cursor: pointer;
+	color: $black;
+}
+
+.sub-menu .menu-item-has-children .toggle-sub {
+	top: 10px;
+	right: 5px;
+}
+
+.site-header .menu-item-has-children:hover {
+	cursor: pointer;
+}
+
+.main-navigation .sub-menu,
+.main-navigation .children {
+    position: absolute;
+    width: 225px;
+    top: 50px;
+    left: 0;
+	text-align: left;
+	margin: 0;
+	background: #fff;
+	border: solid 1px #DBE4EC;
+	box-shadow: 0 1px 1px rgba(0,0,0,.08);
+	z-index: 100;
+}
+
+.main-navigation li ul {
+	z-index: 100;
+}
+
+.main-navigation li ul li {
+	padding: 0 20px;
+	width: 100%;
+}
+
+.main-navigation li ul a,
+.main-navigation li ul li a {
+    width: 100%;
+    display: inline-block;
+    border-bottom: solid 1px #DAE5EC;
+    padding: 15px 0;
+    font-size: 15px;
+    font-weight: normal;
+    text-transform: none;
+    line-height: 1.6;
+}
+
+.main-navigation li ul a:hover,
+.main-navigation li ul li a:hover {
+	opacity: .8;
+}
+
+.site-header .sub-menu li:last-child > a,
+.site-header .children li:last-child > a {
+	border-bottom: none;
+}
+
+.main-navigation li ul li ul {
+    padding: 0;
+}
+
+.main-navigation ul ul {
+	top: 0;
+}
+
+.main-navigation li ul ul.sub-menu,
+.main-navigation li ul ul.children {
+    left: 235px;
+    top: 0;
+    margin: 0;
+}
+
+/* Mobile navigation */
+
+.main-navigation.mobile-active {
+	display: inline-block;
+	width: 100%;
+	max-width: 100%;
+	font-size: 18px;
+
+	ul li {
+		width: 100%;
+		padding-left: 0;
+		padding-right: 0;
+		border-bottom: dotted 1px #586474;
+		background: transparent;
+		position: relative;
+
+		&:last-child {
+			border-bottom: none;
+		}
+	}
+
+	ul li a {
+		padding: 10px 10px 10px 0;
+		border-bottom: none;
+	}
+
+	a {
+		color: #ADB8C7;
+		padding-left: 0;
+		line-height: 1.4;
+
+		&:hover {
+			color: #fff;
+			opacity: 1;
+		}
+	}
+
+	ul > li.current-menu-item > a {
+		color: #fff;
+	}
+
+	.menu-item-has-children .toggle-sub {
+		color: #fff;
+		position: absolute;
+		top: 5px;
+		right: 0;
+		z-index: 200;
+		width: 60px;
+		height: 40px;
+		display: block;
+		text-align: center;
+		line-height: 2;
+	}
+
+	.sub-menu, .children {
+		display: none;
+		position: relative;
+		width: 100%;
+		left: 0;
+		top: auto;
+		padding-left: 30px;
+		border: none;
+		background: transparent;
+	}
+
+	li ul a,
+	li ul li a {
+		font-size: 18px;
+		padding: 10px 0;
+	}
+
+	.sub-menu li:first-child a {
+		padding-top: 0;
+	}
+}
+
+.drop-active,
+.main-navigation.mobile-active .drop-active {
+	-webkit-animation-name: slideInDown;
+	animation-name: slideInDown;
+	-webkit-animation-duration: .5s;
+	animation-duration: .5s;
+	-webkit-animation-fill-mode: both;
+	animation-fill-mode: both;
+	display: inline-block !important;
+}
+
+body:not(.mobile-active) .main-navigation > li:hover a,
+body:not(.mobile-active) .main-navigation .current_page_item a,
+body:not(.mobile-active) .main-navigation > .current-menu-item > a {
+	color: $black;
+}
+
+
+/* --------------------------------------------------------------
+5.4 Post Navigations
+-------------------------------------------------------------- */
+
+.post-navigation {
+	display: inline-block;
+	width: 100%;
+	margin-bottom: 8%;
+
+	@include viewport(mobile) {
+		margin-bottom: 20px;
+		text-align: center;
+	}
+
+	.post-navigation-links {
+		display: inline-block;
+
+		@include viewport(mobile) {
+			width: 100%;
+		}
+
+		a:first-child i {
+			font-size: 14px;
+			margin-right: 3px;
+		}
+
+		a:nth-of-type(2) i {
+			font-size: 14px;
+			margin-left: 3px;
+		}
+
+		a[rel="prev"]:before {
+			content: "\f0a8";
+			font-family: "FontAwesome";
+			margin-right: 10px;
+		}
+
+		a[rel="next"]:after {
+			content: "\f0a9";
+			font-family: "FontAwesome";
+			margin-left: 10px;
+		}
+	}
+
+	a {
+		vertical-align: top;
+		display: inline-block;
+
+		@include viewport(mobile) {
+			width: 100%;
+			margin-bottom: 8px;
+		}
+	}
+
+	.all-posts {
+		float: right;
+		margin-right: 8px;
+
+		@include viewport(mobile) {
+			margin-right: 0;
+		}
+
+		i {
+			margin-right: 5px;
+		}
+	}
+}
+
+/* --------------------------------------------------------------
+5.5 Page Navigation
+-------------------------------------------------------------- */
+
+.paging-navigation {
+	display: inline-block;
+	width: 100%;
+	text-align: center;
+
+	a {
+		display: block;
+	}
+
+	.nav-previous, .nav-next {
+		display: inline-block;
+		margin: 0 2px;
+	}
+
+	.nav-previous i {
+		margin-right: 5px;
+	}
+
+	.nav-next i {
+		margin-left: 5px;
+	}
+
+	.nav-previous .button:before {
+		content: "\f0a8";
+		font-family: "FontAwesome";
+		margin-right: 10px;
+	}
+
+	.nav-next .button:after {
+		content: "\f0a9";
+		font-family: "FontAwesome";
+		margin-left: 10px;
+	}
+
+	@include viewport(mobile) {
+		.nav-previous, .nav-next {
+			display: inline-block;
+			float: left;
+			margin-bottom: 10px;
+			text-align: center;
+			width: 100%;
+
+			&:last-child {
+				margin-bottom: 0;
+			}
+		}
+	}
+}
+
+.home #main .paging-navigation,
+.archive #main .paging-navigation,
+.search #main .paging-navigation {
+	margin-top: 3%;
+}

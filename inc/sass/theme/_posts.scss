@@ -1,0 +1,159 @@
+
+/* --------------------------------------------------------------
+Posts
+-------------------------------------------------------------- */
+
+.post {
+	margin-bottom: 15px;
+	//position: relative;
+}
+
+.gallery-thumb {
+	opacity: 0;
+}
+
+.photo-overlay {
+	background: -moz-linear-gradient(top,  rgba(229,229,229,0) 23%, rgba(54,64,76,.5) 100%);
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(23%,rgba(229,229,229,0)), color-stop(100%,rgba(54,64,76,.5)));
+	background: -webkit-linear-gradient(top,  rgba(229,229,229,0) 23%,rgba(54,64,76,.5) 100%);
+	background: -o-linear-gradient(top,  rgba(229,229,229,0) 23%,rgba(54,64,76,.5) 100%);
+	background: -ms-linear-gradient(top,  rgba(229,229,229,0) 23%,rgba(54,64,76,.5) 100%);
+	background: linear-gradient(to bottom,  rgba(229,229,229,0) 23%,rgba(54,64,76,.5) 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00e5e5e5', endColorstr='#36404c',GradientType=0 );
+	position: absolute;
+	top: 10px;
+	right: 15px;
+	left: 15px;
+	bottom: 0;
+	opacity: 0;
+	z-index: 20;
+	pointer-events: none;
+	text-align: left;
+	-webkit-transition: .4s ease;
+	-moz-transition: .4s ease;
+	transition: .4s ease;
+	-webkit-backface-visibility: hidden;
+
+	@include viewport(tablet) {
+		opacity: 1;
+	}
+
+}
+
+.gallery-thumb:hover .photo-overlay {
+	opacity: 1;
+}
+
+.gallery-wrapper .without-featured-image {
+	opacity: 1;
+	background: -moz-linear-gradient(top,  rgba(229,229,229,0) 23%, rgba(54,64,76,.2) 100%);
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(23%,rgba(229,229,229,0)), color-stop(100%,rgba(54,64,76,.2)));
+	background: -webkit-linear-gradient(top,  rgba(229,229,229,0) 23%,rgba(54,64,76,.2) 100%);
+	background: -o-linear-gradient(top,  rgba(229,229,229,0) 23%,rgba(54,64,76,.2) 100%);
+	background: -ms-linear-gradient(top,  rgba(229,229,229,0) 23%,rgba(54,64,76,.2) 100%);
+	background: linear-gradient(to bottom,  rgba(229,229,229,0) 23%,rgba(54,64,76,.2) 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00e5e5e5', endColorstr='#36404c',GradientType=0 );
+}
+
+.fallback {
+	width: 100%;
+	min-width: 100%;
+}
+
+.gallery-thumb .photo-overlay-text {
+	position: absolute;
+	bottom: 25px;
+	left: 25px;
+	color: #fff;
+	padding-right: 15px;
+	border-left: solid 3px #fff;
+	padding-left: 12px;
+	overflow: hidden;
+
+	@include viewport(tablet) {
+		bottom: 15px;
+		left: 15px;
+		padding-left: 0;
+		border-left: 0;
+	}
+}
+
+.photo-overlay-text .entry-title {
+	color: #fff;
+	font-size: 18px;
+	font-weight: 400;
+	line-height: 1.2;
+	text-align: left;
+	margin-bottom: 0;
+
+	@media screen and (min-width: 786px) {
+		-webkit-animation-duration: .8s;
+		animation-duration: .8s;
+		-webkit-animation-fill-mode: both;
+		animation-fill-mode: both;
+	}
+
+	@include viewport(mobile) {
+		font-size: 18px;
+	}
+}
+
+.gallery-thumb.has-post-thumbnail:hover .with-featured-image .entry-title {
+	-webkit-animation-name: slideInLeft;
+  	animation-name: slideInLeft;
+}
+
+.gallery-thumb .without-featured-image .entry-title {
+	-webkit-transition: .3s ease;
+	-moz-transition: .3s ease;
+	transition: .3s ease;
+}
+
+.gallery-thumb:hover .without-featured-image .entry-title {
+	opacity: .8;
+}
+
+.wf-loading .photo-overlay-text .entry-title,
+.wf-active .photo-overlay-text .entry-title {
+	font-size: 20px;
+
+	@include viewport(mobile) {
+		font-size: 18px;
+	}
+}
+
+.portfolio-grid-medium .photo-overlay-text .entry-title {
+	font-size: 24px;
+
+	@include viewport(tablet) {
+		font-size: 18px;
+	}
+}
+
+.wf-loading .portfolio-grid-medium .photo-overlay-text .entry-title,
+.wf-active .portfolio-grid-medium .photo-overlay-text .entry-title {
+	font-size: 26px;
+
+	@include viewport(tablet) {
+		font-size: 18px;
+	}
+}
+
+.gallery-thumb .overlay-cats {
+	line-height: 1;
+	opacity: .8;
+}
+
+.gallery-thumb .overlay-cats a {
+	@include sans-uppercase;
+	font-size: 11px;
+	color: #fff;
+
+	@include viewport(tablet) {
+		font-size: 10px;
+	}
+}
+
+.gallery-thumb .overlay-cats a:not(:last-child):after {
+	content: ", ";
+}

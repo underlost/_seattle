@@ -1,0 +1,243 @@
+/* --------------------------------------------------------------
+2.0 Typography
+-------------------------------------------------------------- */
+
+body, button, input, select, textarea {
+	color: $black;
+	font-family: $sans;
+	font-weight: 400;
+	font-size: 20px;
+	line-height: 1.6;
+
+	@include viewport(tablet) {
+		font-size: 18px;
+	}
+
+	@include viewport(mobile) {
+		font-size: 16px;
+	}
+}
+
+.wf-loading {
+	body, button, input, select, textarea {
+		font-size: 21px;
+
+		@include viewport(tablet) {
+			font-size: 18px;
+		}
+
+		@include viewport(mobile) {
+			font-size: 16px;
+		}
+	}
+}
+
+.wf-active {
+	body, button, input, select, textarea {
+		font-size: 21px;
+
+		@include viewport(tablet) {
+			font-size: 18px;
+		}
+
+		@include viewport(mobile) {
+			font-size: 16px;
+		}
+	}
+}
+
+h1, h2, h3, h4, h5, h6 {
+	clear: both;
+	color: $black;
+	font-family: $serif;
+	font-weight: 400;
+	line-height: 1.2;
+	margin-bottom: 3%;
+}
+
+h1 {
+	font-size: 60px;
+
+	@include viewport(mobile) {
+		font-size: 44px;
+	}
+}
+
+h2 {
+	font-size: 50px;
+
+	@include viewport(mobile) {
+		font-size: 38px;
+	}
+}
+
+h3 {
+	font-size: 40px;
+
+	@include viewport(mobile) {
+		font-size: 28px;
+	}
+}
+
+h4 {
+	font-size: 30px;
+
+	@include viewport(mobile) {
+		font-size: 18px;
+	}
+}
+
+h5 {
+	font-size: 20px;
+
+	@include viewport(mobile) {
+		font-size: 16px;
+	}
+}
+
+h6 {
+	font-size: 16px;
+
+	@include viewport(mobile) {
+		font-size: 16px;
+	}
+}
+
+p, .embed-vimeo {
+	margin-bottom: 1.4em;
+
+	@include viewport(mobile) {
+		margin-bottom: 1.2em;
+	}
+}
+
+b, strong {
+	font-weight: bold;
+}
+
+dfn, cite, em, i {
+	font-style: italic;
+}
+
+blockquote {
+	color: $black;
+	font-family: $serif;
+	font-size: 24px;
+	line-height: 1.6;
+	margin: 1em 0 1.4em 0;
+	position: relative;
+	padding: 20px 0 0 8%;
+	border-top: solid 4px $black;
+	border-bottom: solid 1px $black;
+
+	&:before {
+		content: "\201C";
+		font-family: $serif;
+		position: absolute;
+		left: 0;
+		top: 4px;
+		font-size: 76px;
+	}
+
+	@include viewport(mobile) {
+		font-size: 20px;
+		line-height: 1.5;
+		padding-left: 12%;
+
+		&:before {
+			font-size: 65px;
+			top: 10px;
+		}
+	}
+
+	p {
+		margin-bottom: 1em;
+	}
+}
+
+.comments-area blockquote {
+	border-left-color: #D7DEE5;
+	font-family: $sans;
+	font-size: 18px;
+	font-style: italic;
+
+	@include viewport(tablet) {
+		font-size: 16px;
+	}
+}
+
+address {
+	margin: 0 0 1.5em;
+}
+
+pre {
+	background: #eaf1f5;
+	font-family: "Courier 10 Pitch", Courier, monospace;
+	font-size: 15px;
+	font-size: 1.5rem;
+	line-height: 1.6;
+	margin-bottom: 1.6em;
+	max-width: 100%;
+	overflow: auto;
+	padding: 1.6em;
+}
+
+.comments-area pre {
+	background: #d7dee5;
+}
+
+code, kbd, tt, var {
+	font: 15px Monaco, Consolas, "Andale Mono", "DejaVu Sans Mono", monospace;
+}
+
+abbr, acronym {
+	border-bottom: 1px dotted #666;
+	cursor: help;
+}
+
+mark, ins {
+	background: #fff9c0;
+	text-decoration: none;
+}
+
+sup, sub {
+	font-size: 75%;
+	height: 0;
+	line-height: 0;
+	position: relative;
+	vertical-align: baseline;
+}
+
+sup {
+	bottom: 1ex;
+}
+
+sub {
+	top: .5ex;
+}
+
+small {
+	font-size: 75%;
+}
+
+big {
+	font-size: 125%;
+}
+
+.highlight {
+	background: #fff198;
+}
+
+#page .more-link {
+	display: inline-block;
+	border-bottom: 3px solid #e3eaf0;
+
+	@include sans-uppercase;
+
+	font-size: 15px;
+	font-weight: 700;
+
+	&:hover {
+		color: #6F7F8D;
+	}
+}

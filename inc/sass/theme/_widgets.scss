@@ -1,0 +1,251 @@
+
+/* --------------------------------------------------------------
+9.0 Widgets
+-------------------------------------------------------------- */
+
+.widget-area {
+	display: inline-block;
+	width: 25%;
+	vertical-align: top;
+	float: right;
+	font-size: 16px;
+	position: relative;
+	-webkit-backface-visibility: hidden;
+
+	@include viewport(tablet) {
+		margin-top: 10%;
+		width: 100%;
+		float: none;
+	}
+}
+
+.widget-area a {
+	color: $gray;
+
+	&:hover {
+		color: $black;
+	}
+}
+
+.widget-area aside {
+    display: inline-block;
+    width: 100%;
+    margin-bottom: 50px;
+    vertical-align: top;
+
+    &:last-child {
+    	margin-bottom: 0;
+    	padding-bottom: 0;
+    }
+
+    @include viewport(mobile) {
+		margin-bottom: 35px;
+	}
+}
+
+.widget-area aside:last-child {
+	margin-bottom: 0;
+	border-bottom: none;
+}
+
+.widget-area aside .widget-title,
+.widget-area aside .widgettitle,
+.widget-area .widget-grofile h4 a {
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 1.6;
+    position: relative;
+    margin-bottom: 20px;
+
+    @include viewport(tablet) {
+        margin-bottom: 35px;
+    }
+
+    @include viewport(mobile) {
+        margin-bottom: 20px;
+    }
+}
+
+.wf-loading .widget-area aside .widget-title,
+.wf-active .widget-area aside .widgettitle,
+.widget-area .widget-grofile h4 a {
+	font-size: 19px;
+}
+
+.widget-area .textwidget p:last-of-type {
+	margin-bottom: 0;
+}
+
+.widget-area aside ul {
+    margin: 0 0 0 0;
+}
+
+.widget-area aside ul.sub-menu,
+.widget-area aside .children {
+    margin: 4% 0 0 20px;
+}
+
+.widget-area aside ul.sub-menu li:last-child,
+.widget-area aside .children li:last-child {
+    margin-bottom: 0;
+    padding-bottom: 2%;
+    border-bottom: none;
+}
+
+.widget-area aside li {
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+    border-bottom: dotted 1px #C7D6E4;
+    list-style: none;
+    position: relative;
+
+  	&:before {
+  		content: "\f0da";
+  		font-family: "FontAwesome";
+  		position: absolute;
+  		left: -18px;
+  		top: 3px;
+  		color: #A1B0BD;
+  		font-size: 12px;
+  		display: none;
+  	}
+}
+
+.widget-area aside li ul li {
+	list-style: circle;
+}
+
+.widget-area aside li:last-child {
+    margin-bottom: 0;
+    border-bottom: none;
+    padding-bottom: 0;
+}
+
+#calendar_wrap {
+	background: #fff;
+	border-right: none;
+	border-bottom: none;
+	color: $black;
+	box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 2px -1px;
+}
+
+#wp-calendar {
+	font-size: 16px;
+	margin: 0;
+	max-width: 100%;
+}
+
+#wp-calendar caption {
+	text-align: center;
+	background: #eaf1f5;
+	padding: 5px 10px;
+	font-weight: bold;
+}
+
+#wp-calendar tr th, #wp-calendar tr td {
+	text-align: center
+}
+
+#wp-calendar tr th {
+	background: $black;
+	color: #fff;
+	margin: -10px -10px 10px -10px;
+	font-size: 11px;
+	font-weight: bold;
+	padding: 10px 0;
+}
+
+#wp-calendar tbody tr td {
+	padding: 2px 0;
+	border-right: solid 1px #f3f3f3;
+	border-top: solid 1px #f3f3f3;
+}
+
+#wp-calendar tfoot td {
+	border-top: solid 1px #f3f3f3;
+	border-right: solid 1px #eee;
+	padding: 7px 0 5px 0;
+	font-weight: bold;
+	font-size: 10px;
+	text-transform: uppercase;
+}
+
+#wp-calendar a {
+	color: $black;
+
+	&:hover {
+		color: $gray;
+	}
+}
+
+.widget_rss {
+	li {
+		margin-bottom: 15px;
+		padding-bottom: 15px;
+
+		&:last-child {
+			border-bottom: none;
+			margin-bottom: 0;
+			padding-bottom: 0;
+		}
+	}
+
+	li .rsswidget {
+		display: inline-block;
+		width: 100%;
+	}
+
+	.rss-date, cite {
+		font-size: 14px;
+		text-transform: uppercase;
+		display: inline-block;
+		margin: 10px 0;
+	}
+}
+
+.widget-grofile {
+	position: relative;
+}
+
+.widget .grofile-thumbnail {
+	max-width: 90px;
+	width: 90px;
+	display: block;
+	vertical-align: top;
+	border-radius: 100px;
+	margin: 0 auto 10px auto;
+}
+
+.grofile-meta {
+	display: inline-block;
+	width: 100%;
+	vertical-align: top;
+}
+
+.widget-area .widget-grofile h4 {
+	margin-top: 0;
+	margin-bottom: 20px;
+	line-height: .9;
+	text-align: center;
+
+	a {
+		color: $black;
+
+		&:hover {
+			color: $gray;
+		}
+	}
+}
+
+.widget-area .grofile-meta + h4 {
+	display: none;
+}
+
+.widget-area .grofile-links {
+	margin-bottom: 20px;
+}
+
+.widget-area .grofile-links + p,
+.widget-area .grofile-meta + p {
+	margin-bottom: 0;
+}

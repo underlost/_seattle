@@ -1,0 +1,62 @@
+/* --------------------------------------------------------------
+17.0 Footer
+-------------------------------------------------------------- */
+
+.site-footer {
+	padding: 0 0 3% 0;
+	color: #62707c;
+	font-size: 16px;
+	display: inline-block;
+	width: 100%;
+	-webkit-transition: .2s ease-in;
+	-moz-transition: .2s ease-in;
+	transition: .2s ease-in;
+
+	@include viewport(mobile) {
+		padding: 6% 0;
+	}
+}
+
+.footer-padding {
+	padding-top: 15%;
+	-webkit-transition: .2s ease-in;
+	-moz-transition: .2s ease-in;
+	transition: .2s ease-in;
+	opacity: 0;
+}
+
+.site-footer a {
+	color: #62707c;
+
+	&:hover {
+		color: #343e47;
+	}
+}
+
+.footer-bottom {
+	display: inline-block;
+	width: 100%;
+	padding-top: 3%;
+	border-top: dotted 1px #c7d6e4;
+
+	@include viewport(mobile) {
+		padding-top: 5%;
+	}
+}
+
+.footer-tagline {
+	display: inline-block;
+	vertical-align: top;
+	padding-top: 4px;
+}
+
+@include viewport(tablet) {
+	.footer-tagline {
+		padding-top: 10px;
+	}
+}
+
+.footer-tagline a {
+	border-bottom: 1px dotted #c7d6e4;
+	padding-bottom: 1px;
+}

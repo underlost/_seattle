@@ -1,0 +1,39 @@
+{
+  "name": "seattle",
+  "description": "Photography-driven Wordpress theme",
+  "keywords": [
+    "css",
+    "js",
+    "less",
+    "mobile-first",
+    "responsive",
+    "front-end",
+    "framework",
+    "web",
+    "Wordpress",
+    "theme",
+    "photography"
+  ],
+  "version": "2.0.6",
+  "homepage": "https://github.com/underlost/Seattle",
+  "authors": [
+    "Tyer Rilling <tyler@underlost.net>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "1.9.1 - 2",
+    "bootstrap": "~3.3.6",
+    "mixitup": "2.1.11",
+    "packery": "~2.1.0",
+    "components-font-awesome": "*",
+    "bootstrap-sass": "*",
+    "imagesloaded": "*"
+  }
+}

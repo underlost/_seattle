@@ -1,0 +1,365 @@
+
+/* --------------------------------------------------------------
+Comments
+-------------------------------------------------------------- */
+
+.comment-navigation {
+	font-size: 16px;
+	margin: 0 0 6% 0;
+
+	.button {
+		display: inline-block;
+	}
+
+	.button:empty {
+		display: none;
+	}
+
+	.nav-previous a:before {
+		content: "\f0a8";
+		font-family: "FontAwesome";
+		margin-right: 10px;
+	}
+
+	.nav-next a:after {
+		content: "\f0a9";
+		font-family: "FontAwesome";
+		margin-left: 10px;
+	}
+}
+
+.comments-area {
+	background: #eaf1f5;
+	display: block;
+	margin: 0 auto;
+	padding: 8%;
+	overflow: hidden;
+	width: 100%;
+}
+
+@include viewport(tablet) {
+	.comments-area {
+		padding: 8% 4%;
+	}
+}
+
+.page .comments-area {
+	margin-top: 5%;
+}
+
+.comments-title {
+	text-align: center;
+	font-size: 36px;
+	margin-bottom: 10%;
+
+	@include viewport(mobile) {
+		font-size: 22px;
+	}
+
+	i {
+		color: #CAD1D8;
+		margin-right: 5px;
+	}
+
+	span:before,
+	span:after {
+		content: " \2014 ";
+		padding: 0 10px;
+	}
+
+}
+
+#commentform {
+	display: inline-block;
+	width: 100%;
+}
+
+.comment-list #commentform {
+	margin-top: 2%;
+}
+
+.comment-info {
+	display: inline-block;
+	margin-bottom: 1%;
+}
+
+.comment-content {
+	font-size: 18px;
+
+	@include viewport(tablet) {
+		font-size: 16px;
+	}
+}
+
+.bypostauthor {
+	.comment-list .avatar:after {
+		content: "\f007";
+		font-family: "FontAwesome";
+		font-size: 16px;
+		margin-left: 1rem;
+		position: relative;
+		top: 0;
+	}
+}
+
+.comment-list,
+.comment-list li {
+	margin: 0;
+	counter-reset: li;
+}
+
+.comment-list > li {
+	list-style-type: none;
+	margin-bottom: 6%;
+	padding-bottom: 6%;
+	border-bottom: dotted 1px #C2C9D0;
+
+	@include viewport(mobile) {
+		margin-bottom: 8%;
+		padding-bottom: 8%;
+	}
+}
+
+.comment-list .children {
+	margin: 6% 0 0 10%;
+	li {
+		margin-bottom: 6%;
+		padding-bottom: 6%;
+		border-bottom: dotted 1px #C2C9D0;
+
+		&:first-child {
+			border-top: dotted 1px #C2C9D0;
+			padding-top: 6%;
+
+			@include viewport(mobile) {
+				padding-top: 9%;
+			}
+		}
+
+		&:last-child {
+			margin-bottom: 0;
+			padding-bottom: 0;
+			border-bottom: none;
+		}
+	}
+}
+
+.comment-list {
+    .children > li { list-style: none; }
+
+    .reply {
+    	margin-bottom: 0;
+    	a {
+    		color: #848a96;
+    		&:hover { color: $black; }
+    	}
+    }
+
+    .avatar {
+    	display: inline-block;
+    	margin-right: 5%;
+    	border-radius: 100px;
+    	vertical-align: top;
+    	width: 8%;
+    }
+}
+
+
+
+
+
+
+
+.comment-wrap {
+	display: inline-block;
+	width: 84%;
+	vertical-align: top;
+}
+
+.comment-cite {
+	font-style: normal;
+	display: inline-block;
+	width: 100%;
+	font-weight: 300;
+	font-size: 24px;
+	line-height: 1;
+	font-family: $serif;
+
+	@include viewport(mobile) {
+		font-size: 18px;
+	}
+
+	a { color: $black; }
+}
+
+.comment-time, .comment-edit-link {
+	@include sans-uppercase;
+	font-size: 12px;
+	vertical-align: top;
+}
+
+.comment-reply-title {
+	display: inline-block;
+	font-size: 36px;
+	margin-bottom: 6%;
+	width: 100%;
+	text-align: center;
+
+	@include viewport(mobile) {
+		font-size: 24px;
+	}
+
+	small {
+		float: left;
+		width: 100%;
+	}
+
+	small a {
+		@include sans-uppercase;
+		vertical-align: top;
+		padding-top: 8px;
+		display: inline-block;
+
+		&:hover {
+			color: #EB5252;
+		}
+
+		@include viewport(mobile) {
+			display: inline-block;
+			margin-left: 0;
+		}
+	}
+}
+
+.comment-list .comment-reply-title {
+	margin-bottom: 3%;
+}
+
+.logged-in-as, .comment-notes {
+	margin-bottom: 2%;
+	display: none;
+
+	@include sans-uppercase;
+}
+
+.comment-notes {
+	display: none;
+}
+
+.required {
+	color: #F35959;
+}
+
+.logged-in-as a {
+	color: $black;
+}
+
+.comment-form-author, .comment-form-email, .comment-form-url, .comment-form-comment {
+	display: inline-block;
+	width: 100%;
+
+	@include viewport(tablet) {
+		width: 100%;
+		margin-right: 0;
+	}
+}
+
+.comment-list #respond {
+	border-top: dotted 1px #C2C9D0;
+	display: inline-block;
+	margin-top: 4%;
+	padding-top: 6%;
+	width: 100%;
+}
+
+.comment-form-url {
+	@include viewport(tablet) {
+		margin-bottom: 1em;
+	}
+}
+
+.comment-form label {
+	color: $black;
+	display: inline-block;
+	float: left;
+	margin-bottom: 10px;
+	font-size: 18px;
+
+	@include viewport(tablet) {
+		float: none;
+		width: 100%;
+	}
+
+	@include viewport(mobile) {
+		font-size: 16px;
+	}
+}
+
+.comment-form input:not([type='submit']), .comment-form textarea {
+	width: 82%;
+	font-size: 16px;
+	float: right;
+
+	@include viewport(tablet) {
+		float: none;
+		width: 100%;
+	}
+}
+
+.form-submit {
+	display: inline-block;
+	margin: 0;
+	width: 100%;
+}
+
+.comment-form #submit {
+	margin-top: 2em;
+	width: auto;
+	float: right;
+
+	@include viewport(mobile) {
+		margin: 0;
+		width: 100%;
+	}
+}
+
+.form-allowed-tags {
+	display: none;
+}
+
+.comment-subscription-form {
+	margin-bottom: 10px;
+
+	label {
+		font-weight: normal;
+		font-size: 14px;
+	}
+}
+
+.comment-subscription-form {
+	display: inline-block;
+	width: 100%;
+
+	.subscribe-label {
+		float: right;
+		margin: 0;
+	}
+}
+
+#respond .comment-form-fields div.comment-form-field {
+	width: 100% !important;
+}
+
+.comment-awaiting-moderation {
+	margin-top: 4%;
+	display: inline-block;
+	width: 100%;
+	font-size: 16px;
+	font-style: normal;
+}
+
+.comment-awaiting-moderation:before {
+	content: "\f06a";
+	font-family: "FontAwesome";
+	margin-right: 10px;
+}

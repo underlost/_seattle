@@ -1,0 +1,314 @@
+
+/* --------------------------------------------------------------
+5.3 Social Navigations
+-------------------------------------------------------------- */
+
+.footer-navigation {
+	display: inline-block;
+	vertical-align: top;
+	float: right;
+
+	@include viewport(tablet) {
+		float: none;
+		width: 100%;
+	}
+
+	ul {
+		list-style: none;
+		margin: 0;
+	}
+
+	li {
+		display: inline;
+	}
+
+	a {
+		color: #62707c;
+		font-size: 0;
+		-webkit-transition: .1s ease-in;
+		-moz-transition: .1s ease-in;
+		transition: .1s ease-in;
+	}
+
+	@include viewport(tablet) {
+		a {
+			margin-bottom: 10px;
+			display: inline-block;
+		}
+	}
+
+	a:before {
+		border: solid 2px transparent;
+		font-size: 18px;
+		margin-right: 8px;
+		font-family: 'FontAwesome';
+		color: #62707c;
+		border-radius: 50px;
+		padding: 8px;
+		width: 36px;
+		display: inline-block;
+		height: 36px;
+		text-align: center;
+		line-height: 1;
+		-webkit-font-smoothing: antialiased;
+	}
+
+	a:hover:before {
+		border: solid 2px #62707c;
+	}
+
+	.back-to-top a {
+		font-size: 16px;
+
+		&:after {
+			content: " \2191";
+		}
+	}
+
+	a[href*="twitter.com"] {
+		&:before {
+			content: "\f099";
+		}
+
+		&:hover:before {
+			color: #53B9FD;
+			border-color: #53B9FD;
+		}
+	}
+
+	a[href*="facebook.com"] {
+		&:before {
+			content: "\f09a";
+		}
+
+		&:hover:before {
+			color: #44609d;
+			border-color: #44609d;
+		}
+	}
+
+	a[href*="google.com"] {
+		&:before {
+			content: "\f0d5";
+		}
+
+		&:hover:before {
+			color: #FC5B5B;
+			border-color: #FC5B5B;
+		}
+	}
+
+	a[href*="instagram.com"] {
+		&:before {
+			content: "\f16d";
+		}
+
+		&:hover:before {
+			color: #78A6C5;
+			border-color: #78A6C5;
+		}
+	}
+
+	a[href*="youtube.com"] {
+		&:before {
+			content: "\f167";
+		}
+
+		&:hover:before {
+			color: #cc181e;
+			border-color: #cc181e;
+		}
+	}
+
+	a[href*="vimeo.com"] {
+		&:before {
+			content: "\f194";
+		}
+
+		&:hover:before {
+			color: #aad450;
+			border-color: #aad450;
+		}
+	}
+
+	a[href*="dribbble.com"] {
+		&:before {
+			content: "\f17d";
+			line-height: 17px;
+		}
+
+		&:hover:before {
+			color: #ec6196;
+			border-color: #ec6196;
+		}
+	}
+
+	a[href*="github.com"] {
+		&:before {
+			content: "\f113";
+		}
+
+		&:hover:before {
+			color: #333333;
+			border-color: #333333;
+		}
+	}
+
+	a[href*="flickr.com"] {
+		&:before {
+			content: "\f16e";
+		}
+
+		&:hover:before {
+			color: #fc4ca4;
+			border-color: #fc4ca4;
+		}
+	}
+
+	a[href*="codepen.com"] {
+		&:before {
+			content: "\f1cb";
+		}
+
+		&:hover:before {
+			color: #333333;
+			border-color: #333333;
+		}
+	}
+
+	a[href*="behance.com"] {
+		&:before {
+			content: "\f1b4";
+		}
+
+		&:hover:before {
+			color: #007fff;
+			border-color: #007fff;
+		}
+	}
+
+	a[href*="dropbox.com"] {
+		&:before {
+			content: "\f16b";
+		}
+
+		&:hover:before {
+			color: #349BE9;
+			border-color: #349BE9;
+		}
+	}
+
+	a[href*="pinterest.com"] {
+		&:before {
+			content: "\f231";
+		}
+
+		&:hover:before {
+			color: #df252d;
+			border-color: #df252d;
+		}
+	}
+
+	a[href*="reddit.com"] {
+		&:before {
+			content: "\f1a1";
+		}
+
+		&:hover:before {
+			color: #333333;
+			border-color: #333333;
+		}
+	}
+
+	a[href*="soundcloud.com"] {
+		&:before {
+			content: "\f1be";
+			text-indent: -4px;
+		}
+
+		&:hover:before {
+			color: #FF7500;
+			border-color: #FF7500;
+		}
+	}
+
+	a[href*="tumblr.com"] {
+		&:before {
+			content: "\f173";
+		}
+
+		&:hover:before {
+			color: #36465d;
+			border-color: #36465d;
+		}
+	}
+
+	a[href*="spotify.com"] {
+		&:before {
+			content: "\f1bc";
+		}
+
+		&:hover:before {
+			color: #A5CE3F;
+			border-color: #A5CE3F;
+		}
+	}
+
+	a[href*="wordpress.com"] {
+		&:before {
+			content: "\f19a";
+		}
+
+		&:hover:before {
+			color: #0085be;
+			border-color: #0085be;
+		}
+	}
+
+	a[href*="mailto"] {
+		&:before {
+			content: "\f0e0";
+			text-indent: -1px;
+			font-size: 16px;
+		}
+
+		&:hover:before {
+			color: #333333;
+			border-color: #333333;
+		}
+	}
+
+	a[href*="linkedin.com"] {
+		&:before {
+			content: "\f0e1";
+		}
+
+		&:hover:before {
+			color: #24A5DD;
+			border-color: #24A5DD;
+		}
+	}
+
+	a[href*="stackoverflow.com"] {
+		&:before {
+			content: "\f16c";
+		}
+
+		&:hover:before {
+			color: #FF7500;
+			border-color: #FF7500;
+		}
+	}
+
+	a[href*="rss"], a[href*="feed"] {
+		&:before {
+			content: "\f09e";
+			text-indent: 1px;
+		}
+
+		&:hover:before {
+			color: #FF7500;
+			border-color: #FF7500;
+		}
+	}
+}

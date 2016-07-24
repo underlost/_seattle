@@ -1,4 +1,4 @@
-Seattle Wordpress Theme
+Seattle WordPress Theme
 =======
 
 Originally designed for personal use on my photoblog, [tyler.camera](http://tyler.camera).
@@ -7,28 +7,9 @@ Seattle is a Wordpress photoblog theme based built on [Underscores](http://under
 
 ## Getting Started
 
-- Copy the 'seattle' folder located in 'source/theme/' to your themes directory in WordPress.
+- Clone or copy this repo into your themes directory in WordPress.
 - Login to the WordPress dashboard. Under *Appearances > Themes*, click to enable the theme.
 - The theme does provide some basic customization options for the header area. This can be setup under *Appearances > Customize*.
-
-
-## What’s Included
-
-Within the download you'll find the following directories and files. You'll see something like this:
-
-```
-seattle/
-├── dist/
-└── source/
-    ├── less/
-    ├── js/
-    ├── fonts/
-    ├── site/
-    └── theme/
-        └── seattle/
-```
-
-These are the only directories you should really be concerned about. 'dist/' contains all the static assets the theme uses. The theme itself is located in the 'source/theme/seattle/' directory. This should be the folder you should upload to the themes directory in your WordPress installation. The other files are used to compile the static assets. For more information on learning how to use them, visit my other github repo, [UnderTasker](https://github.com/underlost/UnderTasker/). If you're looking for *just* the theme itself, visit [tyler.codes/seattle/](http://tyler.codes/seattle/).
 
 ## Example
 
