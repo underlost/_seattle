@@ -1,24 +1,16 @@
 <?php
 /**
- * Seattle Theme Customizer.
+ * Seattle Typekit Theme Customizer.
  *
  * @package Seattle
  */
 
 function get_typekit_id() {
-	return get_option( 'seattle_customizer_typekit', '' );
+	return get_theme_mod( 'seattle_customizer_typekit', '' );
 }
 
 function sanitize_typekit_id( $id ) {
 	return preg_replace( '/[^0-9a-z]+/', '', $id );
-}
-
-function sanitize_checkbox( $input ) {
-    if( 1 == $input ) {
-        return 1;
-    } else {
-        return '';
-    }
 }
 
 function seattle_typekit_register( $wp_customize ) {
@@ -40,22 +32,6 @@ function seattle_typekit_register( $wp_customize ) {
 		'priority' => 1
     ));
 
-    $wp_customize->add_setting( 'seattle_disable_typekit', array(
-		'default'           => 0,
-		'type'              => 'option',
-		'sanitize_callback' => array( $this, 'sanitize_checkbox' ),
-		'transport'         => 'postMessage',
-		'capability'        => 'edit_theme_options',
-	));
-
-	$wp_customize->add_control( 'disable_typekit', array(
-		'type'            => 'checkbox',
-		'label'           => __( 'Disable Typekit', 'seattle' ),
-		'description'     => __( 'Check to disable the Typekit.', 'seattle' ),
-		'section'         => 'seattle_customizer_typekit',
-		'settings'        => 'seattle_disable_typekit',
-		'priority'        => 1,
-	));
 }
 add_action( 'customize_register', 'seattle_typekit_register' );
 
@@ -65,8 +41,7 @@ function seattle_load_typekit() {
 	$id = get_typekit_id();
 
 	// If we have a kit ID and not disabled, load Typekit
-	if ( '' !== $id
-	&& '' == get_option( 'seattle_disable_typekit', '' ) ) : ?>
+	if ( $id !== '' ) : ?>
 	<script type="text/javascript" src="//use.typekit.net/<?php echo sanitize_typekit_id( $id ); ?>.js"></script>
 	<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
 	<?php endif;

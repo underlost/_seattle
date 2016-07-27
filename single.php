@@ -24,7 +24,7 @@ get_header(); ?>
 					<?php next_post_link( '%link', __( 'Next', 'seattle' ) ); ?>
 				</div>
 
-				<a class="button all-posts" href="<?php echo home_url( '/' ); ?>">
+				<a class="btn btn-primary all-posts" href="<?php echo home_url( '/' ); ?>">
 					<i class="fa fa-th"></i> <?php esc_html_e( 'View All', 'seattle' ); ?>
 				</a>
 			</div>

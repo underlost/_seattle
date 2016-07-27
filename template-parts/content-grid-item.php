@@ -7,17 +7,23 @@
 
 // Check for a featured image
 $show_titles = get_option( 'seattle_customizer_show_titles', 'hover' );
-$gallery_size = get_option( 'seattle_customizer_gallery_style', 'col-md-6 col-sm-6 col-xs-12' );
+
+//$gallery_size = get_option( 'seattle_customizer_gallery_style', 'col-md-6 col-sm-6 col-xs-12' );
+
+
+$gallery_size = get_post_meta( get_the_ID(), 'post_col_size', true );
+// Check if the custom field has a value.
+if ( ! empty( $$gallery_size ) ) {
+    $gallery_size = $$gallery_size;
+} else {
+    $gallery_size = 'col-xs-12 col-sm-12 col-md-4';
+}
 
 if ( $show_titles == 'show' ) {
 	$image_class = 'without-featured-image';
 } else {
 	$image_class = has_post_thumbnail() ? 'with-featured-image' : 'without-featured-image';
-}
-
-// Get the gallery size
-
-?>
+} ?>
 
 	<div id="post-<?php the_ID(); ?>" <?php post_class( 'gallery-thumb post ' . $gallery_size ); ?>>
 		<a class="gallery-thumb-image <?php echo esc_attr( $image_class ); ?>" href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>">

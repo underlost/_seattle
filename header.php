@@ -21,14 +21,14 @@
 </head>
 
 <body <?php body_class(); ?>>
-<div id="page" class="site">
+<div id="page-wrap" class="site">
     <button class="menu-toggle" type="button">
 	<span class="button-open"><i class="fa fa-bars"></i> <?php esc_html_e( 'Menu', 'seattle' ); ?></span>
 	<span class="button-close"><i class="fa fa-times"></i> <?php esc_html_e( 'Close Menu', 'seattle' ); ?></span>
 </button>
 
 <header id="masthead" class="site-header" role="banner">
-	<div class="container">
+	<div class="container-fluid">
         <div class="col-md-12">
 		<!-- Site title and logo -->
 		<?php seattle_title_logo(); ?>
@@ -47,4 +47,4 @@
 </header><!-- #masthead -->
 
 <div id="page" class="hfeed site">
-	<div id="content" class="site-content container">
+	<div id="content" class="site-content container-fluid">

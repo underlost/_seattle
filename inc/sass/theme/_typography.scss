@@ -1,55 +1,14 @@
 /* --------------------------------------------------------------
-2.0 Typography
+Typography
 -------------------------------------------------------------- */
 
-body, button, input, select, textarea {
-	color: $black;
-	font-family: $sans;
-	font-weight: 400;
-	font-size: 20px;
-	line-height: 1.6;
-
-	@include viewport(tablet) {
-		font-size: 18px;
-	}
-
-	@include viewport(mobile) {
-		font-size: 16px;
-	}
-}
-
-.wf-loading {
-	body, button, input, select, textarea {
-		font-size: 21px;
-
-		@include viewport(tablet) {
-			font-size: 18px;
-		}
-
-		@include viewport(mobile) {
-			font-size: 16px;
-		}
-	}
-}
-
-.wf-active {
-	body, button, input, select, textarea {
-		font-size: 21px;
-
-		@include viewport(tablet) {
-			font-size: 18px;
-		}
-
-		@include viewport(mobile) {
-			font-size: 16px;
-		}
-	}
-}
+.wf-loading {}
+.wf-active {}
 
 h1, h2, h3, h4, h5, h6 {
 	clear: both;
 	color: $black;
-	font-family: $serif;
+	font-family: $font-family-serif;
 	font-weight: 400;
 	line-height: 1.2;
 	margin-bottom: 3%;
@@ -121,7 +80,7 @@ dfn, cite, em, i {
 
 blockquote {
 	color: $black;
-	font-family: $serif;
+	font-family: $font-family-serif;
 	font-size: 24px;
 	line-height: 1.6;
 	margin: 1em 0 1.4em 0;
@@ -132,7 +91,7 @@ blockquote {
 
 	&:before {
 		content: "\201C";
-		font-family: $serif;
+		font-family: $font-family-serif;
 		position: absolute;
 		left: 0;
 		top: 4px;
@@ -157,7 +116,7 @@ blockquote {
 
 .comments-area blockquote {
 	border-left-color: #D7DEE5;
-	font-family: $sans;
+	font-family: $font-family-sans-serif;
 	font-size: 18px;
 	font-style: italic;
 

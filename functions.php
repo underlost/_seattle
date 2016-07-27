@@ -178,11 +178,6 @@ require get_template_directory() . '/inc/extras.php';
 require get_template_directory() . '/inc/customizer.php';
 
 /**
- * Load Typekit functionality.
- */
-require get_template_directory() . '/inc/typekit.php';
-
-/**
  * Self-hosted functionality
  */
 require get_template_directory() . '/inc/wporg.php';

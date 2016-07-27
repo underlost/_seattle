@@ -11,6 +11,11 @@ Accessibility
 Alignments
 -------------------------------------------------------------- */
 
+#page-wrap {
+    padding: 0 40px;
+}
+
+
 #page .alignleft {
 	display: inline;
 	float: left;
@@ -82,7 +87,7 @@ Alignments
 
 .pull-right, .pull-left {
 	color: $black;
-	font-family: $serif;
+	font-family: $font-family-serif;
 	font-size: 24px;
 	font-weight: 500;
 	line-height: 1.6;

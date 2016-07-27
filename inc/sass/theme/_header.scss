@@ -37,7 +37,7 @@ Header
 }
 
 .site-title {
-	font-family: $serif;
+	font-family: $font-family-serif;
 	font-size: 24px;
 	font-weight: 500;
 	margin: 0;
@@ -66,7 +66,7 @@ Header
 
 .site-description {
 	color: $gray;
-	font-family: $sans;
+	font-family: $font-family-sans-serif;
 	font-size: 15px;
 	margin: 0;
 

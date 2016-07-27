@@ -183,7 +183,7 @@ Comments
 	font-weight: 300;
 	font-size: 24px;
 	line-height: 1;
-	font-family: $serif;
+	font-family: $font-family-serif;
 
 	@include viewport(mobile) {
 		font-size: 18px;

@@ -1,6 +1,5 @@
 <?php
 /**
- * Self-hosted functionality not to be included on WordPress.com
  *
  * @package Seattle
  */
@@ -147,13 +146,13 @@ function seattle_customizer_css() {
 	?>
 	<style type="text/css">
 		body {
-			color: <?php echo get_theme_mod( 'seattle_customizer_body_text', '#333' ); ?>;
-			border-color: <?php echo get_theme_mod( 'seattle_customizer_border_color', '#333' ); ?>;
+			color: <?php echo get_theme_mod( 'seattle_customizer_body_text', '#3c4043' ); ?>;
+			border-color: <?php echo get_theme_mod( 'seattle_customizer_border_color', '#3c4043' ); ?>;
 			border-width: <?php echo get_theme_mod( 'seattle_customizer_border_width', '0' ); ?>px;
 		}
 
 		.entry-content a {
-			border-color: <?php echo get_theme_mod( 'seattle_customizer_accent_color', '#999' ); ?>;
+			border-color: <?php echo get_theme_mod( 'seattle_customizer_accent_color', '#9FBB58' ); ?>;
 		}
 
 		button,
@@ -162,7 +161,7 @@ function seattle_customizer_css() {
 		input[type="submit"],
 		.button,
 		.comment-navigation a {
-			background: <?php echo get_theme_mod( 'seattle_customizer_button_color', '#333' ); ?>;
+			background: <?php echo get_theme_mod( 'seattle_customizer_button_color', '#9FBB58' ); ?>;
 		}
 
 		<?php echo get_theme_mod( 'seattle_customizer_css' ); ?>
@@ -185,10 +184,26 @@ function seattle_filter_footer_text() {
 		$footer_text = $footer_copy_text;
 	} else {
 		// Otherwise show the fallback theme text
-		$footer_text = '&copy; ' . date("Y") . sprintf( esc_html__( ' %1$s Theme by %2$s.', 'seattle' ), 'Seattle', '<a href="https://underlost.net" rel="nofollow">underlost.net</a>' );
+		$footer_text = '&copy; ' . date("Y") . sprintf( esc_html__( ' %1$s Theme by %2$s.', 'seattle' ), 'Seattle', '<a href="https://underlost.net" rel="nofollow">Tyler // underlost.net</a>' );
 	}
 
 	return $footer_text;
 
 }
 add_filter( 'seattle_footer_text', 'seattle_filter_footer_text' );
+
+// Remove Open Sans that WP adds
+if (!function_exists('remove_wp_open_sans')) :
+    function remove_wp_open_sans() {
+        wp_deregister_style( 'open-sans' );
+        wp_register_style( 'open-sans', false );
+    }
+    add_action('wp_enqueue_scripts', 'remove_wp_open_sans');
+    // add_action('admin_enqueue_scripts', 'remove_wp_open_sans');
+endif;
+
+
+/**
+ * Load Typekit functionality.
+ */
+require get_template_directory() . '/inc/typekit.php';

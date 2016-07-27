@@ -5,16 +5,33 @@
  * @package Seattle
  */
 
-/**
-* Sanitize gallery select option
-*/
+
+// Sanitize gallery select option
 function seattle_sanitize_gallery_select( $layout ) {
     if ( ! in_array( $layout, array(
-        'col-md-12',
-        'col-md-6 col-sm-6 col-xs-12',
-        'col-md-4 col-sm-6 col-xs-12'
-    ) ) ) { $layout = 'col-md-6 col-sm-6 col-xs-12'; }
+        'portfolio-grid-large',
+        'portfolio-grid-medium',
+        'portfolio-grid-small'
+    ) ) ) { $layout = 'portfolio-grid-medium'; }
     return $layout;
+}
+
+//Sanitize text
+function seattle_sanitize_text( $input ) {
+	return wp_kses_post( force_balance_tags( $input ) );
+}
+
+// Sanitize textarea output
+function seattle_sanitize_textarea( $text ) {
+    return esc_textarea( $text );
+}
+
+// Sanitize title select option
+function seattle_sanitize_title_select( $title ) {
+   if ( ! in_array( $title, array( 'show', 'hover' ) ) ) {
+       $title = 'hover';
+   }
+   return $title;
 }
 
 /**
@@ -121,9 +138,6 @@ function seattle_customizer_register( $wp_customize ) {
 		),
 		'priority' => 5
 	) );
-
-
-
 
     $wp_customize->add_setting( '_disable_typekit', array(
         'default'           => 0,
