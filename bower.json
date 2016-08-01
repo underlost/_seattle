@@ -2,19 +2,15 @@
   "name": "seattle",
   "description": "Photography-driven Wordpress theme",
   "keywords": [
-    "css",
-    "js",
-    "less",
     "mobile-first",
     "responsive",
-    "front-end",
-    "framework",
-    "web",
     "Wordpress",
     "theme",
-    "photography"
+    "photography",
+    "masonry",
+    "bootstrap"
   ],
-  "version": "2.0.6",
+  "version": "2.1.0",
   "homepage": "https://github.com/underlost/Seattle",
   "authors": [
     "Tyer Rilling <tyler@underlost.net>"

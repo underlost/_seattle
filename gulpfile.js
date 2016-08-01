@@ -1,6 +1,7 @@
 // Copyright 2016 Tyler Rilling
 // grab our packages
 var gulp   = require('gulp'),
+    child = require('child_process');
     jshint = require('gulp-jshint');
     sass = require('gulp-sass');
     sourcemaps = require('gulp-sourcemaps');
@@ -15,25 +16,37 @@ var gulp   = require('gulp'),
     coffee = require('gulp-coffee');
     gutil = require('gulp-util');
     bower = require('gulp-bower');
+    imagemin = require('gulp-imagemin');
+    git = require('gulp-deploy-git');
+    browserSync = require('browser-sync');
+
 
 // Cleans the web dist folder
-gulp.task('clean', function (cb) {
-    del(['dist/**/*',], cb);
+gulp.task('clean', function () {
+    del(['dist/']);
+});
+
+// Minify Images
+gulp.task('imagemin', function() {
+    gulp.src('inc/img/**/*.{jpg,png,gif,ico}')
+	.pipe(imagemin())
+	.pipe(gulp.dest('dist/img'))
 });
 
 // Copy fonts task
-gulp.task('copy-fonts', function() {
-    gulp.src('fonts/**/*.{ttf,woff,eof,svg,eot,woff2,otf}')
+gulp.task('fonts', function() {
+    gulp.src('inc/fonts/**/*.{ttf,woff,eof,svg,eot,woff2,otf}')
     .pipe(gulp.dest('dist/fonts'));
-    // Copy Font scss
+});
+
+// Copy fonts task
+gulp.task('bower-fonts', function() {
     gulp.src('bower_components/components-font-awesome/scss/**/*.scss')
     .pipe(gulp.dest('inc/sass/font-awesome'));
-    // Copy Font files
     gulp.src('bower_components/components-font-awesome/fonts/**/*.{ttf,woff,eof,svg,eot,woff2,otf}')
-    .pipe(gulp.dest('dist/fonts'));
-
+    .pipe(gulp.dest('inc/fonts'));
     gulp.src('bower_components/bootstrap-sass/assets/fonts/bootstrap/**/*.{ttf,woff,eof,svg,eot,woff2,otf}')
-    .pipe(gulp.dest('dist/fonts'));
+    .pipe(gulp.dest('inc/fonts'));
 });
 
 // Copy images
@@ -51,6 +64,16 @@ gulp.task('copy-bower', function() {
         'bower_components/mixitup/build/jquery.mixitup.min.js'
     ])
     .pipe(gulp.dest('dist/js/lib'));
+});
+
+// Runs Bower update
+gulp.task('bower-update', function() {
+    return bower({ cmd: 'update'});
+});
+
+// Bower task
+gulp.task('bower', function(callback) {
+    runSequence( 'bower-update', 'copy-bower', 'bower-fonts', callback );
 });
 
 // Compile coffeescript to JS
@@ -72,7 +95,7 @@ gulp.task('build-css', function() {
     }))
     .pipe(gulp.dest('dist/css'))
     .pipe(minifyCSS())
-    .pipe(rename('seattle.min.css'))
+    .pipe(rename('site.min.css'))
     .pipe(gulp.dest('dist/css'))
     .on('error', sass.logError)
 });
@@ -100,7 +123,7 @@ gulp.task('concat-js', function() {
 
     ])
     .pipe(sourcemaps.init())
-        .pipe(concat('seattle.js'))
+        .pipe(concat('site.js'))
         .pipe(sourcemaps.write('./maps'))
     .pipe(gulp.dest('dist/js'));
 });
@@ -114,34 +137,31 @@ gulp.task('jshint', function() {
 
 // Shrinks all the js
 gulp.task('shrink-js', function() {
-    return gulp.src('dist/js/seattle.js')
+    return gulp.src('dist/js/site.js')
     .pipe(uglify())
-    .pipe(rename('seattle.min.js'))
+    .pipe(rename('site.min.js'))
     .pipe(gulp.dest('dist/js'))
 });
 
 // Default Javascript build task
 gulp.task('build-js', function(callback) {
-    runSequence('concat-js', callback);
+    runSequence('concat-js', 'shrink-js',  callback);
 });
 
 // configure which files to watch and what tasks to use on file changes
 gulp.task('watch', function() {
-    gulp.watch('coffee/**/*.js', ['brew-coffee']);
+    gulp.watch('coffee/**/*.js', ['brew-coffee', 'build-js']);
     gulp.watch('inc/js/**/*.js', ['build-js']);
     gulp.watch('inc/sass/**/*.scss', ['build-css']);
-});
-
-gulp.task('bower', function() {
-    return bower({ cmd: 'update'});
 });
 
 // Default build task
 gulp.task('build', function(callback) {
     runSequence(
-        ['bower',],
-        ['copy-fonts', 'copy-bower', 'copy-img'],
-        ['build-css', 'build-js'],
-        ['shrink-js', 'copy-bower'], callback
+        'fonts', 'imagemin',
+        ['build-css', 'build-js'], callback
     );
 });
+
+// Default task
+gulp.task('default', ['bower', 'build', 'jshint']);
