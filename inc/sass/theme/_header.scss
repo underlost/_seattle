@@ -1,111 +1,14 @@
-
-/* --------------------------------------------------------------
-Header
--------------------------------------------------------------- */
-
-.titles-wrap {
-	border-left: solid 3px $gray;
-	padding-left: 15px;
-	-webkit-transition: .3s ease;
-	-moz-transition: .3s ease;
-	transition: .3s ease;
-
-	&:hover {
-		border-left-color: $black;
-	}
-}
-
 .site-header {
-	padding: 60px 0 40px 0;
-	display: inline-block;
-	width: 100%;
-
-	@include viewport(tablet) {
-		padding: 40px 0;
-	}
+  opacity: 0;
+  .site-title {
+    font-size: 1.25rem;
+    letter-spacing: 4px;
+  }
+  .site-branding {padding-top: 10px;}
 }
 
-.site-title-wrap {
-	display: inline-block;
-	vertical-align: top;
-	max-width: 30%;
 
-	@include viewport(tablet) {
-		max-width: 100%;
-		width: 100%;
-	}
-}
-
-.site-title {
-	font-family: $font-family-serif;
-	font-size: 24px;
-	font-weight: 500;
-	margin: 0;
-	line-height: 1.2;
-
-	@include viewport(mobile) {
-		font-size: 21px;
-	}
-
-	a {
-		color: $black;
-		-webkit-transition: .1s ease-in;
-		-moz-transition: .1s ease-in;
-		transition: .1s ease-in;
-	}
-}
-
-.wf-loading .site-title,
-.wf-active .site-title {
-	font-size: 26px;
-
-	@include viewport(mobile) {
-		font-size: 20px;
-	}
-}
-
-.site-description {
-	color: $gray;
-	font-family: $font-family-sans-serif;
-	font-size: 15px;
-	margin: 0;
-
-	@include viewport(mobile) {
-		font-size: 13px;
-	}
-}
-
-.site-avatar {
-	display: inline-block;
-	text-align: center;
-	width: 100%;
-	vertical-align: top;
-
-	img {
-		border-radius: 500px;
-		margin-bottom: 15px;
-		width: 85px;
-		transition: all .2s ease-in-out;
-		&:hover { transform: scale(1.1); }
-	}
-}
-
-.site-logo {
-	line-height: 1;
-	margin: 0;
-	text-align: center;
-	display: inline-block;
-    &:empty { margin: 0; }
-}
-
-@include viewport(tablet) {
-	.site-logo-link {
-		text-align: center;
-		width: 100%;
-		display: inline-block;
-
-		img {
-			max-width: 100%;
-		}
-	}
+#sidebar-checkbox:checked + .page-sidebar {
+  visibility: visible;
+  .site-header {opacity: 1;}
 }

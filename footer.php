@@ -1,6 +1,6 @@
 <?php
 /**
- * The template for displaying the footer.
+ * The template for displaying the footer
  *
  * Contains the closing of the #content div and all content after.
  *
@@ -10,27 +10,23 @@
  */
 
 ?>
+
 	</div><!-- #content -->
 
-    <footer id="colophon" class="site-footer" role="contentinfo">
-    	<div class="container">
-    		<div class="footer-bottom">
-    			<nav class="footer-navigation" role="navigation">
-    				<?php wp_nav_menu( array(
-    					'theme_location' => 'footer',
-    					'depth'          => 1,
-    					'fallback_cb'    => false
-    				) );?>
-    			</nav><!-- .footer-navigation -->
-
-    			<div class="footer-tagline">
-    				<div class="site-info">
-    					<?php echo seattle_filter_footer_text(); ?>
-    				</div>
-    			</div><!-- .footer-tagline -->
-    		</div>
-    	</div><!-- .container -->
-    </footer><!-- #colophon -->
+	<footer id="colophon" class="site-footer">
+		<div class="site-info">
+			<a href="<?php echo esc_url( __( 'https://wordpress.org/', 'seattle' ) ); ?>"><?php
+				/* translators: %s: CMS name, i.e. WordPress. */
+				printf( esc_html__( 'Powered by %s. ', 'seattle' ), 'WordPress' );
+			?></a>
+			<span class="sep sr-only"> | </span>
+			<?php
+				/* translators: 1: Theme name, 2: Theme author. */
+				printf( esc_html__( '%1$s theme by %2$s.', 'seattle' ), 'Seattle', '<a href="https://underlost.net">Tyler Rilling</a>' );
+			?>
+		</div><!-- .site-info -->
+	</footer><!-- #colophon -->
+</div><!-- .page-container-inner -->
 </div><!-- #page -->
 
 <?php wp_footer(); ?>

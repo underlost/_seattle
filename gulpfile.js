@@ -1,4 +1,9 @@
-// Copyright 2016 Tyler Rilling
+/*!
+ * UnderTasker
+ * Copyright 2016 Tyler Rilling
+ * Licensed under MIT (https://github.com/underlost/Undertasker/blob/master/LICENSE)
+ */
+
 // grab our packages
 var gulp   = require('gulp'),
     child = require('child_process');
@@ -7,7 +12,7 @@ var gulp   = require('gulp'),
     sourcemaps = require('gulp-sourcemaps');
     concat = require('gulp-concat');
     autoprefixer = require('gulp-autoprefixer');
-    minifyCSS = require('gulp-minify-css');
+    cleanCSS = require('gulp-clean-css');
     rename = require('gulp-rename'); // to rename any file
     uglify = require('gulp-uglify');
     del = require('del');
@@ -15,15 +20,36 @@ var gulp   = require('gulp'),
     runSequence = require('run-sequence');
     coffee = require('gulp-coffee');
     gutil = require('gulp-util');
-    bower = require('gulp-bower');
     imagemin = require('gulp-imagemin');
-    git = require('gulp-deploy-git');
-    browserSync = require('browser-sync');
-
 
 // Cleans the web dist folder
 gulp.task('clean', function () {
     del(['dist/']);
+});
+
+
+// Copy fonts task
+gulp.task('copy-fonts', function() {
+    gulp.src('inc/fonts/**/*.{ttf,woff,eof,svg,eot,woff2,otf}')
+    .pipe(gulp.dest('dist/fonts'));
+    // Copy Font scss
+    gulp.src('node_modules/components-font-awesome/scss/*.scss')
+    .pipe(gulp.dest('inc/sass/font-awesome'));
+    // Copy Font files
+    gulp.src('node_modules/components-font-awesome/fonts/*.{ttf,woff,eof,svg,eot,woff2,otf}')
+    .pipe(gulp.dest('dist/fonts'));
+});
+
+// Copy components
+gulp.task('copy-components', function() {
+    gulp.src('node_modules/bootstrap/scss/**/*.*')
+    .pipe(gulp.dest('inc/sass/bootstrap'));
+});
+
+gulp.task('install', function(callback) {
+    runSequence(
+        'copy-components', 'copy-fonts', callback
+    );
 });
 
 // Minify Images
@@ -31,49 +57,6 @@ gulp.task('imagemin', function() {
     gulp.src('inc/img/**/*.{jpg,png,gif,ico}')
 	.pipe(imagemin())
 	.pipe(gulp.dest('dist/img'))
-});
-
-// Copy fonts task
-gulp.task('fonts', function() {
-    gulp.src('inc/fonts/**/*.{ttf,woff,eof,svg,eot,woff2,otf}')
-    .pipe(gulp.dest('dist/fonts'));
-});
-
-// Copy fonts task
-gulp.task('bower-fonts', function() {
-    gulp.src('bower_components/components-font-awesome/scss/**/*.scss')
-    .pipe(gulp.dest('inc/sass/font-awesome'));
-    gulp.src('bower_components/components-font-awesome/fonts/**/*.{ttf,woff,eof,svg,eot,woff2,otf}')
-    .pipe(gulp.dest('inc/fonts'));
-    gulp.src('bower_components/bootstrap-sass/assets/fonts/bootstrap/**/*.{ttf,woff,eof,svg,eot,woff2,otf}')
-    .pipe(gulp.dest('inc/fonts'));
-});
-
-// Copy images
-gulp.task('copy-img', function() {
-    gulp.src('img/**/*.{jpg,png,gif}')
-    .pipe(gulp.dest('dist/img'));
-});
-
-// Copy Bower components
-gulp.task('copy-bower', function() {
-    gulp.src([
-        'bower_components/bootstrap/dist/js/bootstrap.js',
-        'bower_components/jquery/dist/jquery.min.js',
-        'bower_components/packery/dist/packery.pkgd.js',
-        'bower_components/mixitup/build/jquery.mixitup.min.js'
-    ])
-    .pipe(gulp.dest('dist/js/lib'));
-});
-
-// Runs Bower update
-gulp.task('bower-update', function() {
-    return bower({ cmd: 'update'});
-});
-
-// Bower task
-gulp.task('bower', function(callback) {
-    runSequence( 'bower-update', 'copy-bower', 'bower-fonts', callback );
 });
 
 // Compile coffeescript to JS
@@ -86,15 +69,15 @@ gulp.task('brew-coffee', function() {
 // CSS Build Task
 gulp.task('build-css', function() {
   return gulp.src('inc/sass/site.scss')
-    .pipe(sourcemaps.init())  // Process the original sources
+    //.pipe(sourcemaps.init())  // Process the original sources
     .pipe(sass().on('error', sass.logError))
-    .pipe(sourcemaps.write()) // Add the map to modified source.
+    //.pipe(sourcemaps.write()) // Add the map to modified source.
     .pipe(autoprefixer({
         browsers: ['last 2 versions'],
         cascade: false
     }))
     .pipe(gulp.dest('dist/css'))
-    .pipe(minifyCSS())
+    .pipe(cleanCSS())
     .pipe(rename('site.min.css'))
     .pipe(gulp.dest('dist/css'))
     .on('error', sass.logError)
@@ -103,24 +86,16 @@ gulp.task('build-css', function() {
 // Concat All JS into unminified single file
 gulp.task('concat-js', function() {
     return gulp.src([
-        // Bower components
-        'bower_components/bootstrap/dist/js/bootstrap.js',
-        'bower_components/imagesloaded/imagesloaded.pkgd.js',
-        'bower_components/packery/dist/packery.pkgd.js',
-        'bower_components/mixitup/build/jquery.mixitup.min.js',
-
+        // components
+        //'inc/js/navigation.js',
+        //'inc/js/skip-link-focus-fix.js',
+        'node_modules/isotope-layout/dist/isotope.pkgd.js',
+        'inc/js/bootstrap/bootstrap.bundle.js',
+        'node_modules/ekko-lightbox/dist/ekko-lightbox.js',
+        'inc/js/theme.js',
+        'inc/js/_filter.js',
         // Coffeescript
-        'inc/js/coffee/*.js',
-
-        'inc/js/wow.min.js',
-        'inc/js/jquery.fancybox.pack.js',
-        'inc/js/jquery.fitvids.js',
-        //'inc/js/idangerous.swiper.min.js',
-        'inc/js/skip-link-focus-fix.js',
-        'inc/js/navigation.js',
-        'inc/js/site.js',
-        //'inc/js/retina.min.js'
-
+        'inc/js/coffee/*.*',
     ])
     .pipe(sourcemaps.init())
         .pipe(concat('site.js'))
@@ -145,23 +120,23 @@ gulp.task('shrink-js', function() {
 
 // Default Javascript build task
 gulp.task('build-js', function(callback) {
-    runSequence('concat-js', 'shrink-js',  callback);
+    runSequence('concat-js', 'shrink-js', callback);
 });
 
 // configure which files to watch and what tasks to use on file changes
 gulp.task('watch', function() {
-    gulp.watch('coffee/**/*.js', ['brew-coffee', 'build-js']);
     gulp.watch('inc/js/**/*.js', ['build-js']);
-    gulp.watch('inc/sass/**/*.scss', ['build-css']);
+    gulp.watch('inc/sass/**/*.scss', ['build-css' ] );
 });
 
 // Default build task
 gulp.task('build', function(callback) {
     runSequence(
-        'fonts', 'imagemin',
+        'copy-fonts', 'imagemin',
         ['build-css', 'build-js'], callback
     );
 });
 
-// Default task
-gulp.task('default', ['bower', 'build', 'jshint']);
+
+// Default task will build the jekyll site, launch BrowserSync & watch files.
+gulp.task('default', ['build', 'watch']);
