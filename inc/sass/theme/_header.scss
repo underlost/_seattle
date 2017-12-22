@@ -1,14 +1,28 @@
 .site-header {
-  opacity: 0;
-  .site-title {
-    font-size: 1.25rem;
-    letter-spacing: 4px;
+  color: #16151a;
+  background-color: none;
+  border-bottom: 1px solid rgba(255,255,255,.25);
+  font-family: $font-family-serif;
+  text-transform: uppercase;
+  padding-left: 0;
+  padding-right: 0;
+
+  .nav-item {
+    padding-right: 2rem;
   }
-  .site-branding {padding-top: 10px;}
 }
 
+#search_form {
+  .search-input {
+    text-align: right;
+    border-width: 0;
+    padding-right: 10px;
+    background-color: transparent;
 
-#sidebar-checkbox:checked + .page-sidebar {
-  visibility: visible;
-  .site-header {opacity: 1;}
+    &:focus {
+      background-color: $secondary;
+      color: $body-bg;
+      box-shadow: none;
+    }
+  }
 }
