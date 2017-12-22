@@ -1,17 +1,23 @@
 
 // Colors
-$teal: #1AA09C;
-
-$body-bg: #09080d;
-$body-color: #5b5c61;
-
-$primary: #fff !default;
+$yellow: #febf4b;
+$white: #fff;
+$body-bg: #fff;
+$body-color: #09080d;
+$primary: #09080d !default;
 $secondary: #febf4b !default;
+
 $font-family-sans-serif: "freight-sans-pro", "Helvetica Neue", Arial, sans-serif;
-$font-family-serif: "freight-text-pro", "Helvetica Neue", Arial, sans-serif;
+$font-family-serif: "orator-std", "Helvetica Neue", Arial, sans-serif;
+
 $font-size-base: 1.15rem;
 $line-height-base: 1.9;
-$grid-gutter-width: 10px;
-$letter-spacing: 0.03em;
+$letter-spacing: 0.05em;
 
-$headings-font-family: $font-family-serif;
+$headings-font-family: $font-family-sans-serif;
+
+$border-radius: 0;
+$border-radius-lg: 0;
+$border-radius-sm: 0;
+
+$grid-gutter-width: 10px;

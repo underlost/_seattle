@@ -117,8 +117,9 @@ add_action( 'widgets_init', 'seattle_widgets_init' );
  * Enqueue scripts and styles.
  */
 function seattle_scripts() {
+  wp_deregister_script('jquery');
   wp_enqueue_style( 'seattle-style', get_template_directory_uri() . '/dist/css/site.min.css', array(), '20151215', 'screen' );
-  wp_enqueue_script( 'seattle-js', get_template_directory_uri() . '/dist/js/site.js', array('jquery'), '20151215', true );
+  wp_enqueue_script( 'seattle-js', get_template_directory_uri() . '/dist/js/site.js', array(), '20151215', true );
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );

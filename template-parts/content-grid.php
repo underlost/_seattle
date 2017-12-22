@@ -13,6 +13,8 @@ $thumbnail_url = !empty($thumbnail_arr[0]) ? $thumbnail_arr[0] : '';
 
 $sizeWidth = get_post_meta(get_the_ID(), 'display-img-size', true);
 $sizeHeight = get_post_meta(get_the_ID(), 'display-img-height', true);
+if(empty($sizeWidth)) { $sizeWidth = 'col-md-4'; }
+if(empty($sizeHeight)) { $sizeHeight = 'grid-md'; }
 
 $classes = array(
   $sizeWidth,
