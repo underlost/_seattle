@@ -8952,8 +8952,8 @@ a.text-dark:focus, a.text-dark:hover {
   transition: transform .3s ease-in-out;
   transition: transform .3s ease-in-out, -webkit-transform .3s ease-in-out; }
   .page-container .page-container-inner {
-    margin-left: 20px;
-    margin-right: 20px;
+    margin-left: 40px;
+    margin-right: 40px;
     transition: margin .3s ease-in-out;
     -webkit-transition: margin .3s ease-in-out; }
 
@@ -9248,41 +9248,42 @@ a.text-dark:focus, a.text-dark:hover {
     font-size: 1rem;
     letter-spacing: 2.5px; }
 
-.featured-image img {
+.hentry .featured-image img {
+  width: 100%;
   max-width: 100%; }
 
-.entry-inner {
+.hentry .entry-inner {
   background-color: #16151a; }
 
-.entry-details {
+.hentry .entry-details {
   color: #74757a; }
-  .entry-details a {
+  .hentry .entry-details a {
     color: #74757a; }
 
-.entry-header .entry-title {
+.hentry .entry-header .entry-title {
   font-size: 1.5rem;
   color: #fff;
   font-family: "orator-std", "Helvetica Neue", Arial, sans-serif; }
 
-.entry-header .entry-meta {
+.hentry .entry-header .entry-meta {
   font-size: 14px;
   letter-spacing: 2px;
   text-transform: uppercase; }
-  .entry-header .entry-meta .updated {
+  .hentry .entry-header .entry-meta .updated {
     display: none; }
 
-.entry-content {
+.hentry .entry-content {
   letter-spacing: 1px; }
-  .entry-content blockquote {
+  .hentry .entry-content blockquote {
     border-left: 3px solid #fff;
     padding-left: 20px; }
 
-.entry-footer {
+.hentry .entry-footer {
   font-size: 11px;
   text-transform: uppercase;
   letter-spacing: 1.5px; }
-  .entry-footer .tags-links,
-  .entry-footer .cat-links {
+  .hentry .entry-footer .tags-links,
+  .hentry .entry-footer .cat-links {
     display: block; }
 
 .nav-links {
