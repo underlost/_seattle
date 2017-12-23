@@ -167,3 +167,6 @@ require get_template_directory() . '/inc/utils.php';
 
 // Post meta settings
 require get_template_directory() . '/inc/post-meta.php';
+
+// Theme Options
+require get_template_directory() . '/inc/theme_settings.php';

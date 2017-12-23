@@ -22,33 +22,29 @@
       <div class="social-icons">
         <ul class="list-inline">
           <?php if ($facebook) { ?>
-            <li><a href="<?php echo $facebook; ?>" title="Facebook">
+            <li class="list-inline-item"><a href="<?php echo $facebook; ?>" title="Facebook">
               <span class="fa-stack fa-lg">
-                <i class="fa fa-circle fa-stack-2x fa-inverse"></i>
                 <i class="fa fa-facebook fa-stack-1x"></i>
               </span>
             </a></li>
           <?php } ?>
           <?php if ($twitter) { ?>
-            <li><a href="<?php echo $twitter; ?>" title="Twitter">
+            <li class="list-inline-item"><a href="<?php echo $twitter; ?>" title="Twitter">
               <span class="fa-stack fa-lg">
-                <i class="fa fa-circle fa-stack-2x fa-inverse"></i>
                 <i class="fa fa-twitter fa-stack-1x"></i>
               </span>
             </a></li>
           <?php } ?>
           <?php if ($google) { ?>
-            <li><a href="<?php echo $google; ?>" title="Google Plus">
+            <li class="list-inline-item"><a href="<?php echo $google; ?>" title="Google Plus">
               <span class="fa-stack fa-lg">
-                <i class="fa fa-circle fa-stack-2x fa-inverse"></i>
                 <i class="fa fa-google-plus fa-stack-1x"></i>
               </span>
             </a></li>
           <?php } ?>
           <?php if ($instagram) { ?>
-            <li><a href="<?php echo $instagram; ?>" title="Instagram">
+            <li class="list-inline-item"><a href="<?php echo $instagram; ?>" title="Instagram">
               <span class="fa-stack fa-lg">
-                <i class="fa fa-circle fa-stack-2x fa-inverse"></i>
                 <i class="fa fa-instagram fa-stack-1x"></i>
               </span>
             </a></li>
