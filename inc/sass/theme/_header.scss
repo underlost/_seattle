@@ -23,6 +23,7 @@
       background-color: $secondary;
       color: $body-bg;
       box-shadow: none;
+      &::placeholder {color: $body-bg; }
     }
   }
 }

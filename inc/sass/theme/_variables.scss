@@ -21,3 +21,11 @@ $border-radius-lg: 0;
 $border-radius-sm: 0;
 
 $grid-gutter-width: 10px;
+
+
+// Forms
+$input-bg: $body-bg !default;
+$input-disabled-bg: $body-bg !default;
+$input-color: $white !default;
+$input-border-color: lighten($body-bg, 15%) !default;
+$input-focus-border-color: $yellow !default;

@@ -3,9 +3,14 @@
 @import "font-awesome/font-awesome";
 @import "theme/admin";
 @import "theme/layout";
+@import "theme/forms";
 @import "theme/header";
 @import "theme/footer";
 @import "theme/sidebar";
-@import "theme/menu";
+@import "theme/comments";
 @import "theme/grid";
 @import "theme/widgets";
+@import "theme/entry";
+
+// Functions
+@import "theme/functions";

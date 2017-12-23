@@ -1,0 +1,54 @@
+.comments-area {
+  margin-top: 3rem;
+}
+
+.comments-title,
+.comment-reply-title {
+  font-size: 1.5rem;
+  padding-bottom: 5px;
+  font-family: $font-family-serif;
+  border-bottom: 1px solid rgba(255,255,255,.25);
+}
+
+.comment {
+  position: relative;
+  background-color: #16151a;
+  padding: 20px;
+  margin: 20px auto;
+
+  .comment-metadata {
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    letter-spacing: 1px;
+    font-size: 13px;
+    a {color: $white;}
+  }
+
+  .comment-awaiting-moderation {
+    color: $yellow;
+    text-transform: uppercase;
+    border: 1px solid $yellow;
+    margin-top: 1rem;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+  .reply {
+    text-align: right;
+    .comment-reply-link {
+      text-transform: uppercase;
+      font-size: 13px;
+      letter-spacing: 1px;
+    }
+  }
+}
+
+.comment-respond {
+  margin-bottom: 5rem;
+  label {
+    font-family: $font-family-serif;
+    text-transform: uppercase;
+    margin-bottom: 0;
+  }
+}

@@ -1,15 +1,12 @@
-<nav class="navbar navbar-expand-lg navbar-dark site-header navbar-filter mb-2">
-
+<nav class="navbar navbar-expand-lg navbar-dark site-header navbar-filter mb-3">
   <a class="navbar-brand" href="<?php echo home_url(); ?>">
     <img src="<?php echo get_template_directory_uri() . '/inc/svg/logo.svg' ?>" width="36" height="36" alt="<?php bloginfo( 'name' ); ?>">
   </a>
-
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
-
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="CategoryDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           Categories
@@ -51,11 +48,9 @@
       </li>
 
     </ul>
-
     <form id='search_form' class="form-inline my-2 my-lg-0" action="<?php echo get_site_url(); ?>" method="get" role="search">
       <input type="hidden" id="search_post_type" name="post_type" />
       <input type="text" id="search_query" name="s" class="search-input form-control" placeholder="Search"/>
     </form>
-
   </div>
 </nav>
