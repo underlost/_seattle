@@ -167,6 +167,10 @@ require get_template_directory() . '/inc/utils.php';
 
 // Post meta settings
 require get_template_directory() . '/inc/post-meta.php';
+require get_template_directory() . '/inc/attachment-meta.php';
 
 // Theme Options
 require get_template_directory() . '/inc/theme_settings.php';
+
+// Add gallery meta box
+require get_template_directory() . '/gallery-metabox/gallery.php';

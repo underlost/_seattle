@@ -10,7 +10,6 @@
  $square_thumbnail = true;
  $thumbnail_arr = wp_get_attachment_image_src(get_post_thumbnail_id(get_the_ID()), $square_thumbnail ? 'large' : 'medium');
  $thumbnail_url = !empty($thumbnail_arr[0]) ? $thumbnail_arr[0] : '';
-
  $sizeWidth = get_post_meta(get_the_ID(), 'display-img-size', true);
  $sizeHeight = get_post_meta(get_the_ID(), 'display-img-height', true);
  if(empty($sizeWidth)) { $sizeWidth = 'col-md-4'; }
@@ -34,7 +33,7 @@ if ($sizeWidth == 'col-md-1' || $sizeWidth == 'col-md-2' || $sizeWidth == 'col-m
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-  <div class="entry-inner mb-3">
+  <div class="entry-inner mb-5">
     <div class="row align-items-center">
       <div class="<?php echo $colWidth_1; ?>">
         <div class="featured-image">
@@ -88,3 +87,8 @@ if ($sizeWidth == 'col-md-1' || $sizeWidth == 'col-md-2' || $sizeWidth == 'col-m
     </div><!-- .row -->
   </div><!-- .entry-inner-->
 </article><!-- #post-<?php the_ID(); ?> -->
+
+<div class="row grid">
+<div class="grid-sizer col-md-1 col-sm-6"></div>
+<?php get_template_part( 'template-parts/attachment_gallery' ); ?>
+</div>

@@ -20,6 +20,7 @@ $classes = array(
   $sizeWidth,
   $sizeHeight,
   'grid-item',
+  'grid-item-clickable',
 );
 
 ?>

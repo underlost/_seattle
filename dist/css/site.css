@@ -8966,6 +8966,14 @@ a.text-dark:focus, a.text-dark:hover {
   background-repeat: no-repeat;
   background-size: cover; }
 
+.page-header {
+  background-color: #16151a;
+  color: #fff; }
+  .page-header .page-title {
+    font-family: "orator-std", "Helvetica Neue", Arial, sans-serif;
+    font-size: 1.5rem;
+    letter-spacing: 2.5px; }
+
 .form-control:focus {
   -webkit-box-shadow: none;
   box-shadow: none; }
@@ -9212,32 +9220,37 @@ a.text-dark:focus, a.text-dark:hover {
       z-index: 5; }
     .grid-item .post-inner:hover .entry-header, .grid-item .post-inner:hover:after, .grid-item .post-inner:hover:before {
       opacity: 1 !important; }
-  .grid-item .entry-header {
-    -webkit-transition: all .3s, color .3s;
-    transition: all .3s, color .3s;
-    opacity: 0;
-    width: 100%;
-    text-shadow: 1px 1px #333;
-    position: relative;
-    z-index: 10; }
-    .grid-item .entry-header .entry-title {
-      text-transform: uppercase;
-      font-weight: 200;
-      letter-spacing: 3px;
-      font-size: 1.5rem; }
-    .grid-item .entry-header .entry-meta {
-      color: #fff;
-      font-weight: 100;
-      font-size: .75rem;
-      letter-spacing: 4px; }
-    .grid-item .entry-header .posted-on .updated {
-      display: none; }
-    .grid-item .entry-header .byline {
-      display: none; }
-  .grid-item .entry-content {
+  .grid-item .entry-meta {
+    color: #fff; }
+
+.grid-item-clickable .entry-header {
+  -webkit-transition: all .3s, color .3s;
+  transition: all .3s, color .3s;
+  opacity: 0;
+  width: 100%;
+  text-shadow: 1px 1px #333;
+  position: relative;
+  z-index: 10; }
+  .grid-item-clickable .entry-header .entry-title {
+    text-transform: uppercase;
+    font-weight: 200;
+    letter-spacing: 3px;
+    font-size: 1.5rem; }
+  .grid-item-clickable .entry-header .entry-meta {
+    color: #fff;
+    font-weight: 100;
+    font-size: .75rem;
+    letter-spacing: 4px; }
+  .grid-item-clickable .entry-header .posted-on .updated {
     display: none; }
-  .grid-item .entry-footer {
+  .grid-item-clickable .entry-header .byline {
     display: none; }
+
+.grid-item-clickable .entry-content {
+  display: none; }
+
+.grid-item-clickable .entry-footer {
+  display: none; }
 
 .widget-content {
   padding-left: 15px;

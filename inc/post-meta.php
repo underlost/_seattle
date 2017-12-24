@@ -15,7 +15,7 @@ function post_meta_boxes_setup() {
 }
 
 function post_meta_boxes(){
-    add_meta_box( 'post_meta_box', 'Post Meta', 'render_post_meta_box', 'post', 'side', 'high');
+    add_meta_box( 'post_meta_box', 'Post Settings', 'render_post_meta_box', 'post', 'side', 'high');
 }
 
 function render_post_meta_box($object, $box){
@@ -49,11 +49,11 @@ function render_post_meta_box($object, $box){
     </p>
 
     <p>
-        <label for="source-name">Source Name</label>
+        <label for="source-name">Source Name</label><br />
         <input type="text" name="source-name" id="source-name" value="<?php echo get_post_meta($object->ID, 'source-name', true); ?>"/>
     </p>
     <p>
-        <label for="source-url">Source URL</label>
+        <label for="source-url">Source URL</label><br />
         <input type="text" name="source-url" id="source-url" value="<?php echo get_post_meta($object->ID, 'source-url', true); ?>"/>
     </p>
 <?php
