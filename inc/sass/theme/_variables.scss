@@ -1,4 +1,3 @@
-
 // Colors
 $yellow: #febf4b;
 $white: #fff;
@@ -7,21 +6,20 @@ $body-color: #d2d2d8;
 $primary: #d2d2d8 !default;
 $secondary: #febf4b !default;
 
+//Font Awesome
+$fa-font-path: "../fonts" !default;
+
+//Bootstrap
 $font-family-sans-serif: "freight-sans-pro", "Helvetica Neue", Arial, sans-serif;
 $font-family-serif: "orator-std", "Helvetica Neue", Arial, sans-serif;
-
 $font-size-base: 1.15rem;
 $line-height-base: 1.9;
 $letter-spacing: 0.05em;
-
 $headings-font-family: $font-family-sans-serif;
-
 $border-radius: 0;
 $border-radius-lg: 0;
 $border-radius-sm: 0;
-
 $grid-gutter-width: 10px;
-
 
 // Forms
 $input-bg: $body-bg !default;

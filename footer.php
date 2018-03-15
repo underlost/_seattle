@@ -24,28 +24,28 @@
           <?php if ($facebook) { ?>
             <li class="list-inline-item"><a href="<?php echo $facebook; ?>" title="Facebook">
               <span class="fa-stack fa-lg">
-                <i class="fa fa-facebook fa-stack-1x"></i>
+                <i class="fab fa-facebook fa-stack-1x"></i>
               </span>
             </a></li>
           <?php } ?>
           <?php if ($twitter) { ?>
             <li class="list-inline-item"><a href="<?php echo $twitter; ?>" title="Twitter">
               <span class="fa-stack fa-lg">
-                <i class="fa fa-twitter fa-stack-1x"></i>
+                <i class="fab fa-twitter fa-stack-1x"></i>
               </span>
             </a></li>
           <?php } ?>
           <?php if ($google) { ?>
             <li class="list-inline-item"><a href="<?php echo $google; ?>" title="Google Plus">
               <span class="fa-stack fa-lg">
-                <i class="fa fa-google-plus fa-stack-1x"></i>
+                <i class="fab fa-google-plus fa-stack-1x"></i>
               </span>
             </a></li>
           <?php } ?>
           <?php if ($instagram) { ?>
             <li class="list-inline-item"><a href="<?php echo $instagram; ?>" title="Instagram">
               <span class="fa-stack fa-lg">
-                <i class="fa fa-instagram fa-stack-1x"></i>
+                <i class="fab fa-instagram fa-stack-1x"></i>
               </span>
             </a></li>
           <?php } ?>
@@ -58,7 +58,7 @@
 			<span class="sep sr-only"> | </span>
 			<?php
 				/* translators: 1: Theme name, 2: Theme author. */
-				printf( esc_html__( '%1$s theme by %2$s.', 'seattle' ), 'Seattle', '<a href="https://underlost.net">Tyler Rilling</a>' );
+				printf( esc_html__( '%1$s theme by %2$s.', 'seattle' ), '_Seattle', '<a href="https://tyler.codes">Tyler Rilling</a>' );
 			?>
 		</div><!-- .site-info -->
 	</footer><!-- #colophon -->

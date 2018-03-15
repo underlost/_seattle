@@ -1,6 +1,8 @@
 @import "theme/variables";
 @import "bootstrap/bootstrap";
-@import "font-awesome/font-awesome";
+@import "font-awesome/fontawesome";
+@import "font-awesome/fa-solid";
+@import "font-awesome/fa-brands";
 @import "theme/admin";
 @import "theme/layout";
 @import "theme/forms";
@@ -11,6 +13,7 @@
 @import "theme/grid";
 @import "theme/widgets";
 @import "theme/entry";
+@import "theme/error";
 
 // Functions
 @import "theme/functions";

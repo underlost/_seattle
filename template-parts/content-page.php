@@ -15,12 +15,8 @@
    'row',
    'mb-4',
  );
-
 ?>
-
-
 <article id="post-<?php the_ID(); ?>" <?php post_class( $classes ); ?>>
-
   <?php if ($thumbnail_url) {?>
   <div class="col-md-5 offset-md-1 order-md-12">
     <div class="featured-image">
@@ -28,24 +24,19 @@
     </div>
   </div>
   <?php } ?>
-
   <div class="col-md-6 order-md-1">
-
 	<header class="entry-header">
 		<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
 	</header><!-- .entry-header -->
-
 	<div class="entry-content">
 		<?php
 			the_content();
-
 			wp_link_pages( array(
 				'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'seattle' ),
 				'after'  => '</div>',
 			) );
 		?>
 	</div><!-- .entry-content -->
-
 	<?php if ( get_edit_post_link() ) : ?>
 		<footer class="entry-footer">
 			<?php
