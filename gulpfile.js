@@ -14,11 +14,10 @@ concat = require('gulp-concat');
 autoprefixer = require('gulp-autoprefixer');
 cleanCSS = require('gulp-clean-css');
 rename = require('gulp-rename'); // to rename any file
-uglify = require('gulp-uglify');
+uglify = require('gulp-uglify-es').default;
 del = require('del');
 stylish = require('jshint-stylish');
 runSequence = require('run-sequence');
-coffee = require('gulp-coffee');
 gutil = require('gulp-util');
 imagemin = require('gulp-imagemin');
 
@@ -31,13 +30,13 @@ gulp.task('clean', function () {
 gulp.task('copy-fonts', function() {
   gulp.src('inc/fonts/**/*.{ttf,woff,eof,svg,eot,woff2,otf}')
   .pipe(gulp.dest('dist/fonts'));
-  gulp.src('node_modules/components-font-awesome/webfonts/*.{ttf,woff,eof,svg,eot,woff2,otf}')
+  gulp.src('node_modules/@fortawesome/fontawesome-free/webfonts/*.{ttf,woff,eof,svg,eot,woff2,otf}')
   .pipe(gulp.dest('dist/fonts'));
 });
 
 // Copy Components
 gulp.task('copy-components', function() {
-  gulp.src('node_modules/components-font-awesome/scss/**/*.*')
+  gulp.src('node_modules/@fortawesome/fontawesome-free/scss/**/*.*')
   .pipe(gulp.dest('inc/sass/font-awesome'));
   gulp.src('node_modules/bootstrap/scss/**/*.*')
   .pipe(gulp.dest('inc/sass/bootstrap'));
@@ -54,13 +53,6 @@ gulp.task('imagemin', function() {
   gulp.src('inc/img/**/*.{jpg,png,gif,ico}')
   .pipe(imagemin())
   .pipe(gulp.dest('dist/img'))
-});
-
-// Compile coffeescript to JS
-gulp.task('brew-coffee', function() {
-  gulp.src('inc/coffee/*.coffee')
-  .pipe(coffee({bare: true}).on('error', gutil.log))
-  .pipe(gulp.dest('inc/js/coffee/'))
 });
 
 // CSS Build Task
@@ -92,8 +84,6 @@ gulp.task('concat-js', function() {
     'node_modules/ekko-lightbox/dist/ekko-lightbox.js',
     'inc/js/theme.js',
     'inc/js/_filter.js',
-    // Coffeescript
-    'inc/js/coffee/*.*',
   ])
   .pipe(sourcemaps.init())
   .pipe(concat('site.js'))
