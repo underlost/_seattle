@@ -14,7 +14,6 @@ function register_theme_options() {
   register_setting( 'main-options', 'site_logo' );
   register_setting( 'main-options', 'social_facebook');
   register_setting( 'main-options', 'social_twitter');
-  register_setting( 'main-options', 'social_google');
   register_setting( 'main-options', 'social_instagram');
   register_setting( 'main-options', 'extra_header_scripts');
 }
@@ -58,7 +57,7 @@ jQuery(document).ready(function($){
         <tr valign="top">
             <th scope="row">Site Logo</th>
             <td>
-                <img src="<?php echo get_option('site_logo'); ?>" /><br>
+                <img src="<?php echo get_option('site_logo'); ?>" width="300" height="auto" /><br>
                 <label for="upload_image">
                     <input class="upload-target" id="site_logo" type="text" size="36" name="site_logo" value="<?php echo get_option('site_logo'); ?>" />
                     <input class="upload-btn" type="button" value="Upload Image" />
@@ -76,12 +75,6 @@ jQuery(document).ready(function($){
             <th scope="row">Twitter URL</th>
             <td>
                 <input id="social_twitter" name="social_twitter" class="regular-text code" type="url" value="<?php echo get_option('social_twitter'); ?>" />
-            </td>
-        </tr>
-        <tr>
-            <th scope="row">Google Plus URL</th>
-            <td>
-                <input id="social_google" name="social_google" class="regular-text code" type="url" value="<?php echo get_option('social_google'); ?>" />
             </td>
         </tr>
         <tr>

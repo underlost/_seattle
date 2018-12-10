@@ -79,6 +79,7 @@ gulp.task('concat-js', function() {
     //'inc/js/navigation.js',
     //'inc/js/skip-link-focus-fix.js',
     'node_modules/jquery/dist/jquery.js',
+    'inc/js/skip-link-focus-fix.js',
     'node_modules/bootstrap/dist/js/bootstrap.bundle.js',
     'node_modules/isotope-layout/dist/isotope.pkgd.js',
     'node_modules/ekko-lightbox/dist/ekko-lightbox.js',

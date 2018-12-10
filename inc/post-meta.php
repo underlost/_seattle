@@ -25,8 +25,24 @@ function render_post_meta_box($object, $box){
     if(empty($curr_img_size)) { $curr_img_size = 'col-md-4'; }
     $curr_height_size = get_post_meta($object->ID, 'display-img-height', true);
     if(empty($curr_height_size)) { $curr_height_size = 'grid-md'; }
+    $curr_featured = get_post_meta($object->ID, 'featured', true);
+    if(empty($curr_featured)) { $curr_featured = false; }
+    $curr_nsfw = get_post_meta($object->ID, 'nsfw', true);
+    if(empty($curr_nsfw)) { $curr_nsfw = false; }
 
     wp_nonce_field( basename( __FILE__ ), 'post_meta_nonce' ); ?>
+
+    <p>
+      <label for="featured">
+        <input type="checkbox" name="featured" value="true" <?php if($curr_featured){ echo "checked"; } ?>> <strong>Featured Image</strong>
+      </label>
+    </p>
+
+    <p>
+      <label for="nsfw">
+        <input type="checkbox" name="nsfw" value="true" <?php if($curr_nsfw){ echo "checked"; } ?>> <strong>NSFW</strong>
+      </label>
+    </p>
 
     <p>
       <strong>Image Width</strong>
@@ -61,27 +77,17 @@ function render_post_meta_box($object, $box){
 
 /* Save the meta box's post metadata. */
 function save_post_meta( $post_id, $post ) {
-
     /* Verify the nonce before proceeding. */
     if ( !isset( $_POST['post_meta_nonce'] ) || !wp_verify_nonce( $_POST['post_meta_nonce'], basename( __FILE__ ) ) )
-        return $post_id;
-
+    return $post_id;
     /* Get the post type object. */
     $post_type = get_post_type_object( $post->post_type );
-
     /* Check if the current user has permission to edit the post. */
     if ( !current_user_can( $post_type->cap->edit_post, $post_id ) )
-        return $post_id;
-
-    $size_meta = get_post_val('display-img-size');
-    update_post_meta($post_id, 'display-img-size', $size_meta);
-
-    $size_height_meta = get_post_val('display-img-height');
-    update_post_meta($post_id, 'display-img-height', $size_height_meta);
-
-    $source_meta = get_post_val('source-name');
-    update_post_meta($post_id, 'source-name', $source_meta);
-
-    $url_meta = get_post_val('source-url');
-    update_post_meta($post_id, 'source-url', $url_meta);
-}
+    return $post_id;
+    $meta_keys = array('display-img-size', 'display-img-height', 'source-name', 'source-url', 'featured', 'nsfw',);
+    foreach($meta_keys as $key){
+      $meta_val = get_post_val($key);
+      update_post_meta($post_id, $key, $meta_val);
+    }
+  }

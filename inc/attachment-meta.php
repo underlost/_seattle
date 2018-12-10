@@ -1,5 +1,7 @@
 <?php
 
+//Adds meta to file attachements for grid sizing.
+
 /* Fire our meta box setup function on the post editor screen. */
 add_action( 'load-post.php', 'attachment_meta_boxes_setup' );
 add_action( 'load-post-new.php', 'attachment_meta_boxes_setup' );

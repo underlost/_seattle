@@ -35,7 +35,6 @@ $classes = array(
   		else :
   			the_title( '<h2 class="entry-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h2>' );
   		endif;
-
   		if ( 'post' === get_post_type() ) : ?>
   		<div class="entry-meta">
   			<?php seattle_posted_on(); ?>
@@ -49,7 +48,7 @@ $classes = array(
   			the_content( sprintf(
   				wp_kses(
   					/* translators: %s: Name of current post. Only visible to screen readers */
-  					__( 'Continue reading<span class="screen-reader-text sr-only"> "%s"</span>', 'seattle' ),
+  					__( 'Continue reading<span class="sr-only"> "%s"</span>', 'seattle' ),
   					array(
   						'span' => array(
   							'class' => array(),

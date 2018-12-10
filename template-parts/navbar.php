@@ -33,19 +33,17 @@ $categories = get_categories( array(
         </a>
         <div class="dropdown-menu" aria-labelledby="CategoryDropdown">
           <?php
-
           foreach( $categories as $category ) {
               $category_link = sprintf(
                   '<a class="dropdown-item" href="%1$s" alt="%2$s">%3$s</a>',
                   esc_url( get_category_link( $category->term_id ) ),
-                  esc_attr( sprintf( __( 'View all posts in %s', 'textdomain' ), $category->name ) ),
+                  esc_attr( sprintf( __( 'View all posts in %s', 'seattle' ), $category->name ) ),
                   esc_html( $category->name )
               );
               echo $category_link;
           } ?>
         </div>
       </li>
-
       <?php $post_tags = get_the_tags();
         if ($post_tags) {
           echo '<li class="nav-item dropdown">';
@@ -58,10 +56,6 @@ $categories = get_categories( array(
           echo '</li>';
         }
       ?>
-
-      <li class="nav-item">
-        <a class="nav-link" href="/about">About</a>
-      </li>
     </ul>
     <form id='search_form' class="form-inline my-2 my-lg-0" action="<?php echo get_site_url(); ?>" method="get" role="search">
       <input type="hidden" id="search_post_type" name="post_type" />

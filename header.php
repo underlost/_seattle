@@ -24,7 +24,7 @@
 
 <div id="page" class="site page-container">
   <div class="page-container-inner">
-	<a class="skip-link screen-reader-text sr-only" href="#content"><?php esc_html_e( 'Skip to content', 'seattle' ); ?></a>
+	<a class="skip-link sr-only" href="#content"><?php esc_html_e( 'Skip to content', 'seattle' ); ?></a>
 	<div id="content" class="site-content">
 
   <?php get_template_part( 'template-parts/navbar' ); ?>
