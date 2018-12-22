@@ -11,7 +11,6 @@
 
  $facebook = get_option('social_facebook');
  $twitter =  get_option('social_twitter');
- $google = get_option('social_google');
  $instagram = get_option('social_instagram');
 ?>
 
@@ -35,13 +34,6 @@
               </span>
             </a></li>
           <?php } ?>
-          <?php if ($google) { ?>
-            <li class="list-inline-item"><a href="<?php echo $google; ?>" title="Google Plus">
-              <span class="fa-stack fa-lg">
-                <i class="fab fa-google-plus fa-stack-1x"></i>
-              </span>
-            </a></li>
-          <?php } ?>
           <?php if ($instagram) { ?>
             <li class="list-inline-item"><a href="<?php echo $instagram; ?>" title="Instagram">
               <span class="fa-stack fa-lg">
@@ -51,15 +43,12 @@
           <?php } ?>
         </ul>
       </div>
+      <span class="d-block py-2">&copy; <?php echo date('Y'); ?> <?php echo get_bloginfo( 'name' ); ?></span>
 			<a href="<?php echo esc_url( __( 'https://wordpress.org/', 'seattle' ) ); ?>"><?php
 				/* translators: %s: CMS name, i.e. WordPress. */
-				printf( esc_html__( 'Powered by %s. ', 'seattle' ), 'WordPress' );
-			?></a>
-			<span class="sep sr-only"> | </span>
-			<?php
-				/* translators: 1: Theme name, 2: Theme author. */
-				printf( esc_html__( '%1$s theme by %2$s.', 'seattle' ), '_Seattle', '<a href="https://tyler.codes">Tyler Rilling</a>' );
-			?>
+				printf( esc_html__( 'Powered by %s. ', 'seattle' ), 'WordPress' ); ?></a>
+			<span class="sep px-2"> | </span>
+			<?php printf( esc_html__( '%1$s theme by %2$s.', 'seattle' ), '_Seattle', '<a href="https://tyler.codes">Tyler Rilling</a>' ); ?>
 		</div><!-- .site-info -->
 	</footer><!-- #colophon -->
 </div><!-- .page-container-inner -->
