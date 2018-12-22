@@ -5,12 +5,12 @@
  * @package Seattle
  */
 $site_logo = get_option('site_logo');
+$post_tags = get_the_tags();
 $categories = get_categories( array(
     'orderby' => 'name',
     'order'   => 'ASC',
     'hide_empty' => false,
 ) );
-
 ?>
 
 <nav class="navbar navbar-expand-lg navbar-dark site-header navbar-filter mb-3">
@@ -25,8 +25,15 @@ $categories = get_categories( array(
     <span class="navbar-toggler-icon"></span>
   </button>
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <?php wp_nav_menu( array(
+      'menu'              => 'primary',
+      'theme_location'    => 'primary',
+      'depth'             => 4,
+      'menu_class'        => 'navbar-nav mr-auto',
+      'fallback_cb'       => 'wp_bootstrap_navwalker::fallback',
+      'walker'            => new wp_bootstrap_navwalker())
+    ); ?>
     <ul class="navbar-nav mr-auto">
-      <li class="nav-item"><a class="nav-link" href="<?php echo home_url(); ?>">Home</a></li>
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="CategoryDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           Categories
@@ -44,8 +51,7 @@ $categories = get_categories( array(
           } ?>
         </div>
       </li>
-      <?php $post_tags = get_the_tags();
-        if ($post_tags) {
+      <?php if ($post_tags) {
           echo '<li class="nav-item dropdown">';
           echo '<a class="nav-link dropdown-toggle" href="#" id="TagDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Tags</a>';
           echo '<div class="dropdown-menu" aria-labelledby="TagDropdown">';
@@ -54,8 +60,7 @@ $categories = get_categories( array(
           }
           echo '</div>';
           echo '</li>';
-        }
-      ?>
+      } ?>
     </ul>
     <form id='search_form' class="form-inline my-2 my-lg-0" action="<?php echo get_site_url(); ?>" method="get" role="search">
       <input type="hidden" id="search_post_type" name="post_type" />

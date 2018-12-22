@@ -109,11 +109,18 @@ function seattle_scripts() {
 }
 add_action( 'wp_enqueue_scripts', 'seattle_scripts' );
 
+// Global variables
+require get_template_directory() . '/inc/globals.php';
+require get_template_directory() . '/inc/utils.php';
+
 // Custom template tags for this theme.
 require get_template_directory() . '/inc/template-tags.php';
 
 // Functions which enhance the theme by hooking into WordPress.
 require get_template_directory() . '/inc/template-functions.php';
+
+// Custom nav walker to make site compatible with bootstrap
+require_once get_template_directory() . '/inc/wp_bootstrap_navwalker.php';
 
 // Load Jetpack compatibility file.
 if ( defined( 'JETPACK__VERSION' ) ) {
@@ -125,16 +132,10 @@ if ( class_exists( 'WooCommerce' ) ) {
 	require get_template_directory() . '/inc/woocommerce.php';
 }
 
-// Global variables
-require get_template_directory() . '/inc/globals.php';
-require get_template_directory() . '/inc/utils.php';
-
-// Post meta settings
+// Post type meta settings
 require get_template_directory() . '/inc/post-meta.php';
 require get_template_directory() . '/inc/attachment-meta.php';
+require get_template_directory() . '/gallery-metabox/gallery.php';
 
 // Theme Options
 require get_template_directory() . '/inc/theme_settings.php';
-
-// Add gallery meta box
-require get_template_directory() . '/gallery-metabox/gallery.php';
