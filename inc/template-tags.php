@@ -26,7 +26,7 @@ if ( ! function_exists( 'seattle_posted_on' ) ) :
 
 		$posted_on = sprintf(
 			/* translators: %s: post date. */
-			esc_html_x( 'Posted on %s', 'post date', 'seattle' ),
+			esc_html_x( '<span class="posted-on">Posted on</span> %s', 'post date', 'seattle' ),
 			'<a href="' . esc_url( get_permalink() ) . '" rel="bookmark">' . $time_string . '</a>'
 		);
 

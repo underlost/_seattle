@@ -11541,10 +11541,10 @@ readers do not read off random characters that represent icons */
   transition: transform .3s ease-in-out;
   transition: transform .3s ease-in-out, -webkit-transform .3s ease-in-out; }
   .page-container .page-container-inner {
-    margin-left: 40px;
-    margin-right: 40px;
-    transition: margin .3s ease-in-out;
-    -webkit-transition: margin .3s ease-in-out; }
+    margin: 0 auto;
+    max-width: 1300px;
+    -webkit-transition: margin .3s ease-in-out;
+    transition: margin .3s ease-in-out; }
 
 .screen-reader-text,
 .image-full {
@@ -11774,15 +11774,18 @@ readers do not read off random characters that represent icons */
     filter: grayscale(100%); }
     .grid-item:hover a {
       color: #fff; }
+  .grid-item.grid-sm .post-inner {
+    height: 150px; }
+    .grid-item.grid-sm .post-inner .entry-header {
+      display: none; }
   .grid-item.grid-md .post-inner {
-    height: 350px; }
+    height: 310px; }
   .grid-item.grid-lg .post-inner {
-    height: 500px; }
+    height: 600px; }
   .grid-item.grid-xl .post-inner {
-    height: 650px; }
+    height: 900px; }
   .grid-item .post-inner {
-    min-height: 300px;
-    padding: 25px;
+    min-height: 150px;
     position: relative;
     background-color: #333; }
     .grid-item .post-inner:before, .grid-item .post-inner:after {

@@ -81,10 +81,12 @@ gulp.task('concat-js', function() {
     'node_modules/jquery/dist/jquery.js',
     'inc/js/skip-link-focus-fix.js',
     'node_modules/bootstrap/dist/js/bootstrap.bundle.js',
-    'node_modules/isotope-layout/dist/isotope.pkgd.js',
+    //'node_modules/isotope-layout/dist/isotope.pkgd.js',
+    'node_modules/packery/dist/packery.pkgd.min.js',
     'node_modules/ekko-lightbox/dist/ekko-lightbox.js',
     'inc/js/theme.js',
-    'inc/js/_filter.js',
+    //'inc/js/_isotope.js',
+    'inc/js/_packery.js',
   ])
   .pipe(sourcemaps.init())
   .pipe(concat('site.js'))

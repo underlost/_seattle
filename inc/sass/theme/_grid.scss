@@ -9,18 +9,22 @@
     filter: grayscale(100%);
   }
 
+  &.grid-sm .post-inner{
+    height: 150px;
+    .entry-header {display: none;}
+  }
   &.grid-md .post-inner{
-    height: 350px;
+    height: 310px;
   }
   &.grid-lg .post-inner{
-    height: 500px;
+    height: 600px;
   }
   &.grid-xl .post-inner {
-    height: 650px;
+    height: 900px;
   }
   .post-inner {
-    min-height: 300px;
-    padding: 25px;
+    min-height: 150px;
+    //padding: 25px;
     position: relative;
     background-color: #333;
     &:before,

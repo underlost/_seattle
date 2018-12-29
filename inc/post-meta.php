@@ -29,18 +29,26 @@ function render_post_meta_box($object, $box){
     if(empty($curr_featured)) { $curr_featured = false; }
     $curr_nsfw = get_post_meta($object->ID, 'nsfw', true);
     if(empty($curr_nsfw)) { $curr_nsfw = false; }
+    $curr_lightbox = get_post_meta($object->ID, 'lightbox', true);
+    if(empty($curr_lightbox)) { $curr_lightbox = false; }
 
     wp_nonce_field( basename( __FILE__ ), 'post_meta_nonce' ); ?>
 
     <p>
       <label for="featured">
-        <input type="checkbox" name="featured" value="true" <?php if($curr_featured){ echo "checked"; } ?>> <strong>Featured Image</strong>
+        <input type="checkbox" name="featured" value="true" <?php if($curr_featured){ echo "checked"; } ?>> <strong>Featured</strong>
       </label>
     </p>
 
     <p>
       <label for="nsfw">
         <input type="checkbox" name="nsfw" value="true" <?php if($curr_nsfw){ echo "checked"; } ?>> <strong>NSFW</strong>
+      </label>
+    </p>
+
+    <p>
+      <label for="lightbox">
+        <input type="checkbox" name="lightbox" value="true" <?php if($curr_lightbox){ echo "checked"; } ?>> <strong>Lightbox mode</strong>
       </label>
     </p>
 
@@ -85,7 +93,7 @@ function save_post_meta( $post_id, $post ) {
     /* Check if the current user has permission to edit the post. */
     if ( !current_user_can( $post_type->cap->edit_post, $post_id ) )
     return $post_id;
-    $meta_keys = array('display-img-size', 'display-img-height', 'source-name', 'source-url', 'featured', 'nsfw',);
+    $meta_keys = array('display-img-size', 'display-img-height', 'source-name', 'source-url', 'featured', 'nsfw', 'lightbox');
     foreach($meta_keys as $key){
       $meta_val = get_post_val($key);
       update_post_meta($post_id, $key, $meta_val);

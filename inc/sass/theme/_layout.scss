@@ -5,10 +5,9 @@
   transition: transform .3s ease-in-out;
 
   .page-container-inner {
-    margin-left: 40px;
-    margin-right: 40px;
+    margin: 0 auto;
+    max-width: 1300px;
     transition: margin .3s ease-in-out;
-    -webkit-transition: margin .3s ease-in-out;
   }
 }
 

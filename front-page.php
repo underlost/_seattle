@@ -7,6 +7,11 @@
  *
  * @package Seattle
  */
+ $args = array(
+	 'posts_per_page' => 25,
+	 'post_status'  => 'publish',
+ );
+ $the_query = new WP_Query( $args );
 
 get_header(); ?>
 
@@ -17,14 +22,16 @@ get_header(); ?>
 			</header>
 	    <div class="row grid">
 	    <div class="grid-sizer col-md-1 col-6"></div>
-			<?php if ( have_posts() ) :
+			<?php if ( $the_query->have_posts() ) {
 				/* Start the Loop */
-				while ( have_posts() ) : the_post();
+				while ( $the_query->have_posts() ) {
+					$the_query->the_post();
 					get_template_part( 'template-parts/content-grid' );
-				endwhile;
-			else :
+				}
+				wp_reset_postdata();
+			} else {
 				get_template_part( 'template-parts/content', 'none' );
-			endif; ?>
+			} ?>
 	    </div>
 		</main><!-- #main -->
 	</div><!-- #primary -->

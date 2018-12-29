@@ -10,6 +10,7 @@
 $square_thumbnail = true;
 $thumbnail_arr = wp_get_attachment_image_src(get_post_thumbnail_id(get_the_ID()), $square_thumbnail ? 'large' : 'medium');
 $thumbnail_url = !empty($thumbnail_arr[0]) ? $thumbnail_arr[0] : '';
+$url = get_the_permalink();
 
 $sizeWidth = get_post_meta(get_the_ID(), 'display-img-size', true);
 $sizeHeight = get_post_meta(get_the_ID(), 'display-img-height', true);
@@ -26,7 +27,7 @@ $classes = array(
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class( $classes ); ?>>
-  <div href="#" class="post-inner d-flex align-items-center fsr-holder">
+  <a href="<?php echo $url; ?>" class="post-inner d-flex align-items-center fsr-holder">
     <img src="<?php echo $thumbnail_url ?>" alt="<?php the_title(); ?>" class="image-full" />
   	<header class="entry-header text-center">
   		<?php
@@ -68,5 +69,5 @@ $classes = array(
   	<footer class="entry-footer">
   		<?php seattle_entry_footer(); ?>
   	</footer><!-- .entry-footer -->
-  </div>
+  </a>
 </article><!-- #post-<?php the_ID(); ?> -->
