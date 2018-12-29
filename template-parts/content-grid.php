@@ -22,19 +22,16 @@ $classes = array(
   $sizeHeight,
   'grid-item',
   'grid-item-clickable',
-);
-
-?>
+); ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class( $classes ); ?>>
-  <a href="<?php echo $url; ?>" class="post-inner d-flex align-items-center fsr-holder">
+  <a href="<?php echo $url; ?>" rel="bookmark" class="post-inner d-flex align-items-center fsr-holder">
     <img src="<?php echo $thumbnail_url ?>" alt="<?php the_title(); ?>" class="image-full" />
   	<header class="entry-header text-center">
-  		<?php
-  		if ( is_singular() ) :
+  		<?php if ( is_singular() ) :
   			the_title( '<h1 class="entry-title">', '</h1>' );
   		else :
-  			the_title( '<h2 class="entry-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h2>' );
+  			the_title( '<h4 class="entry-title h4">', '</h4>' );
   		endif;
   		if ( 'post' === get_post_type() ) : ?>
   		<div class="entry-meta">
@@ -44,6 +41,7 @@ $classes = array(
   		endif; ?>
   	</header><!-- .entry-header -->
 
+    <?php if ( is_singular() ) {?>
   	<div class="entry-content">
   		<?php
   			the_content( sprintf(
@@ -65,9 +63,10 @@ $classes = array(
   			) );
   		?>
   	</div><!-- .entry-content -->
-
-  	<footer class="entry-footer">
-  		<?php seattle_entry_footer(); ?>
-  	</footer><!-- .entry-footer -->
+      <footer class="entry-footer">
+    		<?php seattle_entry_footer(); ?>
+    	</footer><!-- .entry-footer -->
+    <?php } ?>
+    
   </a>
 </article><!-- #post-<?php the_ID(); ?> -->

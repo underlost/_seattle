@@ -11,7 +11,7 @@ foreach ($images as $image) {
 
   $image_sizeWidth = get_post_meta($image, 'display-img-size', true);
   $image_sizeHeight = get_post_meta($image, 'display-img-height', true);
-  if(empty($image_sizeWidth)) { $image_sizeWidth = 'col-md-6'; }
+  if(empty($image_sizeWidth)) { $image_sizeWidth = 'col-md-4'; }
   if(empty($image_sizeHeight)) { $image_sizeHeight = 'grid-md'; }
 ?>
   <article class="hentry grid-item <?php echo $image_sizeWidth; ?>">
