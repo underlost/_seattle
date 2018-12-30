@@ -22,6 +22,7 @@
     <div class="featured-image">
       <img src="<?php echo $thumbnail_url ?>" alt="<?php the_title(); ?>" />
     </div>
+    <?php get_template_part( 'template-parts/attachment_gallery' ); ?>
   </div>
   <?php } ?>
   <div class="col-md-6 order-md-1">

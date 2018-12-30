@@ -16948,7 +16948,7 @@ function check_if_in_view(){
 
 var grid = undefined;
 
-jQuery(document).ready(function(){
+jQuery(window).on('load', function() {
     grid = jQuery('.grid').packery({
         itemSelector: '.grid-item', // use a separate class for itemSelector, other than .col-
         percentPosition: true,

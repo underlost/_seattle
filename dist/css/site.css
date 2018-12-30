@@ -11893,6 +11893,12 @@ readers do not read off random characters that represent icons */
   .hentry .entry-footer .cat-links {
     display: block; }
 
+.gallery-item .featured-image > img {
+  opacity: 0;
+  display: block;
+  width: 100%;
+  height: auto; }
+
 .not-found .page-content {
   background-color: #febf4b;
   color: #09080d; }

@@ -88,7 +88,4 @@ if ($sizeWidth == 'col-md-1' || $sizeWidth == 'col-md-2' || $sizeWidth == 'col-m
   </div><!-- .entry-inner-->
 </article><!-- #post-<?php the_ID(); ?> -->
 
-<div class="row grid">
-<div class="grid-sizer col-md-1 col-sm-6"></div>
 <?php get_template_part( 'template-parts/attachment_gallery' ); ?>
-</div>
