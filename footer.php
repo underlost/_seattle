@@ -52,7 +52,6 @@
 		</div><!-- .site-info -->
 	</footer><!-- #colophon -->
 </div><!-- .page-container-inner -->
-<?php //get_template_part( 'template-parts/sidebar' ); ?>
 
 </div><!-- #page -->
 
