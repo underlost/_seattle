@@ -7,8 +7,9 @@
  * @package Seattle
  */
 
+$format = get_post_format(get_the_ID());
 $square_thumbnail = true;
-$thumbnail_arr = wp_get_attachment_image_src(get_post_thumbnail_id(get_the_ID()), $square_thumbnail ? 'large' : 'medium');
+$thumbnail_arr = wp_get_attachment_image_src(get_post_thumbnail_id(get_the_ID()), 'large');
 $thumbnail_url = !empty($thumbnail_arr[0]) ? $thumbnail_arr[0] : '';
 $url = get_the_permalink();
 
@@ -22,10 +23,18 @@ $classes = array(
   $sizeHeight,
   'grid-item',
   'grid-item-clickable',
-); ?>
+);
 
-<article id="post-<?php the_ID(); ?>" <?php post_class( $classes ); ?>>
-  <a href="<?php echo $url; ?>" rel="bookmark" class="post-inner d-flex align-items-center fsr-holder fsr-lazy" data-src="<?php echo $thumbnail_url ?>">
+if ($format == 'aside') {
+  $element = 'aside';
+  $lightbox = 'data-featherlight="'.$thumbnail_url.'"';
+} else {
+  $element = 'article';
+}
+?>
+
+<<?php echo $element; ?> id="post-<?php the_ID(); ?>" <?php post_class( $classes ); ?>>
+  <a href="<?php echo $url; ?>" rel="bookmark" <?php echo $lightbox; ?> class="post-inner d-flex align-items-center fsr-holder fsr-lazy" data-src="<?php echo $thumbnail_url ?>">
     <img src="<?php echo $thumbnail_url ?>" alt="<?php the_title(); ?>" class="sr-only" />
   	<header class="entry-header text-center">
   		<?php if ( is_singular() ) :
@@ -69,4 +78,4 @@ $classes = array(
     <?php } ?>
 
   </a>
-</article><!-- #post-<?php the_ID(); ?> -->
+</<?php echo $element; ?>><!-- #post-<?php the_ID(); ?> -->

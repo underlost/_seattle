@@ -3,6 +3,7 @@
 * Updated to latest version of bootstrap
 * Switched to packery.js for layout
 * Added Bootstrap navwalker for better custom menus in header
+* Added featherlight lightbox for aside style posts
 ---
 ### 2.0.6
 * Reorganized theme structure.
