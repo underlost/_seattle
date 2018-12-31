@@ -8,16 +8,16 @@
     a{color: $white;}
     filter: grayscale(100%);
   }
-
   &.grid-sm .post-inner{
     height: 150px;
     .entry-header {display: none;}
+    &::before { border-width: 0px; }
   }
   &.grid-md .post-inner{
     height: 310px;
   }
   &.grid-lg .post-inner{
-    height: 600px;
+    height: 630px;
   }
   &.grid-xl .post-inner {
     height: 900px;

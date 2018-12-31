@@ -8,7 +8,7 @@
  * @package Seattle
  */
  $args = array(
-	 'posts_per_page' => 25,
+	 'posts_per_page' => 100,
 	 'post_status'  => 'publish',
  );
  $the_query = new WP_Query( $args );

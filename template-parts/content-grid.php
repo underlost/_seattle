@@ -25,8 +25,8 @@ $classes = array(
 ); ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class( $classes ); ?>>
-  <a href="<?php echo $url; ?>" rel="bookmark" class="post-inner d-flex align-items-center fsr-holder">
-    <img src="<?php echo $thumbnail_url ?>" alt="<?php the_title(); ?>" class="image-full" />
+  <a href="<?php echo $url; ?>" rel="bookmark" class="post-inner d-flex align-items-center fsr-holder fsr-lazy" data-src="<?php echo $thumbnail_url ?>">
+    <img src="<?php echo $thumbnail_url ?>" alt="<?php the_title(); ?>" class="sr-only" />
   	<header class="entry-header text-center">
   		<?php if ( is_singular() ) :
   			the_title( '<h1 class="entry-title">', '</h1>' );
@@ -67,6 +67,6 @@ $classes = array(
     		<?php seattle_entry_footer(); ?>
     	</footer><!-- .entry-footer -->
     <?php } ?>
-    
+
   </a>
 </article><!-- #post-<?php the_ID(); ?> -->

@@ -11778,10 +11778,12 @@ readers do not read off random characters that represent icons */
     height: 150px; }
     .grid-item.grid-sm .post-inner .entry-header {
       display: none; }
+    .grid-item.grid-sm .post-inner::before {
+      border-width: 0px; }
   .grid-item.grid-md .post-inner {
     height: 310px; }
   .grid-item.grid-lg .post-inner {
-    height: 600px; }
+    height: 630px; }
   .grid-item.grid-xl .post-inner {
     height: 900px; }
   .grid-item .post-inner {

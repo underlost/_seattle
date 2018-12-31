@@ -80,6 +80,7 @@ gulp.task('concat-js', function() {
     //'inc/js/skip-link-focus-fix.js',
     'node_modules/jquery/dist/jquery.js',
     'inc/js/skip-link-focus-fix.js',
+    'node_modules/jquery-lazy/jquery.lazy.min.js',
     'node_modules/bootstrap/dist/js/bootstrap.bundle.js',
     //'node_modules/isotope-layout/dist/isotope.pkgd.js',
     'node_modules/packery/dist/packery.pkgd.min.js',

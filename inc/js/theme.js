@@ -11,6 +11,7 @@ $doc.ready(function () {
   $body = jQuery('body');
   fullscreener(jQuery('.' + $classes.FsrImage));
   check_if_in_view();
+  $('.fsr-lazy').Lazy();
 });
 
 function fullscreener(_container) {

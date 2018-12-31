@@ -22,9 +22,9 @@ function render_post_meta_box($object, $box){
     global $image_size_options;
     global $image_height_options;
     $curr_img_size = get_post_meta($object->ID, 'display-img-size', true);
-    if(empty($curr_img_size)) { $curr_img_size = 'col-md-4'; }
+    if(empty($curr_img_size)) { $curr_img_size = 'col-md-2 col-6'; }
     $curr_height_size = get_post_meta($object->ID, 'display-img-height', true);
-    if(empty($curr_height_size)) { $curr_height_size = 'grid-md'; }
+    if(empty($curr_height_size)) { $curr_height_size = 'grid-sm'; }
     $curr_featured = get_post_meta($object->ID, 'featured', true);
     if(empty($curr_featured)) { $curr_featured = false; }
     $curr_nsfw = get_post_meta($object->ID, 'nsfw', true);

@@ -62,6 +62,18 @@ if ( ! function_exists( 'seattle_setup' ) ) :
 
 		// Add theme support for selective refresh for widgets.
 		add_theme_support( 'customize-selective-refresh-widgets' );
+
+		/**
+		* Add post type formats
+		*
+		* @link https://codex.wordpress.org/Post_Formats
+		*/
+
+		add_theme_support( 'post-formats', array(
+			'aside',
+			'gallery',
+			'video',
+		));
 	}
 endif;
 add_action( 'after_setup_theme', 'seattle_setup' );
@@ -108,6 +120,21 @@ function seattle_scripts() {
 	}
 }
 add_action( 'wp_enqueue_scripts', 'seattle_scripts' );
+
+add_filter('manage_posts_columns', 'add_img_column');
+add_filter('manage_posts_custom_column', 'manage_img_column', 10, 2);
+
+function add_img_column($columns) {
+  $columns = array_slice($columns, 0, 1, true) + array("img" => "Featured Image") + array_slice($columns, 1, count($columns) - 1, true);
+  return $columns;
+}
+
+function manage_img_column($column_name, $post_id) {
+ if( $column_name == 'img' ) {
+  echo get_the_post_thumbnail($post_id, 'thumbnail');
+ }
+ return $column_name;
+}
 
 // Global variables
 require get_template_directory() . '/inc/globals.php';
