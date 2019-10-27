@@ -1,25 +1,22 @@
 /*!
-* Based on UnderTasker
-* Copyright 2018 Tyler Rilling
-* Licensed under MIT (https://github.com/underlost/Undertasker/blob/master/LICENSE)
-*/
+ * Based on UnderTasker by Tyler Rilling
+ * Copyright 2019 Tyler Rilling
+ * Licensed under MIT (https://github.com/underlost/Undertasker/blob/master/LICENSE)
+ */
 
 // grab our packages
-var gulp = require('gulp'),
-child = require('child_process');
-jshint = require('gulp-jshint');
-sass = require('gulp-sass');
-sourcemaps = require('gulp-sourcemaps');
-concat = require('gulp-concat');
-autoprefixer = require('gulp-autoprefixer');
-cleanCSS = require('gulp-clean-css');
-rename = require('gulp-rename'); // to rename any file
-uglify = require('gulp-uglify-es').default;
-del = require('del');
-stylish = require('jshint-stylish');
-runSequence = require('run-sequence');
-gutil = require('gulp-util');
-imagemin = require('gulp-imagemin');
+var gulp   = require('gulp'),
+    jshint = require('gulp-jshint');
+    sass = require('gulp-sass');
+    sourcemaps = require('gulp-sourcemaps');
+    concat = require('gulp-concat');
+    autoprefixer = require('gulp-autoprefixer');
+    cleanCSS = require('gulp-clean-css');
+    rename = require('gulp-rename'); // to rename any file
+    uglify = require('gulp-uglify-es').default;
+    del = require('del');
+    stylish = require('jshint-stylish');
+    imagemin = require('gulp-imagemin');
 
 // Cleans the web dist folder
 gulp.task('clean', function () {
@@ -28,31 +25,30 @@ gulp.task('clean', function () {
 
 // Copy fonts task
 gulp.task('copy-fonts', function() {
-  gulp.src('inc/fonts/**/*.{ttf,woff,eof,svg,eot,woff2,otf}')
-  .pipe(gulp.dest('dist/fonts'));
-  gulp.src('node_modules/@fortawesome/fontawesome-free/webfonts/*.{ttf,woff,eof,svg,eot,woff2,otf}')
+  return gulp.src([
+    'inc/fonts/**/*.{ttf,woff,eof,svg,eot,woff2,otf}',
+    'node_modules/@fortawesome/fontawesome-free/webfonts/*.{ttf,woff,eof,svg,eot,woff2,otf}',
+  ])
   .pipe(gulp.dest('dist/fonts'));
 });
-
 // Copy Components
-gulp.task('copy-components', function() {
-  gulp.src('node_modules/@fortawesome/fontawesome-free/scss/**/*.*')
-  .pipe(gulp.dest('inc/sass/font-awesome'));
-  gulp.src('node_modules/bootstrap/scss/**/*.*')
+gulp.task('copy-bootstrap', function() {
+  return gulp.src('node_modules/bootstrap/scss/**/*.*')
   .pipe(gulp.dest('inc/sass/bootstrap'));
 });
-
-gulp.task('install', function(callback) {
-  runSequence(
-    'copy-components', 'copy-fonts', callback
-  );
+gulp.task('copy-font-awesome', function() {
+  return gulp.src('node_modules/@fortawesome/fontawesome-free/scss/**/*.*')
+  .pipe(gulp.dest('inc/sass/font-awesome'));
 });
+
+// Install task
+gulp.task('install', gulp.parallel('copy-bootstrap', 'copy-font-awesome', 'copy-fonts'));
 
 // Minify Images
 gulp.task('imagemin', function() {
-  gulp.src('inc/img/**/*.{jpg,png,gif,ico}')
-  .pipe(imagemin())
-  .pipe(gulp.dest('dist/img'))
+  return gulp.src('inc/img/**/*.{jpg,png,gif,ico}')
+	.pipe(imagemin())
+	.pipe(gulp.dest('dist/img'))
 });
 
 // CSS Build Task
@@ -61,10 +57,7 @@ gulp.task('build-css', function() {
   //.pipe(sourcemaps.init())  // Process the original sources
   .pipe(sass().on('error', sass.logError))
   //.pipe(sourcemaps.write()) // Add the map to modified source.
-  .pipe(autoprefixer({
-    browsers: ['last 2 versions'],
-    cascade: false
-  }))
+  .pipe(autoprefixer())
   .pipe(gulp.dest('dist/css'))
   .pipe(cleanCSS())
   .pipe(rename('site.min.css'))
@@ -76,11 +69,10 @@ gulp.task('build-css', function() {
 gulp.task('concat-js', function() {
   return gulp.src([
     // components
-    //'inc/js/navigation.js',
-    //'inc/js/skip-link-focus-fix.js',
     'node_modules/jquery/dist/jquery.js',
     'inc/js/skip-link-focus-fix.js',
-    'node_modules/jquery-lazy/jquery.lazy.min.js',
+    //'node_modules/jquery-lazy/jquery.lazy.min.js',
+    'node_modules/vanilla-lazyload/dist/lazyload.min.js',
     'node_modules/bootstrap/dist/js/bootstrap.bundle.js',
     //'node_modules/isotope-layout/dist/isotope.pkgd.js',
     'node_modules/packery/dist/packery.pkgd.min.js',
@@ -111,23 +103,16 @@ gulp.task('shrink-js', function() {
 });
 
 // Default Javascript build task
-gulp.task('build-js', function(callback) {
-  runSequence('concat-js', 'shrink-js', callback);
-});
+gulp.task('build-js', gulp.series('concat-js', 'shrink-js'));
 
 // configure which files to watch and what tasks to use on file changes
 gulp.task('watch', function() {
-  gulp.watch('inc/js/**/*.js', ['build-js']);
-  gulp.watch('inc/sass/**/*.scss', ['build-css' ] );
+  gulp.watch('inc/js/**/*.js', gulp.series('build-js'));
+  gulp.watch('inc/sass/**/*.scss', gulp.series('build-css'));
 });
 
 // Default build task
-gulp.task('build', function(callback) {
-  runSequence(
-    'copy-fonts', 'imagemin',
-    ['build-css', 'build-js'], callback
-  );
-});
+gulp.task('build', gulp.parallel('build-css', 'build-js'));
 
-// Default build task
-gulp.task('default', ['build', 'watch']);
+// Default task
+gulp.task('default', gulp.series('build', 'watch'));

@@ -1,3 +1,8 @@
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
 .page-container {
   padding-top: 10px;
   position: relative;
@@ -31,3 +36,4 @@
     letter-spacing: 2.5px;
   }
 }
+

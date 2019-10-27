@@ -66,19 +66,26 @@ function render_post_meta_box($object, $box){
       <strong>Image Height</strong>
       <br />
       <select name="display-img-height">
-          <?php foreach($image_height_options as $key => $val){ ?>
-              <option value="<?php echo $key; ?>" <?php if($key == $curr_height_size){ echo "selected"; }?>><?php echo $val; ?></option>
-          <?php } ?>
+        <?php foreach($image_height_options as $key => $val){ ?>
+          <option value="<?php echo $key; ?>" <?php if($key == $curr_height_size){ echo "selected"; }?>><?php echo $val; ?></option>
+        <?php } ?>
       </select>
     </p>
-
     <p>
-        <label for="source-name">Source Name</label><br />
-        <input type="text" name="source-name" id="source-name" value="<?php echo get_post_meta($object->ID, 'source-name', true); ?>"/>
+      <label for="location">Location</label><br />
+      <input type="text" name="location" id="location" value="<?php echo get_post_meta($object->ID, 'location', true); ?>"/>
     </p>
     <p>
-        <label for="source-url">Source URL</label><br />
-        <input type="text" name="source-url" id="source-url" value="<?php echo get_post_meta($object->ID, 'source-url', true); ?>"/>
+      <label for="display-date">Display Date</label><br />
+      <input type="text" name="display-date" id="display-date" value="<?php echo get_post_meta($object->ID, 'display-date', true); ?>"/>
+    </p>
+    <p>
+      <label for="source-name">Source Name</label><br />
+      <input type="text" name="source-name" id="source-name" value="<?php echo get_post_meta($object->ID, 'source-name', true); ?>"/>
+    </p>
+    <p>
+      <label for="source-url">Source URL</label><br />
+      <input type="text" name="source-url" id="source-url" value="<?php echo get_post_meta($object->ID, 'source-url', true); ?>"/>
     </p>
 <?php
 }
@@ -93,7 +100,7 @@ function save_post_meta( $post_id, $post ) {
     /* Check if the current user has permission to edit the post. */
     if ( !current_user_can( $post_type->cap->edit_post, $post_id ) )
     return $post_id;
-    $meta_keys = array('display-img-size', 'display-img-height', 'source-name', 'source-url', 'featured', 'nsfw', 'lightbox');
+    $meta_keys = array('display-img-size', 'display-img-height', 'source-name', 'source-url', 'featured', 'nsfw', 'lightbox', 'location', 'display-date');
     foreach($meta_keys as $key){
       $meta_val = get_post_val($key);
       update_post_meta($post_id, $key, $meta_val);

@@ -34,13 +34,15 @@ if ($format == 'aside') {
 ?>
 
 <<?php echo $element; ?> id="post-<?php the_ID(); ?>" <?php post_class( $classes ); ?>>
-  <a href="<?php echo $url; ?>" rel="bookmark" <?php echo $lightbox; ?> class="post-inner d-flex align-items-center fsr-holder fsr-lazy" data-src="<?php echo $thumbnail_url ?>">
-    <img src="<?php echo $thumbnail_url ?>" alt="<?php the_title(); ?>" class="sr-only" />
+	<a href="<?php echo $url; ?>" rel="bookmark" <?php echo $lightbox; ?> class="post-inner d-flex align-items-center" data-bg="url(<?php echo $thumbnail_url ?>)">
+	<div class="image-wrapper">
+		<img class="fsr-lazy" alt="<?php echo get_the_title(); ?>" data-src="<?php echo $thumbnail_url ?>" />
+	</div>
   	<header class="entry-header text-center">
   		<?php if ( is_singular() ) :
   			the_title( '<h1 class="entry-title">', '</h1>' );
   		else :
-  			the_title( '<h4 class="entry-title h4">', '</h4>' );
+  			the_title( '<h2 class="entry-title h4 px-lg-5">', '</h2>' );
   		endif;
   		if ( 'post' === get_post_type() ) : ?>
   		<div class="entry-meta">
@@ -64,8 +66,7 @@ if ($format == 'aside') {
   					)
   				),
   				get_the_title()
-  			) );
-
+  			));
   			wp_link_pages( array(
   				'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'seattle' ),
   				'after'  => '</div>',
@@ -76,6 +77,5 @@ if ($format == 'aside') {
     		<?php seattle_entry_footer(); ?>
     	</footer><!-- .entry-footer -->
     <?php } ?>
-
   </a>
 </<?php echo $element; ?>><!-- #post-<?php the_ID(); ?> -->

@@ -11,7 +11,12 @@ $doc.ready(function () {
   $body = jQuery('body');
   fullscreener(jQuery('.' + $classes.FsrImage));
   check_if_in_view();
-  $('.fsr-lazy').Lazy();
+  //$('.fsr-lazy').Lazy();
+
+  var lazyLoadInstance = new LazyLoad({
+      elements_selector: ".fsr-lazy"
+      // ... more custom settings?
+  });
 });
 
 function fullscreener(_container) {

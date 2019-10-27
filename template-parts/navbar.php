@@ -13,14 +13,7 @@ $categories = get_categories( array(
 ) );
 ?>
 
-<nav class="navbar navbar-expand-lg navbar-dark site-header navbar-filter mb-3">
-  <a class="navbar-brand" href="<?php echo home_url(); ?>">
-    <?php if ($site_logo) { ?>
-    <img src="<?php echo get_option('site_logo'); ?>" height="36" alt="<?php bloginfo( 'name' ); ?>" />
-    <?php } else { ?>
-    <img src="<?php echo get_template_directory_uri() . '/inc/svg/logo.svg' ?>" width="36" height="36" alt="<?php bloginfo( 'name' ); ?>">
-    <?php }?>
-  </a>
+<nav class="navbar navbar-expand-lg navbar-dark">
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>

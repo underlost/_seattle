@@ -5,6 +5,7 @@ $body-bg: #09080d;
 $body-color: #d2d2d8;
 $primary: #d2d2d8 !default;
 $secondary: #febf4b !default;
+$tertiary: #16151a;
 
 //Font Awesome
 $fa-font-path: "../fonts" !default;
@@ -27,3 +28,10 @@ $input-disabled-bg: $body-bg !default;
 $input-color: $white !default;
 $input-border-color: lighten($body-bg, 15%) !default;
 $input-focus-border-color: $yellow !default;
+
+$container-max-widths: (
+  sm: 540px,
+  md: 720px,
+  lg: 960px,
+  xl: 1400px
+);

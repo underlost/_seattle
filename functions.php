@@ -160,9 +160,9 @@ if ( class_exists( 'WooCommerce' ) ) {
 }
 
 // Post type meta settings
-require get_template_directory() . '/inc/post-meta.php';
-require get_template_directory() . '/inc/attachment-meta.php';
-require get_template_directory() . '/gallery-metabox/gallery.php';
+require get_template_directory() . '/inc/post_type/post-meta.php';
+require get_template_directory() . '/inc/post_type/attachment-meta.php';
+require get_template_directory() . '/inc/gallery-metabox/gallery.php';
 
 // Theme Options
 require get_template_directory() . '/inc/theme_settings.php';
