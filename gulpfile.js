@@ -79,7 +79,7 @@ gulp.task('concat-js', function() {
     'node_modules/featherlight/release/featherlight.min.js',
     'inc/js/theme.js',
     //'inc/js/_isotope.js',
-    'inc/js/_packery.js',
+    //'inc/js/_packery.js',
   ])
   .pipe(sourcemaps.init())
   .pipe(concat('site.js'))

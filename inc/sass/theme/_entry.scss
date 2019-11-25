@@ -1,3 +1,12 @@
+.entry-title {
+  font-size: 1.5rem;
+  color: $white;
+  font-family: $font-family-serif;
+  &.h1 {
+    font-size: 2.25rem;
+  }
+}
+
 .hentry {
   .featured-image {
     img {
@@ -13,11 +22,7 @@
    a {color: #74757a;}
   }
   .entry-header {
-    .entry-title {
-      font-size: 1.5rem;
-      color: $white;
-      font-family: $font-family-serif;
-    }
+    
     .entry-meta {
       font-size: 14px;
       letter-spacing: 2px;

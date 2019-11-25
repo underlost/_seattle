@@ -4,15 +4,11 @@
 
 ---
 
-### 3.9.0
-
-
-
 ### 3.8.0
 
 * File cleanup
 * Additional Field options for posts
-* More to come soon
+* Better lazy loading for image
 
 ### 3.1.0
 

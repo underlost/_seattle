@@ -5,8 +5,8 @@
   "main": "gulpfile.js",
   "license": "MIT",
   "scripts": {
-    "prestart": "yarn install",
-    "start": "gulp build"
+    "prestart": "gulp install",
+    "build": "gulp build"
   },
   "dependencies": {
     "@fortawesome/fontawesome-free": "^5.11.2",

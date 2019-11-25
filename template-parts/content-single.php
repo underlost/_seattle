@@ -33,7 +33,7 @@ if ($sizeWidth == 'col-md-1' || $sizeWidth == 'col-md-2' || $sizeWidth == 'col-m
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-  <div class="entry-inner mb-5">
+  <div class="entry-inner mb-3">
     <div class="row align-items-center">
       <div class="<?php echo $colWidth_1; ?>">
         <div class="featured-image">
@@ -45,7 +45,7 @@ if ($sizeWidth == 'col-md-1' || $sizeWidth == 'col-md-2' || $sizeWidth == 'col-m
         <header class="entry-header pt-4 mb-4">
           <?php
           if ( is_singular() ) :
-            the_title( '<h1 class="entry-title mb-0">', '</h1>' );
+            the_title( '<h1 class="entry-title h1 mb-0">', '</h1>' );
           else :
             the_title( '<h2 class="entry-title mb-0"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h2>' );
           endif;
@@ -63,7 +63,7 @@ if ($sizeWidth == 'col-md-1' || $sizeWidth == 'col-md-2' || $sizeWidth == 'col-m
       			the_content( sprintf(
       				wp_kses(
       					/* translators: %s: Name of current post. Only visible to screen readers */
-      					__( 'Continue reading<span class="screen-reader-text sr-only"> "%s"</span>', 'seattle' ),
+      					__( 'Continue reading<span class="sr-only"> "%s"</span>', 'seattle' ),
       					array(
       						'span' => array(
       							'class' => array(),

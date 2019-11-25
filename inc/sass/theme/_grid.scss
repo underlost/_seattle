@@ -134,3 +134,12 @@
   .entry-content { display: none; }
   .entry-footer { display: none; }
 }
+
+
+.fsr-lazy {
+  transition: all .3s;
+  opacity: 0;
+  &.loaded {
+    opacity: 1 !important;
+  }
+}

@@ -25,11 +25,12 @@ $classes = array(
   'grid-item-clickable',
 );
 
+$lightbox = null;
+$element = 'article';
+
 if ($format == 'aside') {
   $element = 'aside';
   $lightbox = 'data-featherlight="'.$thumbnail_url.'"';
-} else {
-  $element = 'article';
 }
 ?>
 

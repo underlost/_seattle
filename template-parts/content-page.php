@@ -26,10 +26,10 @@
   </div>
   <?php } ?>
   <div class="col-md-6 order-md-1">
-	<header class="entry-header">
-		<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
-	</header><!-- .entry-header -->
-	<div class="entry-content">
+		<header class="entry-header">
+			<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
+		</header><!-- .entry-header -->
+		<div class="entry-content">
 		<?php
 			the_content();
 			wp_link_pages( array(
@@ -37,8 +37,8 @@
 				'after'  => '</div>',
 			) );
 		?>
-	</div><!-- .entry-content -->
-	<?php if ( get_edit_post_link() ) : ?>
+		</div><!-- .entry-content -->
+		<?php if ( get_edit_post_link() ) : ?>
 		<footer class="entry-footer">
 			<?php
 				edit_post_link(
@@ -59,7 +59,9 @@
 				);
 			?>
 		</footer><!-- .entry-footer -->
-	<?php endif; ?>
-
+		<?php endif; ?>
   </div>
+	<div class="col-md-6 order-md-1">
+		<?php get_template_part( 'template-parts/attachment_gallery' ); ?>
+	</div>
 </article><!-- #post-<?php the_ID(); ?> -->

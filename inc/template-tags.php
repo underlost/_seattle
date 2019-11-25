@@ -14,7 +14,7 @@ if ( ! function_exists( 'seattle_posted_on' ) ) :
 	function seattle_posted_on() {
 		$time_string = '<time class="entry-date published updated" datetime="%1$s">%2$s</time>';
 		if ( get_the_time( 'U' ) !== get_the_modified_time( 'U' ) ) {
-			$time_string = '<time class="entry-date published" datetime="%1$s">%2$s</time><time class="updated" datetime="%3$s">%4$s</time>';
+			$time_string = '<time class="entry-date published" datetime="%1$s">%2$s</time><time class="updated sr-only" datetime="%3$s">%4$s</time>';
 		}
 
 		$time_string = sprintf( $time_string,
@@ -26,7 +26,7 @@ if ( ! function_exists( 'seattle_posted_on' ) ) :
 
 		$posted_on = sprintf(
 			/* translators: %s: post date. */
-			esc_html_x( 'Posted on %s', 'post date', 'seattle' ),
+			esc_html_x( '%s', 'post date', 'seattle' ),
 			'<span class="datetime">' . $time_string . '</span>'
 		);
 		$byline = sprintf(
@@ -34,7 +34,7 @@ if ( ! function_exists( 'seattle_posted_on' ) ) :
 			esc_html_x( 'by %s', 'post author', 'seattle' ),
 			'<span class="author vcard">' . esc_html( get_the_author() ) . '</span>'
 		);
-		echo '<span class="posted-on">' . $posted_on . '</span><span class="byline sr-only"> ' . $byline . '</span>'; // WPCS: XSS OK.
+		echo '<span class="posted-on"><span class="sr-only">Posted on </span>' . $posted_on . '</span><span class="byline sr-only"> ' . $byline . '</span>'; // WPCS: XSS OK.
 
 	}
 endif;
@@ -67,7 +67,7 @@ if ( ! function_exists( 'seattle_entry_footer' ) ) :
 				sprintf(
 					wp_kses(
 						/* translators: %s: post title */
-						__( 'Leave a Comment<span class="screen-reader-text sr-only"> on %s</span>', 'seattle' ),
+						__( 'Leave a Comment<span class="sr-only"> on %s</span>', 'seattle' ),
 						array(
 							'span' => array(
 								'class' => array(),
@@ -84,7 +84,7 @@ if ( ! function_exists( 'seattle_entry_footer' ) ) :
 			sprintf(
 				wp_kses(
 					/* translators: %s: Name of current post. Only visible to screen readers */
-					__( 'Edit <span class="screen-reader-text sr-only">%s</span>', 'seattle' ),
+					__( 'Edit <span class="sr-only">%s</span>', 'seattle' ),
 					array(
 						'span' => array(
 							'class' => array(),

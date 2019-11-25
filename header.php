@@ -9,6 +9,8 @@
  * @package Seattle
  */
 
+	$site_logo = get_option('site_logo');
+
 ?>
 <!doctype html>
 <html <?php language_attributes(); ?>>
@@ -29,9 +31,9 @@
 
 	<header class="site-header container px-lg-0 my-3">
 		<div class="row no-gutters mb-2">
-			<a class="col-12 col-md-6 col-lg-3" href="<?php echo home_url(); ?>">
-				<?php if ($site_logo) { ?>
-					<img src="<?php echo get_option('site_logo'); ?>" height="36" alt="<?php bloginfo( 'name' ); ?>" />
+			<a class="col-12 col-md-6 col-lg-1" href="<?php echo home_url(); ?>">
+				<?php if (!empty($site_logo)) { ?>
+					<img src="<?php echo get_option('site_logo'); ?>" class="site-logo w-100" alt="<?php bloginfo( 'name' ); ?>" />
 				<?php } else { ?>
 					<img src="<?php echo get_template_directory_uri() . '/inc/svg/logo.svg' ?>" width="36" height="36" alt="<?php bloginfo( 'name' ); ?>">
 				<?php }?>

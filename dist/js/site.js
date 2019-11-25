@@ -17673,19 +17673,41 @@ var $grid_elements = jQuery('.fade-item');
 var $classes = {
     FsrHolder: 'fsr-holder',
     FsrImage: 'image-full',
+    grid = 'grid',
 };
 var $body;
+
+var $grid = jQuery('.grid').packery({
+    itemSelector: '.grid-item', // use a separate class for itemSelector, other than .col-
+    percentPosition: true,
+    initLayout: false,
+    layoutMode: 'packery',
+    //layoutMode: 'fitRows',
+    columnWidth: '.grid-sizer',
+    onLayout: function () {
+        $win.trigger("scroll");
+    }
+});
 
 $doc.ready(function () {
   $body = jQuery('body');
   fullscreener(jQuery('.' + $classes.FsrImage));
   check_if_in_view();
-  //$('.fsr-lazy').Lazy();
-
+  $grid.packery();
+  
   var lazyLoadInstance = new LazyLoad({
-      elements_selector: ".fsr-lazy"
-      // ... more custom settings?
+      elements_selector: ".fsr-lazy",
+      //failure_limit: Math.max(FsrImage.length - 1, 0)
   });
+
+  // Set custom post type for search
+  var post_type = jQuery('.post-grid').data('post-type');
+  jQuery('#search_post_type').val(post_type);
+});
+
+$win.scroll(function () {
+    console.log('scrolling...');
+    $grid.packery();
 });
 
 function fullscreener(_container) {
@@ -17748,20 +17770,5 @@ function check_if_in_view(){
       }
   });
 }
-
-var grid = undefined;
-
-jQuery(window).on('load', function() {
-    grid = jQuery('.grid').packery({
-        itemSelector: '.grid-item', // use a separate class for itemSelector, other than .col-
-        percentPosition: true,
-        layoutMode: 'packery',
-        columnWidth: '.grid-sizer',
-    });
-
-    // Set custom post type for search
-    var post_type = jQuery('.post-grid').data('post-type');
-    jQuery('#search_post_type').val(post_type);
-});
 
 //# sourceMappingURL=maps/site.js.map
