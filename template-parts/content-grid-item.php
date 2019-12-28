@@ -15,6 +15,7 @@ $url = get_the_permalink();
 
 $sizeWidth = get_post_meta(get_the_ID(), 'display-img-size', true);
 $sizeHeight = get_post_meta(get_the_ID(), 'display-img-height', true);
+$location = get_post_meta( get_the_ID(), 'location', true );
 if(empty($sizeWidth)) { $sizeWidth = 'col-md-4'; }
 if(empty($sizeHeight)) { $sizeHeight = 'grid-md'; }
 
@@ -40,14 +41,13 @@ if ($format == 'aside') {
 		<img class="fsr-lazy" alt="<?php echo get_the_title(); ?>" data-src="<?php echo $thumbnail_url ?>" />
 	</div>
   	<header class="entry-header text-center">
-  		<?php if ( is_singular() ) :
-  			the_title( '<h1 class="entry-title">', '</h1>' );
-  		else :
-  			the_title( '<h2 class="entry-title h4 px-lg-5">', '</h2>' );
-  		endif;
+  		<?php the_title( '<h2 class="entry-title h4 px-lg-5">', '</h2>' );
   		if ( 'post' === get_post_type() ) : ?>
   		<div class="entry-meta">
-  			<?php seattle_posted_on(); ?>
+  			<span class="sr-only"><?php seattle_posted_on(); ?></span>
+				<?php if (!empty($location)) { ?> 
+				<span class="location"><span class="sr-only">In: </span><?php echo $location; ?></span>
+				<?php } ?>
   		</div><!-- .entry-meta -->
   		<?php
   		endif; ?>

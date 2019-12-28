@@ -25,13 +25,13 @@
 <body <?php body_class(); ?>>
 
 <div id="page" class="site page-container">
-  <div class="page-container-inner">
+  <div class="page-container-inner px-3 px-lg-0">
 	<a class="skip-link sr-only" href="#content"><?php esc_html_e( 'Skip to content', 'seattle' ); ?></a>
 	<div id="content" class="site-content">
 
-	<header class="site-header container px-lg-0 my-3">
+	<header class="site-header container px-lg-0 my-2">
 		<div class="row no-gutters mb-2">
-			<a class="col-12 col-md-6 col-lg-1" href="<?php echo home_url(); ?>">
+			<a class="col-4 col-md-3 col-lg-1" href="<?php echo home_url(); ?>">
 				<?php if (!empty($site_logo)) { ?>
 					<img src="<?php echo get_option('site_logo'); ?>" class="site-logo w-100" alt="<?php bloginfo( 'name' ); ?>" />
 				<?php } else { ?>

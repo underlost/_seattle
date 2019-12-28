@@ -17,19 +17,12 @@
  );
 ?>
 <article id="post-<?php the_ID(); ?>" <?php post_class( $classes ); ?>>
-  <?php if ($thumbnail_url) {?>
-  <div class="col-md-5 offset-md-1 order-md-12">
-    <div class="featured-image">
-      <img src="<?php echo $thumbnail_url ?>" alt="<?php the_title(); ?>" />
-    </div>
-    <?php get_template_part( 'template-parts/attachment_gallery' ); ?>
-  </div>
-  <?php } ?>
-  <div class="col-md-6 order-md-1">
-		<header class="entry-header">
-			<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
+  
+  <div class="col-lg-6 order-lg-1">
+		<header class="entry-header pl-lg-5 mt-4">
+			<?php the_title( '<h1 class="entry-title h2">', '</h1>' ); ?>
 		</header><!-- .entry-header -->
-		<div class="entry-content">
+		<div class="entry-content pl-lg-5">
 		<?php
 			the_content();
 			wp_link_pages( array(
@@ -61,7 +54,12 @@
 		</footer><!-- .entry-footer -->
 		<?php endif; ?>
   </div>
-	<div class="col-md-6 order-md-1">
-		<?php get_template_part( 'template-parts/attachment_gallery' ); ?>
+	<div class="offset-lg-1 col-lg-5 order-md-1">
+			<?php if ($thumbnail_url) {?>
+    <div class="featured-image my-2">
+      <img src="<?php echo $thumbnail_url ?>" alt="<?php the_title(); ?>" />
+  </div>
+  <?php } ?>
+		<?php get_template_part( 'template-parts/attachment_gallery_page' ); ?>
 	</div>
 </article><!-- #post-<?php the_ID(); ?> -->

@@ -1,0 +1,10 @@
+{
+  "tabWidth": 2,
+  "singleQuote": true,
+  "braceStyle": "1tbs",
+  "trailingCommaPHP": "all",
+  "endOfLine": "lf",
+  "trailingComma": "es5",
+  "printWidth": 480,
+  "jsxBracketSameLine": true
+}

@@ -1,3 +1,5 @@
+// Unused
+
 var grid = undefined;
 
 jQuery(document).ready(function(){

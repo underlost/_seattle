@@ -1,6 +1,5 @@
 .site-header {
-  color: #16151a;
-  background-color: none;
+  color: $primary;
   border-bottom: 1px solid lighten($tertiary, 15%);
   font-family: $font-family-serif;
   text-transform: uppercase;
@@ -11,16 +10,21 @@
   }
   .navbar-dark {
     background-color: $tertiary;
-
+  }
+  .dropdown-menu {
+    .nav-item {padding-right: 0;}
   }
 }
 
 #search_form {
+  
   .search-input {
     text-align: right;
     border-width: 0;
     padding-right: 10px;
     background-color: transparent;
+    transition: ease-in-out all .3s;
+    max-width: 150px;
 
     &:focus {
       background-color: $secondary;

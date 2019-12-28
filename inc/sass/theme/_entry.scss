@@ -1,21 +1,21 @@
 .entry-title {
-  font-size: 1.5rem;
+  //font-size: 1.5rem;
   color: $white;
   font-family: $font-family-serif;
-  &.h1 {
-    font-size: 2.25rem;
-  }
 }
 
 .hentry {
   .featured-image {
+    max-height: 500px;
+    overflow: hidden;
     img {
+      object-fit: cover;
       width: 100%;
       max-width: 100%;
     }
   }
   .entry-inner {
-    background-color: #16151a;
+    background-color: $tertiary;
   }
   .entry-details {
    color: #74757a;

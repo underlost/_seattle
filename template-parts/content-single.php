@@ -12,6 +12,7 @@
  $thumbnail_url = !empty($thumbnail_arr[0]) ? $thumbnail_arr[0] : '';
  $sizeWidth = get_post_meta(get_the_ID(), 'display-img-size', true);
  $sizeHeight = get_post_meta(get_the_ID(), 'display-img-height', true);
+ $location = get_post_meta( get_the_ID(), 'location', true );
  if(empty($sizeWidth)) { $sizeWidth = 'col-md-4'; }
  if(empty($sizeHeight)) { $sizeHeight = 'grid-md'; }
 
@@ -37,7 +38,7 @@ if ($sizeWidth == 'col-md-1' || $sizeWidth == 'col-md-2' || $sizeWidth == 'col-m
     <div class="row align-items-center">
       <div class="<?php echo $colWidth_1; ?>">
         <div class="featured-image">
-          <img src="<?php echo $thumbnail_url ?>" alt="<?php the_title(); ?>" />
+          <img class="fsr-lazy" data-src="<?php echo $thumbnail_url ?>" alt="<?php the_title(); ?>" />
         </div>
       </div><!-- .colWidth1 -->
       <div class="<?php echo $colWidth_2; ?>">
@@ -51,8 +52,11 @@ if ($sizeWidth == 'col-md-1' || $sizeWidth == 'col-md-2' || $sizeWidth == 'col-m
           endif;
 
           if ( 'post' === get_post_type() ) : ?>
-          <div class="entry-meta">
-            <?php seattle_posted_on(); ?>
+          
+          <?php seattle_posted_on(); ?>
+
+          <div class="entry-meta mt-3">
+            <span class="location d-block mb-2"><i class="fas fa-map-marker-alt fa-fw"></i><span class="sr-only">In: </span><?php echo $location; ?></span>
           </div><!-- .entry-meta -->
           <?php
           endif; ?>

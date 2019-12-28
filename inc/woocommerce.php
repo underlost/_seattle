@@ -159,7 +159,7 @@ if ( ! function_exists( 'seattle_woocommerce_wrapper_before' ) ) {
 	 */
 	function seattle_woocommerce_wrapper_before() {
 		?>
-		<div id="primary" class="content-area">
+		<div id="primary" class="content-area container px-0">
 			<main id="main" class="site-main" role="main">
 		<?php
 	}

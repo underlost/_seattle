@@ -1,23 +1,39 @@
 {
   "name": "seattle",
-  "version": "3.8.0",
+  "version": "3.9.0",
   "description": "A photoblog theme of sorts",
   "main": "gulpfile.js",
   "license": "MIT",
   "scripts": {
     "prestart": "gulp install",
-    "build": "gulp build"
+    "build": "gulp build",
+    "watch": "gulp watch",
+    "format": "prettier --write '**/*.php'"
   },
   "dependencies": {
     "@fortawesome/fontawesome-free": "^5.11.2",
-    "bootstrap": "4.3.1",
-    "del": ">=1.2.1",
+    "bootstrap": "4.4.1",
     "featherlight": "^1.7.13",
+    "isotope-layout": "^3.0.5",
+    "jquery": "^3.3.1",
+    "jquery-lazy": "^1.7.10",
+    "jquery.easing": "*",
+    "owl.carousel": ">=2.2.0",
+    "packery": "^2.1.2",
+    "vanilla-lazyload": "^12.2.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/underlost/_seattle.git"
+  },
+  "devDependencies": {
+    "@prettier/plugin-php": "^0.12.0",
+    "del": ">=1.2.1",
     "gulp": "~4.0.0",
     "gulp-autoprefixer": ">=6.0.0",
     "gulp-clean-css": ">=4.0.0",
     "gulp-concat": "~2.6.0",
-    "gulp-imagemin": "6.1.1",
+    "gulp-imagemin": "6.2.0",
     "gulp-jshint": ">=2.1.0",
     "gulp-load-plugins": "2.0.1",
     "gulp-notify": "~3.2.0",
@@ -27,19 +43,9 @@
     "gulp-uglify-es": "^2.0.0",
     "gulp-util": "^3.0.6",
     "gulp-watch": "^5.0.1",
-    "isotope-layout": "^3.0.5",
-    "jquery": "^3.3.1",
-    "jquery-lazy": "^1.7.10",
-    "jquery.easing": "*",
-    "jshint": ">=2.0",
+    "jshint": ">=2.11.0-rc1",
     "jshint-stylish": ">=2.0.1",
-    "owl.carousel": ">=2.2.0",
-    "packery": "^2.1.2",
     "popper.js": "^1.12.3",
-    "vanilla-lazyload": "^12.2.0"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git://github.com/underlost/_seattle.git"
+    "prettier": "^1.19.1"
   }
 }

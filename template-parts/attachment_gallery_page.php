@@ -2,7 +2,7 @@
 $images = get_post_meta($post->ID, 'seattle_gallery_id', true);
 if ($images) {
 echo '<div class="row grid">';
-echo '<div class="grid-sizer col-md-1 col-6"></div>';
+echo '<div class="grid-sizer col-6"></div>';
   foreach ($images as $image) {
     //echo wp_get_attachment_link($image, 'large');
     $image_meta = get_post($image);
@@ -13,7 +13,7 @@ echo '<div class="grid-sizer col-md-1 col-6"></div>';
 
     $image_sizeWidth = get_post_meta($image, 'display-img-size', true);
     $image_sizeHeight = get_post_meta($image, 'display-img-height', true);
-    if(empty($image_sizeWidth)) { $image_sizeWidth = 'col-md-4'; }
+    if(empty($image_sizeWidth)) { $image_sizeWidth = 'col-md-6'; }
     if(empty($image_sizeHeight)) { $image_sizeHeight = 'grid-md'; }
   ?>
     <div class="hentry gallery-item grid-item <?php echo $image_sizeWidth; ?>">

@@ -11,7 +11,6 @@ body {
 
   .page-container-inner {
     margin: 0 auto;
-    max-width: 1300px;
     transition: margin .3s ease-in-out;
   }
 }
@@ -28,12 +27,13 @@ body {
 }
 
 .page-header {
-  background-color: #16151a;
-  color: $white;
+  background-color: $tertiary;
+  color: rgba($white, .5);
+  border-bottom: 1px solid lighten($tertiary, 15%);
   .page-title {
     font-family: $font-family-serif;
-    font-size: 1.5rem;
-    letter-spacing: 2.5px;
+    font-size: 1.25rem;
+    letter-spacing: 2px;
   }
 }
 

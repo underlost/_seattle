@@ -9,7 +9,7 @@
 
 get_header(); ?>
 
-	<div id="primary" class="content-area">
+	<div id="primary" class="content-area container px-0">
 		<main id="main" class="site-main">
 			<header class="page-header px-4 py-3 mb-2">
 				<?php
@@ -23,7 +23,7 @@ get_header(); ?>
 				if ( have_posts() ) :
 					/* Start the Loop */
 					while ( have_posts() ) : the_post();
-						get_template_part( 'template-parts/content-grid' );
+						get_template_part( 'template-parts/content-grid-item' );
 					endwhile;
 					the_posts_navigation();
 				else :
