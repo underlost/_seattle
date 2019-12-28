@@ -12391,7 +12391,6 @@ body {
   transition: transform .3s ease-in-out, -webkit-transform .3s ease-in-out; }
   .page-container .page-container-inner {
     margin: 0 auto;
-    max-width: 1300px;
     -webkit-transition: margin .3s ease-in-out;
     transition: margin .3s ease-in-out; }
 
@@ -12624,6 +12623,11 @@ body {
   -webkit-transition: all .3s ease;
   transition: all .3s ease;
   margin-bottom: 10px; }
+  .grid-item .badge-group {
+    position: absolute;
+    z-index: 10;
+    left: 18px;
+    top: 18px; }
   .grid-item .image-wrapper {
     -webkit-transition: all 5s;
     transition: all 5s;
@@ -12737,6 +12741,10 @@ body {
 
 .grid-item-clickable .entry-footer {
   display: none; }
+
+.grid-item-nsfw .image-wrapper img {
+  -webkit-filter: blur(15px);
+          filter: blur(15px); }
 
 .fsr-lazy {
   -webkit-transition: all .3s;

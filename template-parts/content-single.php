@@ -13,6 +13,7 @@
  $sizeWidth = get_post_meta(get_the_ID(), 'display-img-size', true);
  $sizeHeight = get_post_meta(get_the_ID(), 'display-img-height', true);
  $location = get_post_meta( get_the_ID(), 'location', true );
+ $nsfw = get_post_meta( get_the_ID(), 'nsfw', true );
  if(empty($sizeWidth)) { $sizeWidth = 'col-md-4'; }
  if(empty($sizeHeight)) { $sizeHeight = 'grid-md'; }
 
@@ -43,6 +44,13 @@ if ($sizeWidth == 'col-md-1' || $sizeWidth == 'col-md-2' || $sizeWidth == 'col-m
       </div><!-- .colWidth1 -->
       <div class="<?php echo $colWidth_2; ?>">
         <div class="entry-details px-4">
+        
+        <?php if (!empty($nsfw)) { ?>
+        <div class="badge-group mt-3">
+          <span class="badge badge-secondary">NSFW</span>
+        </div>
+        <?php } ?>
+        
         <header class="entry-header pt-4 mb-4">
           <?php
           if ( is_singular() ) :

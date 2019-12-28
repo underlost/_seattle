@@ -3,6 +3,12 @@
 .grid-item {
   transition: all .3s ease;
   margin-bottom: $grid-gutter-width;
+  .badge-group {
+    position: absolute;
+    z-index: 10;
+    left: 18px;
+    top: 18px;
+  }
   .image-wrapper {
     transition: all 5s;
     position: absolute;
@@ -133,6 +139,14 @@
   }
   .entry-content { display: none; }
   .entry-footer { display: none; }
+}
+
+.grid-item-nsfw {
+  .image-wrapper {
+    img {
+      filter: blur(15px);
+    }
+  }
 }
 
 
