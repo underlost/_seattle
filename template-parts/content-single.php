@@ -38,7 +38,7 @@ if ($sizeWidth == 'col-md-1' || $sizeWidth == 'col-md-2' || $sizeWidth == 'col-m
   <div class="entry-inner mb-3">
     <div class="row align-items-center">
       <div class="<?php echo $colWidth_1; ?>">
-        <div class="featured-image">
+        <div class="featured-image <?php echo $sizeHeight; ?>">
           <img class="fsr-lazy" data-src="<?php echo $thumbnail_url ?>" alt="<?php the_title(); ?>" />
         </div>
       </div><!-- .colWidth1 -->

@@ -17,6 +17,8 @@ $sizeWidth = get_post_meta(get_the_ID(), 'display-img-size', true);
 $sizeHeight = get_post_meta(get_the_ID(), 'display-img-height', true);
 $location = get_post_meta( get_the_ID(), 'location', true );
 $nsfw = get_post_meta( get_the_ID(), 'nsfw', true );
+$lightboxEndabled = get_post_meta( get_the_ID(), 'lightbox', true );
+
 if(empty($sizeWidth)) { $sizeWidth = 'col-md-4'; }
 if(empty($sizeHeight)) { $sizeHeight = 'grid-md'; }
 
@@ -40,6 +42,11 @@ if ($format == 'aside') {
   $element = 'aside';
   $lightbox = 'data-featherlight="'.$thumbnail_url.'"';
 }
+
+if (!empty($lightboxEndabled)) {
+	$lightbox = 'data-featherlight="'.$thumbnail_url.'"';
+}
+
 ?>
 
 <<?php echo $element; ?> id="post-<?php the_ID(); ?>" <?php post_class( $classes ); ?>>
