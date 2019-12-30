@@ -16,10 +16,10 @@ get_header(); ?>
 				<div class="page-content text-center py-5">
 
           <header class="px-4 py-2 mb-2">
-  					<h1 class="page-title"><?php esc_html_e( 'Oops! That page can&rsquo;t be found.', 'seattle' ); ?></h1>
+  					<h1 class="page-title"><?php esc_html_e('Oops! That page can&rsquo;t be found.', 'seattle'); ?></h1>
   				</header><!-- .page-header -->
 
-					<p><?php esc_html_e( 'It looks like nothing was found at this location.', 'seattle' ); ?></p>
+					<p><?php esc_html_e('It looks like nothing was found at this location.', 'seattle'); ?></p>
 
 				</div><!-- .page-content -->
 			</section><!-- .error-404 -->
@@ -27,5 +27,4 @@ get_header(); ?>
 		</main><!-- #main -->
 	</div><!-- #primary -->
 
-<?php
-get_footer();
+<?php get_footer();

@@ -6,22 +6,20 @@
       <div class="sidebar-site-header">
         <div class="site-branding">
           <?php
-
-
-          $description = get_bloginfo( 'description', 'display' );
-          if ( $description || is_customize_preview() ) : ?>
-            <p class="site-description"><?php echo $description; /* WPCS: xss ok. */ ?></p>
-          <?php
-          endif; ?>
+          $description = get_bloginfo('description', 'display');
+          if ($description || is_customize_preview()): ?>
+            <p class="site-description"><?php echo $description;
+            /* WPCS: xss ok. */
+            ?></p>
+          <?php endif;
+          ?>
         </div><!-- .site-branding -->
 
         <nav id="site-navigation" class="main-navigation">
-          <?php
-            wp_nav_menu( array(
-              'theme_location' => 'sidebar',
-              'menu_id'        => 'sidebar-menu',
-            ) );
-          ?>
+          <?php wp_nav_menu(array(
+            'theme_location' => 'sidebar',
+            'menu_id' => 'sidebar-menu',
+          )); ?>
         </nav><!-- #site-navigation -->
       </div><!-- #masthead -->
 

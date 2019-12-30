@@ -4,27 +4,27 @@ add_action('admin_menu', 'theme_options_menu');
 
 function theme_options_menu() {
   //create new top-level menu
-  add_menu_page('Theme Options', 'Theme Options', 'administrator', '_seattle-options', 'theme_options_page' , 'dashicons-admin-generic', 60 );
+  add_menu_page('Theme Options', 'Theme Options', 'administrator', '_seattle-options', 'theme_options_page', 'dashicons-admin-generic', 60);
   //call register settings function
-  add_action( 'admin_init', 'register_theme_options' );
+  add_action('admin_init', 'register_theme_options');
 }
 
 //register our settings
 function register_theme_options() {
-  register_setting( 'main-options', 'site_logo' );
-  register_setting( 'main-options', 'social_facebook');
-  register_setting( 'main-options', 'social_twitter');
-  register_setting( 'main-options', 'social_instagram');
-  register_setting( 'main-options', 'extra_header_scripts');
+  register_setting('main-options', 'site_logo');
+  register_setting('main-options', 'social_facebook');
+  register_setting('main-options', 'social_twitter');
+  register_setting('main-options', 'social_instagram');
+  register_setting('main-options', 'extra_header_scripts');
 }
 
 function load_wp_media_files() {
   wp_enqueue_media();
 }
-add_action( 'admin_enqueue_scripts', 'load_wp_media_files' );
+add_action('admin_enqueue_scripts', 'load_wp_media_files');
 
 function theme_options_page() {
-?>
+  ?>
 <script type="text/javascript">
 jQuery(document).ready(function($){
     $('.upload-btn').click(function(e) {
@@ -51,8 +51,8 @@ jQuery(document).ready(function($){
 <div class="wrap">
 <h1>Theme Options</h1>
 <form method="post" action="options.php">
-    <?php settings_fields( 'main-options' ); ?>
-    <?php do_settings_sections( 'main-options' ); ?>
+    <?php settings_fields('main-options'); ?>
+    <?php do_settings_sections('main-options'); ?>
     <table class="form-table">
         <tr valign="top">
             <th scope="row">Site Logo</th>
@@ -94,4 +94,5 @@ jQuery(document).ready(function($){
     <?php submit_button(); ?>
 </form>
 </div>
-<?php } ?>
+<?php
+} ?>
