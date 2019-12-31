@@ -75,27 +75,12 @@ if ($sizeWidth == 'col-md-1' || $sizeWidth == 'col-md-2' || $sizeWidth == 'col-m
         </header><!-- .entry-header -->
 
         <div class="entry-content">
-      		<?php
-        the_content(
-          sprintf(
-            wp_kses(
-              /* translators: %s: Name of current post. Only visible to screen readers */
-              __('Continue reading<span class="sr-only"> "%s"</span>', 'seattle'),
-              array(
-                'span' => array(
-                  'class' => array(),
-                ),
-              ),
-            ),
-            get_the_title(),
-          ),
-        );
-
-        wp_link_pages(array(
-          'before' => '<div class="page-links">' . esc_html__('Pages:', 'seattle'),
-          'after' => '</div>',
-        ));
-        ?>
+      	  <?php the_content();
+          wp_link_pages(array(
+            'before' => '<div class="page-links">' . esc_html__('Pages:', 'seattle'),
+            'after' => '</div>',
+          ));
+          ?>
       	</div><!-- .entry-content -->
         <footer class="entry-footer pb-4">
       		<?php seattle_entry_footer(); ?>

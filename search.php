@@ -16,8 +16,8 @@ get_header(); ?>
 	<div id="primary" class="content-area container px-0">
 		<main id="main" class="site-main">
       <header class="page-header px-4 py-3 mb-2">
-        <h1 class="page-title"><?php /* translators: %s: search query. */
-        printf(esc_html__('Search Results for: %s', 'seattle'), '<span>' . get_search_query() . '</span>'); ?></h1>
+        <h1 class="page-title">
+        <?php printf(esc_html__('Search Results for: %s', 'seattle'), '<span>' . get_search_query() . '</span>'); ?></h1>
       </header><!-- .page-header -->
       <div class="row grid">
         <div class="grid-sizer col-md-1 col-sm-6"></div>

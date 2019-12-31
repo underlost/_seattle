@@ -57,36 +57,21 @@ if (!empty($lightboxEndabled)) {
 		<img class="fsr-lazy" alt="<?php echo get_the_title(); ?>" data-src="<?php echo $thumbnail_url; ?>" />
 	</div>
   	<header class="entry-header text-center">
-  		<?php
-    the_title('<h2 class="entry-title h4 px-lg-5">', '</h2>');
-    if ('post' === get_post_type()): ?>
+  		<?php the_title('<h2 class="entry-title h4 px-lg-5">', '</h2>');
+      if ('post' === get_post_type()): ?>
   		<div class="entry-meta">
   			<span class="sr-only"><?php seattle_posted_on(); ?></span>
 				<?php if (!empty($location)) { ?> 
 				<span class="location"><span class="sr-only">In: </span><?php echo $location; ?></span>
 				<?php } ?>
   		</div><!-- .entry-meta -->
-  		<?php endif;
-    ?>
+        <?php endif; ?>
   	</header><!-- .entry-header -->
 
     <?php if (is_singular()) { ?>
   	<div class="entry-content">
   		<?php
-    the_content(
-      sprintf(
-        wp_kses(
-          /* translators: %s: Name of current post. Only visible to screen readers */
-          __('Continue reading<span class="sr-only"> "%s"</span>', 'seattle'),
-          array(
-            'span' => array(
-              'class' => array(),
-            ),
-          ),
-        ),
-        get_the_title(),
-      ),
-    );
+    the_content();
     wp_link_pages(array(
       'before' => '<div class="page-links">' . esc_html__('Pages:', 'seattle'),
       'after' => '</div>',
