@@ -15,7 +15,7 @@
     "bootstrap": "4.4.1",
     "featherlight": "^1.7.13",
     "isotope-layout": "^3.0.5",
-    "jquery": "^3.3.1",
+    "jquery": "^3.5.0",
     "jquery-lazy": "^1.7.10",
     "jquery.easing": "*",
     "owl.carousel": ">=2.2.0",
