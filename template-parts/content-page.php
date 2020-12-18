@@ -16,10 +16,10 @@ $classes = array('row', 'mb-4');
 <article id="post-<?php the_ID(); ?>" <?php post_class($classes); ?>>
   
   <div class="col-lg-6 order-lg-1">
-		<header class="entry-header pl-lg-5 mt-4">
+		<header class="entry-header ps-lg-5 mt-4">
 			<?php the_title('<h1 class="entry-title h2">', '</h1>'); ?>
 		</header><!-- .entry-header -->
-		<div class="entry-content pl-lg-5">
+		<div class="entry-content ps-lg-5">
 		<?php
       the_content();
       wp_link_pages(array(

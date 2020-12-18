@@ -1,6 +1,6 @@
 /*!
  * Based on UnderTasker by Tyler Rilling
- * Copyright 2019 Tyler Rilling
+ * Copyright 2021 Tyler Rilling
  * Licensed under MIT (https://github.com/underlost/Undertasker/blob/master/LICENSE)
  */
 
@@ -68,13 +68,10 @@ gulp.task('build-css', function() {
 // Concat All JS into unminified single file
 gulp.task('concat-js', function() {
   return gulp.src([
-    // components
     'node_modules/jquery/dist/jquery.js',
     'inc/js/skip-link-focus-fix.js',
-    //'node_modules/jquery-lazy/jquery.lazy.min.js',
     'node_modules/vanilla-lazyload/dist/lazyload.min.js',
-    'node_modules/bootstrap/dist/js/bootstrap.bundle.js',
-    //'node_modules/isotope-layout/dist/isotope.pkgd.js',
+    'node_modules/bootstrap/dist/js/bootstrap.min.js',
     'node_modules/packery/dist/packery.pkgd.min.js',
     'node_modules/featherlight/release/featherlight.min.js',
     'inc/js/theme.js',
@@ -109,6 +106,7 @@ gulp.task('build-js', gulp.series('concat-js', 'shrink-js'));
 gulp.task('watch', function() {
   gulp.watch('inc/js/**/*.js', gulp.series('build-js'));
   gulp.watch('inc/sass/**/*.scss', gulp.series('build-css'));
+  gulp.watch('inc/img/**/*.{jpg,png,gif,ico}', gulp.series('imagemin'));
 });
 
 // Default build task

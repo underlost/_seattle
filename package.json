@@ -12,7 +12,8 @@
   },
   "dependencies": {
     "@fortawesome/fontawesome-free": "^5.11.2",
-    "bootstrap": "4.4.1",
+    "@popperjs/core": "^2.5.4",
+    "bootstrap": "^5.0.0-beta1",
     "featherlight": "^1.7.13",
     "isotope-layout": "^3.0.5",
     "jquery": "^3.3.1",
@@ -20,22 +21,22 @@
     "jquery.easing": "*",
     "owl.carousel": ">=2.2.0",
     "packery": "^2.1.2",
-    "vanilla-lazyload": "^12.2.0"
+    "vanilla-lazyload": "^17.3.0"
   },
   "repository": {
     "type": "git",
     "url": "git://github.com/underlost/_seattle.git"
   },
   "devDependencies": {
-    "@prettier/plugin-php": "^0.12.0",
+    "@prettier/plugin-php": "^0.16.1",
     "del": ">=1.2.1",
     "gulp": "~4.0.0",
     "gulp-autoprefixer": ">=6.0.0",
     "gulp-clean-css": ">=4.0.0",
     "gulp-concat": "~2.6.0",
-    "gulp-imagemin": "6.2.0",
+    "gulp-imagemin": "7.1.0",
     "gulp-jshint": ">=2.1.0",
-    "gulp-load-plugins": "2.0.1",
+    "gulp-load-plugins": "2.0.6",
     "gulp-notify": "~3.2.0",
     "gulp-rename": ">=1.2.2",
     "gulp-sass": ">=3.1.0",
@@ -46,6 +47,6 @@
     "jshint": ">=2.11.0-rc1",
     "jshint-stylish": ">=2.0.1",
     "popper.js": "^1.12.3",
-    "prettier": "^1.19.1"
+    "prettier": "^2.2.1"
   }
 }

@@ -17,7 +17,18 @@ function add_gallery_metabox($post_type) {
   $types = array('post', 'page');
 
   if (in_array($post_type, $types)) {
-    add_meta_box('gallery-metabox', 'Gallery', 'gallery_meta_callback', $post_type, 'normal', 'high');
+    
+    add_meta_box(
+      'gallery-metabox',
+      'Gallery',
+      'gallery_meta_callback', 
+      $post_type,
+      'normal',
+      'low', 
+      [
+        'slug' => 'my_meta_box',
+        'classes' => ['my-class']
+      ]);
   }
 }
 add_action('add_meta_boxes', 'add_gallery_metabox');
