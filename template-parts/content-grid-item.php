@@ -50,7 +50,7 @@ if (!empty($lightboxEndabled)) {
 	<a href="<?php echo $url; ?>" rel="bookmark" <?php echo $lightbox; ?> class="post-inner d-flex align-items-center" data-bg="url(<?php echo $thumbnail_url; ?>)">
 	<?php if (!empty($nsfw)) { ?>
 	<div class="badge-group">
-		<span class="badge badge-secondary">NSFW</span>
+		<span class="badge text-dark bg-secondary">NSFW</span>
 	</div>
 	<?php } ?>
 	<div class="image-wrapper">

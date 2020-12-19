@@ -523,7 +523,7 @@ if (!class_exists('WP_Bootstrap_Navwalker')) {
       } elseif ('dropdown-header' === $linkmod_type) {
         // For a header use a span with the .h6 class instead of a real
         // header tag so that it doesn't confuse screen readers.
-        $output .= '<span class="dropdown-header h6"' . $attributes . '>';
+        $output .= '<span class="dropdown-header h5"' . $attributes . '>';
       } elseif ('dropdown-divider' === $linkmod_type) {
         // this is a divider.
         $output .= '<div class="dropdown-divider"' . $attributes . '>';

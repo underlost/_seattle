@@ -15,10 +15,8 @@ function pretty_print($obj) {
 }
 
 // Add button class to next/previous post links
-
 add_filter('next_post_link', 'post_link_attributes');
 add_filter('previous_post_link', 'post_link_attributes');
-
 function post_link_attributes($output) {
   $injection = 'class="btn btn-primary btn-block"';
   return str_replace('<a href=', '<a ' . $injection . ' href=', $output);

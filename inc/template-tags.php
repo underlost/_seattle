@@ -7,11 +7,11 @@
  * @package Seattle
  */
 
-if ( ! function_exists( 'seattle_posted_on' ) ) :
+if ( ! function_exists( '_seattle_meta' ) ) :
 	/**
 	 * Prints HTML with meta information for the current post-date/time and author.
 	 */
-	function seattle_posted_on() {
+	function _seattle_meta() {
 		$time_string = '<time class="entry-date published updated" datetime="%1$s">%2$s</time>';
 		if ( get_the_time( 'U' ) !== get_the_modified_time( 'U' ) ) {
 			$time_string = '<time class="entry-date published" datetime="%1$s">%2$s</time><time class="updated sr-only" datetime="%3$s">%4$s</time>';
@@ -31,10 +31,54 @@ if ( ! function_exists( 'seattle_posted_on' ) ) :
 		);
 		$byline = sprintf(
 			/* translators: %s: post author. */
+			esc_html_x( '%s', 'post author', 'seattle' ),
+			'<span class="author vcard">' . esc_html( get_the_author() ) . '</span>'
+		);
+		echo '<span class="posted-on d-block mb-2"><span class="posted-on-text d-block h6 text-secondary mb-1 fw-bold text-uppercase">Published</span>' . $posted_on . '</span>';
+		echo '<span class="byline d-block mb-3 sr-only"><span class="byline-txext d-block h6 text-secondary mb-0">Written by</span> ' . $byline . '</span>';
+
+	}
+endif;
+
+if ( ! function_exists( 'seattle_posted_on' ) ) :
+	/**
+	 * Prints HTML with meta information for the current post-date/time.
+	 */
+	function seattle_posted_on() {
+		$time_string = '<time class="entry-date published updated" datetime="%1$s">%2$s</time>';
+		if ( get_the_time( 'U' ) !== get_the_modified_time( 'U' ) ) {
+			$time_string = '<time class="entry-date published" datetime="%1$s">%2$s</time><time class="updated sr-only" datetime="%3$s">%4$s</time>';
+		}
+
+		$time_string = sprintf( $time_string,
+			esc_attr( get_the_date( 'c' ) ),
+			esc_html( get_the_date() ),
+			esc_attr( get_the_modified_date( 'c' ) ),
+			esc_html( get_the_modified_date() )
+		);
+
+		$posted_on = sprintf(
+			/* translators: %s: post date. */
+			esc_html_x( '%s', 'post date', 'seattle' ),
+			'<span class="datetime">' . $time_string . '</span>'
+		);
+		echo '<span class="posted-on"><span class="posted-on-text">Published </span>' . $posted_on . '</span>'; // WPCS: XSS OK.
+
+	}
+endif;
+
+if ( ! function_exists( 'seattle_author' ) ) :
+	/**
+	 * Prints HTML with meta information for the current post author.
+	 */
+	function seattle_author() {
+
+		$byline = sprintf(
+			/* translators: %s: post author. */
 			esc_html_x( 'by %s', 'post author', 'seattle' ),
 			'<span class="author vcard">' . esc_html( get_the_author() ) . '</span>'
 		);
-		echo '<span class="posted-on"><span class="sr-only">Posted on </span>' . $posted_on . '</span><span class="byline sr-only"> ' . $byline . '</span>'; // WPCS: XSS OK.
+		echo '<span class="byline h6"> ' . $byline . '</span>'; // WPCS: XSS OK.
 
 	}
 endif;
