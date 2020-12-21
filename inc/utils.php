@@ -18,6 +18,6 @@ function pretty_print($obj) {
 add_filter('next_post_link', 'post_link_attributes');
 add_filter('previous_post_link', 'post_link_attributes');
 function post_link_attributes($output) {
-  $injection = 'class="btn btn-primary btn-block"';
+  $injection = 'class="btn btn-primary btn-block px-md-5 py-3"';
   return str_replace('<a href=', '<a ' . $injection . ' href=', $output);
 }

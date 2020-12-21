@@ -21,4 +21,10 @@
       background-color: $primary;
     }
   }
+  .nav-previous .btn {
+    text-align: left;
+  }
+  .nav-next .btn {
+    text-align: right;
+  }
 }
