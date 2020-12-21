@@ -12,18 +12,26 @@ $square_thumbnail = true;
 $thumbnail_arr = wp_get_attachment_image_src(get_post_thumbnail_id(get_the_ID()), 'large');
 $thumbnail_url = !empty($thumbnail_arr[0]) ? $thumbnail_arr[0] : '';
 $url = get_the_permalink();
-
 $sizeWidth = get_post_meta(get_the_ID(), 'display-img-size', true);
 $sizeHeight = get_post_meta(get_the_ID(), 'display-img-height', true);
 $location = get_post_meta(get_the_ID(), 'location', true);
 $nsfw = get_post_meta(get_the_ID(), 'nsfw', true);
 $lightboxEndabled = get_post_meta(get_the_ID(), 'lightbox', true);
 
+$image_min_height = $thumbnail_arr[1];
+$image_min_width = $thumbnail_arr[2];
+//print_r($thumbnail_arr);
+
 if (empty($sizeWidth)) {
   $sizeWidth = 'col-md-4';
 }
 if (empty($sizeHeight)) {
   $sizeHeight = 'grid-md';
+}
+
+if ($is_fixed_width == true) {
+	$sizeWidth = 'col-md-4';
+	$sizeHeight = 'grid-md';
 }
 
 if (!empty($nsfw)) {
@@ -40,7 +48,6 @@ if ($format == 'aside') {
   $element = 'aside';
   $lightbox = 'data-featherlight="' . $thumbnail_url . '"';
 }
-
 if (!empty($lightboxEndabled)) {
   $lightbox = 'data-featherlight="' . $thumbnail_url . '"';
 }

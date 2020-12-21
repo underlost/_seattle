@@ -12346,6 +12346,13 @@ iframe,
 object {
   max-width: 100%; }
 
+.wp-block-image img {
+  height: auto; }
+
+.wp-block-image figcaption {
+  font-size: .95rem;
+  font-family: "Inconsolata", "Helvetica Neue", Arial, sans-serif; }
+
 /*--------------------------------------------------------------
 ## Captions
 --------------------------------------------------------------*/
@@ -12413,6 +12420,9 @@ object {
 body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale; }
+
+.bg-tertiary {
+  background-color: #222028; }
 
 .page-container {
   padding-top: 10px;
@@ -12487,7 +12497,8 @@ body {
   text-transform: uppercase;
   letter-spacing: 1.5px; }
   .site-footer a {
-    color: #fff; }
+    color: #fff;
+    text-decoration: none; }
 
 .page-sidebar {
   width: 250px;

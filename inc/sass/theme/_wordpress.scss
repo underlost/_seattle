@@ -71,6 +71,15 @@ object {
   max-width: 100%;
 }
 
+.wp-block-image {
+  img {
+    height: auto;
+  }
+  figcaption {
+    font-size: .95rem;
+    font-family: $font-family-serif;
+  }
+}
 
 
 /*--------------------------------------------------------------

@@ -29,7 +29,7 @@ $classes = array('row', 'mb-4');
     ?>
 		</div><!-- .entry-content -->
 		<?php if (get_edit_post_link()): ?>
-		<footer class="entry-footer">
+		<footer class="entry-footer ps-lg-5">
 			<?php seattle_entry_footer(); ?>
 		</footer><!-- .entry-footer -->
 		<?php endif; ?>

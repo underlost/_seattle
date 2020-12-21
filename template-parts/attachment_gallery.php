@@ -1,10 +1,10 @@
 <?php
 $images = get_post_meta($post->ID, 'seattle_gallery_id', true);
 if ($images) {
+  echo '<div class="bg-tertiary px-4 py-4 mb-3">';
   echo '<div class="row grid">';
   echo '<div class="grid-sizer col-md-1 col-6"></div>';
   foreach ($images as $image) {
-
     //echo wp_get_attachment_link($image, 'large');
     $image_meta = get_post($image);
     $image_title = $image_meta->post_title;
@@ -40,7 +40,8 @@ if ($images) {
         <?php } ?>
       </div>
     </div>
-<?php
+    <?php
   }
+  echo '</div>';
   echo '</div>';
 } ?>

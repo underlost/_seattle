@@ -45,7 +45,9 @@ $instagram = get_option('social_instagram');
           </ul>
         </div>
         <span class="d-block py-2">&copy; <?php echo date('Y'); ?> <?php echo get_bloginfo('name'); ?></span>
-        <a href="<?php echo esc_url(__('https://wordpress.org/', 'seattle')); ?>"><?php printf(esc_html__('Powered by %s. ', 'seattle'), 'WordPress'); ?></a> <?php printf(esc_html__('%1$s theme by %2$s.', 'seattle'), '_Seattle', '<a href="https://tyler.codes">Tyler Rilling</a>'); ?>
+        <div class="pb-2">
+          <a href="<?php echo esc_url(__('https://wordpress.org/', 'seattle')); ?>"><?php printf(esc_html__('Powered by %s. ', 'seattle'), 'WordPress'); ?></a> <?php printf(esc_html__('%1$s theme by %2$s.', 'seattle'), '_Seattle', '<a href="https://tyler.codes">Tyler Rilling</a>'); ?>
+        </div>
       </div>
       <div class="col-md-6">
       </div>

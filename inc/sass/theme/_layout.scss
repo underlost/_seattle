@@ -3,6 +3,10 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+.bg-tertiary {
+  background-color: $tertiary;
+}
+
 .page-container {
   padding-top: 10px;
   position: relative;
