@@ -1,14 +1,9 @@
 <?php
 /**
- * The template for displaying all single posts
- *
- * @link https://developer.wordpress.org/themes/basics/template-hierarchy/#single-post
- *
- * @package Seattle
+ * Template Name: Post Style
  */
 
 get_header(); ?>
-
 	<div id="primary" class="content-area container px-0">
 		<main id="main" class="site-main">
 		  <?php while (have_posts()):

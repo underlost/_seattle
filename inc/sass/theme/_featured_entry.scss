@@ -1,0 +1,43 @@
+.post-template-featured {
+  .page-container {
+    padding-top: 0;
+  }
+  .site-header {
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+    &.container {
+      max-width: 100%;
+    }
+    .site-branding {
+      display: none;
+    }
+    .navbar {
+      position: absolute;
+      left: 0;
+      right: 0;
+      z-index: 10;
+      background-color: rgba($tertiary, .8);
+    }
+  }
+
+  .entry-title {
+    font-family: $font-family-sans-serif;
+    font-weight: 800;
+    position: relative;
+    z-index: 5;
+  }
+}
+
+.featured-cover {
+  min-height: 85vh;
+  position: relative;
+  &::after {
+    content: '';
+    position: absolute;
+    top:0;
+    bottom:0;
+    left:0;
+    right:0;
+    background-color: rgba($tertiary, .5);
+  }
+}

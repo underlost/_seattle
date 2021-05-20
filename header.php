@@ -28,7 +28,7 @@ $site_logo = get_option('site_logo'); ?>
 	<div id="content" class="site-content">
 
 	<header class="site-header container px-lg-0 my-2">
-		<div class="row no-gutters mb-2">
+		<div class="row no-gutters mb-2 site-branding">
 			<a class="col-4 col-md-3 col-lg-1" href="<?php echo home_url(); ?>">
 				<?php if (!empty($site_logo)) { ?>
 					<img src="<?php echo get_option('site_logo'); ?>" class="site-logo w-100" alt="<?php bloginfo('name'); ?>" />

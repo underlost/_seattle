@@ -40,7 +40,7 @@ if ($sizeWidth == 'col-md-1' || $sizeWidth == 'col-md-2' || $sizeWidth == 'col-m
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
   <div class="entry-inner mb-3 px-4">
-    
+  
     <header class="entry-header pt-5 mb-4 px-md-5">
       <div class="row justify-content-md-center">
         <div class="col-md-10 text-md-center pb-5">
