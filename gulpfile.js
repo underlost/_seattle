@@ -7,7 +7,7 @@
 // grab our packages
 var gulp   = require('gulp'),
     jshint = require('gulp-jshint');
-    sass = require('gulp-sass');
+    sass = require('gulp-sass')(require('sass'));
     sourcemaps = require('gulp-sourcemaps');
     concat = require('gulp-concat');
     autoprefixer = require('gulp-autoprefixer');
@@ -17,6 +17,7 @@ var gulp   = require('gulp'),
     del = require('del');
     stylish = require('jshint-stylish');
     imagemin = require('gulp-imagemin');
+
 
 // Cleans the web dist folder
 gulp.task('clean', function () {
@@ -48,7 +49,7 @@ gulp.task('install', gulp.parallel('copy-bootstrap', 'copy-font-awesome', 'copy-
 gulp.task('imagemin', function() {
   return gulp.src('inc/img/**/*.{jpg,png,gif,ico}')
 	.pipe(imagemin())
-	.pipe(gulp.dest('dist/img'))
+	.pipe(gulp.dest('dist/images'))
 });
 
 // CSS Build Task
@@ -68,8 +69,8 @@ gulp.task('build-css', function() {
 // Concat All JS into unminified single file
 gulp.task('concat-js', function() {
   return gulp.src([
-    'node_modules/jquery/dist/jquery.js',
-    'inc/js/skip-link-focus-fix.js',
+    //'node_modules/jquery/dist/jquery.js',
+    //'inc/js/skip-link-focus-fix.js',
     'node_modules/vanilla-lazyload/dist/lazyload.min.js',
     'node_modules/bootstrap/dist/js/bootstrap.min.js',
     'node_modules/packery/dist/packery.pkgd.min.js',

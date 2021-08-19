@@ -11,21 +11,15 @@ get_header(); ?>
 
 	<div id="primary" class="content-area container px-0">
 		<main id="main" class="site-main">
-			<header class="page-header px-4 py-3 mb-2 sr-only">
-				<?php
-          the_archive_title('<h1 class="page-title">', '</h1>');
-          the_archive_description('<div class="archive-description">', '</div>');
-        ?>
-			</header><!-- .page-header -->
         <?php if (have_posts()): ?>
         <div class="row grid">
           <div class="grid-sizer col-md-1 col-sm-6"></div>
 
-          <article class="grid-item col-md-4 grid-md">
-            <div class="post-inner d-flex align-items-center">
-              <header class="entry-header text-center">
+          <article class="grid-item col-md-4 d-block-square">
+            <div class="post-inner d-flex align-items-center h-100">
+              <header class="entry-header text-center w-100">
                 <?php
-                  the_archive_title('<h1 class="page-title">', '</h1>');
+                  the_archive_title('<h1 class="page-title h3 px-4 text-center">', '</h1>');
                   the_archive_description('<div class="archive-description">', '</div>');
                 ?>
               </header>

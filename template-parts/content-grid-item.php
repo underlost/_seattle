@@ -26,12 +26,12 @@ if (empty($sizeWidth)) {
   $sizeWidth = 'col-md-4';
 }
 if (empty($sizeHeight)) {
-  $sizeHeight = 'grid-md';
+  $sizeHeight = 'd-block-square';
 }
 
 if ($is_fixed_width == true) {
 	$sizeWidth = 'col-md-4';
-	$sizeHeight = 'grid-md';
+	$sizeHeight = 'grid-md d-block-square';
 }
 
 if (!empty($nsfw)) {
@@ -54,7 +54,7 @@ if (!empty($lightboxEndabled)) {
 ?>
 
 <<?php echo $element; ?> id="post-<?php the_ID(); ?>" <?php post_class($classes); ?>>
-	<a href="<?php echo $url; ?>" rel="bookmark" <?php echo $lightbox; ?> class="post-inner d-flex align-items-center" data-bg="url(<?php echo $thumbnail_url; ?>)">
+	<a href="<?php echo $url; ?>" rel="bookmark" <?php echo $lightbox; ?> class="post-inner d-flex align-items-center h-100" data-bg="url(<?php echo $thumbnail_url; ?>)">
 	<?php if (!empty($nsfw)) { ?>
 	<div class="badge-group">
 		<span class="badge text-dark bg-secondary">NSFW</span>

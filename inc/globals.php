@@ -13,8 +13,11 @@ $image_size_options = array(
 );
 
 $image_height_options = array(
-  'grid-sm' => 'Small',
-  'grid-md' => 'Medium (Default)',
-  'grid-lg' => 'Large',
-  'grid-xl' => 'XL',
+  // 'grid-sm' => 'Small',
+  // 'grid-md' => 'Medium (Default)',
+  // 'grid-lg' => 'Large',
+  // 'grid-xl' => 'XL',
+  'grid-rect d-block-rect-v' => 'Small',
+  'grid-square d-block-square' => 'Square',
+  'grid-rect d-block-rect-h' => 'Tall',
 );

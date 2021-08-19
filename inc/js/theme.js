@@ -1,32 +1,35 @@
-var $win = jQuery(window);
-var $doc = jQuery(document);
-var $grid_elements = jQuery('.fade-item');
-var $classes = {
-    FsrHolder: 'fsr-holder',
-    FsrImage: 'image-full',
-    grid = 'grid',
-};
-var $body;
-
 (function ($) {
 
-    var $grid = jQuery('.grid').packery({
-        itemSelector: '.grid-item', // use a separate class for itemSelector, other than .col-
-        percentPosition: true,
-        initLayout: true,
-        layoutMode: 'packery',
-        //layoutMode: 'fitRows',
-        columnWidth: '.grid-sizer',
-        onLayout: function () {
-            //$win.trigger("DOMContentLoaded");
-            $win.trigger("scroll");
-        }
-    });
-    $grid.packery();
+    var $win = $(window);
+    var $doc = $(document);
+    var $grid_elements = $('.fade-item');
+    var $classes = {
+        FsrHolder: 'fsr-holder',
+        FsrImage: 'image-full',
+        grid: 'grid',
+    };
+    var $body;
 
-    $doc.ready(function () {
-        $body = jQuery('body');
-        fullscreener(jQuery('.' + $classes.FsrImage));
+    $(function () {
+
+        var $grid = $('.grid').packery({
+            itemSelector: '.grid-item', // use a separate class for itemSelector, other than .col-
+            percentPosition: true,
+            initLayout: true,
+            layoutMode: 'packery',
+            //layoutMode: 'fitRows',
+            columnWidth: '.grid-sizer',
+            onLayout: function () {
+                //$win.trigger("DOMContentLoaded");
+                $win.trigger("scroll");
+            }
+        });
+
+        $body = $('body');
+        fullscreener($('.' + $classes.FsrImage));
+        makeSquare();
+        makeRectH();
+        makeRectV();
         check_if_in_view();
         $grid.packery();
 
@@ -39,18 +42,18 @@ var $body;
         });
 
         // Set custom post type for search
-        var post_type = jQuery('.post-grid').data('post-type');
-        jQuery('#search_post_type').val(post_type);
-    });
+        var post_type = $('.post-grid').data('post-type');
+        $('#search_post_type').val(post_type);
 
-    $win.scroll(function () {
+    });
+    document.addEventListener('scroll', function(e) {
         console.log('scrolling...');
         $grid.packery();
     });
 
     function fullscreener(_container) {
         _container.each(function () {
-            var _this = jQuery(this);
+            var _this = $(this);
             //debugger;
             var _src = _this.attr('src');
             var _srcset = _this.attr('srcset');
@@ -89,8 +92,8 @@ var $body;
         var window_top_position = $win.scrollTop();
         var window_bottom_position = (window_top_position + window_height);
 
-        jQuery.each($grid_elements, function () {
-            var $element = jQuery(this);
+        $.each($grid_elements, function () {
+            var $element = $(this);
             var element_height = $element.outerHeight();
             var element_top_position = $element.offset().top;
             var element_bottom_position = (element_top_position + element_height);
@@ -104,6 +107,35 @@ var $body;
             }
         });
     }
+
+    function makeSquare() {
+    var $squared = $(".d-block-square");
+    jQuery.each($squared, function () {
+      var $element = $(this);
+      var elementWidth = $element.outerWidth();
+      $element.css("height", elementWidth);
+    });
+  }
+
+  function makeRectH() {
+    var $rect = $(".d-block-rect-h");
+    jQuery.each($rect, function () {
+      var $element = $(this);
+      var elementWidth = $element.outerWidth() * 1.4;
+      $element.css("height", elementWidth);
+    });
+  }
+
+  function makeRectV() {
+    var $rect = $(".d-block-rect-v");
+    jQuery.each($rect, function () {
+      var $element = $(this);
+      var elementWidth = $element.outerWidth() * 0.45;
+      $element.css("height", elementWidth);
+    });
+  }
+
+
 
 })(jQuery);
 

@@ -41,7 +41,7 @@ if ($sizeWidth == 'col-md-1' || $sizeWidth == 'col-md-2' || $sizeWidth == 'col-m
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-  <div class="entry-inner mb-3">
+  <div class=" mb-3">
 
     <header class="entry-header pt-5 mb-4 px-md-5 fsr-lazy bg-cover featured-cover d-flex align-items-end" data-bg="<?php echo $cover_image; ?>">
       <div class="justify-content-md-center col">
@@ -54,12 +54,13 @@ if ($sizeWidth == 'col-md-1' || $sizeWidth == 'col-md-2' || $sizeWidth == 'col-m
       </div>
     </header><!-- .entry-header -->
     
-    <div class="container py-lg-5">
+    <div class="container py-lg-0">
+      <div class="entry-inner pt-5">
       <div class="row">
         <div class="col-md-4 text-md-end">
           <div class="entry-meta pe-md-5 pb-5">
             <?php if (!empty($nsfw)) { ?>
-              <div class="badge-group mb-1">
+              <div class="badge-group mb-4">
                 <span class="badge text-dark bg-secondary">NSFW</span>
               </div>
             <?php } ?>
@@ -90,6 +91,7 @@ if ($sizeWidth == 'col-md-1' || $sizeWidth == 'col-md-2' || $sizeWidth == 'col-m
 
         </div><!-- .col -->
       </div><!-- .row -->
+      </div>
     </div>
 
     
@@ -97,4 +99,6 @@ if ($sizeWidth == 'col-md-1' || $sizeWidth == 'col-md-2' || $sizeWidth == 'col-m
   </div><!-- .entry-inner-->
 </article><!-- #post-<?php the_ID(); ?> -->
 
+<div class="container">
 <?php get_template_part('template-parts/attachment_gallery'); ?>
+</div>

@@ -18,7 +18,7 @@ if ($images) {
       $image_sizeWidth = 'col-6';
     }
     if (empty($image_sizeHeight)) {
-      $image_sizeHeight = 'grid-md';
+      $image_sizeHeight = 'grid-md d-block-square';
     }
     ?>
     <div class="hentry gallery-item grid-item <?php echo $image_sizeWidth; ?>">

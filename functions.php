@@ -102,9 +102,9 @@ add_action('widgets_init', 'seattle_widgets_init');
  * Enqueue scripts and styles.
  */
 function seattle_scripts() {
-  wp_deregister_script('jquery');
-  wp_enqueue_style('seattle-style', get_template_directory_uri() . '/dist/css/site.min.css', array(), '20181215', 'screen');
-  wp_enqueue_script('seattle-js', get_template_directory_uri() . '/dist/js/site.min.js', array(), '20181215', true);
+  //wp_deregister_script('jquery');
+  wp_enqueue_style('seattle', get_template_directory_uri() . '/dist/css/site.min.css', array(), '20181215', 'screen');
+  wp_enqueue_script('seattle', get_template_directory_uri() . '/dist/js/site.js', array('jquery',), '5', true );
   if (is_singular() && comments_open() && get_option('thread_comments')) {
     wp_enqueue_script('comment-reply');
   }
@@ -129,6 +129,8 @@ function manage_img_column($column_name, $post_id) {
 // Global variables
 require get_template_directory() . '/inc/globals.php';
 require get_template_directory() . '/inc/utils.php';
+
+require get_template_directory() . '/inc/disable-editor.php';
 
 // Custom template tags for this theme.
 require get_template_directory() . '/inc/template-tags.php';
