@@ -7,6 +7,7 @@
 .hentry {
   .featured-image {
     overflow: hidden;
+    max-height: 640px;
     img {
       object-fit: cover;
       width: 100%;

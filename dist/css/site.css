@@ -17816,6 +17816,16 @@ body {
   opacity: 1 !important;
 }
 
+.image-cover-overlay {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  height: 100%;
+  width: 100%;
+}
+
 .widget-content {
   padding-left: 15px;
   padding-right: 15px;
@@ -17834,6 +17844,7 @@ body {
 
 .hentry .featured-image {
   overflow: hidden;
+  max-height: 640px;
 }
 .hentry .featured-image img {
   -o-object-fit: cover;

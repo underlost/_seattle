@@ -121,7 +121,7 @@
     var $rect = $(".d-block-rect-h");
     jQuery.each($rect, function () {
       var $element = $(this);
-      var elementWidth = $element.outerWidth() * 1.4;
+      var elementWidth = $element.outerWidth() * 1.52;
       $element.css("height", elementWidth);
     });
   }
@@ -130,7 +130,7 @@
     var $rect = $(".d-block-rect-v");
     jQuery.each($rect, function () {
       var $element = $(this);
-      var elementWidth = $element.outerWidth() * 0.45;
+      var elementWidth = $element.outerWidth() * 0.5;
       $element.css("height", elementWidth);
     });
   }
