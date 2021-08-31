@@ -10,6 +10,11 @@ Seattle is a Wordpress photoblog theme based built on [Underscores](http://under
 - Clone or copy this repo into your themes directory in WordPress.
 - Login to the WordPress dashboard. Under *Appearances > Themes*, click to enable the theme.
 
+## Development
+
+- `yarn install`
+- `composer require --dev paulthewalton/acf-stubs`
+
 ## Example
 
 For a live, working demo in action, visit my personal photo blog running the theme: [tyler.camera](http://tyler.camera/).

@@ -17421,6 +17421,10 @@ body {
   letter-spacing: 2px;
 }
 
+.z-10 {
+  z-index: 10;
+}
+
 .form-control:focus {
   box-shadow: none;
 }
@@ -17925,6 +17929,18 @@ body {
   left: 0;
   right: 0;
   background-color: rgba(34, 32, 40, 0.5);
+}
+
+.archive-cover {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  opacity: 0.5;
+}
+.archive-cover.fsr-lazy.loaded {
+  opacity: 0.25 !important;
 }
 
 .not-found .page-content {

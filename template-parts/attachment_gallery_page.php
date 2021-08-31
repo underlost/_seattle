@@ -24,7 +24,7 @@ if ($images) {
     <div class="hentry gallery-item grid-item <?php echo $image_sizeWidth; ?>">
       <div class="entry-inner">
         <div class="featured-image">
-          <img class="fsr-lazy" alt="<?php echo get_the_title(); ?>" data-src="<?php echo $image_url; ?>" />
+          <img class="fsr-lazy img-cover d-block-square" alt="<?php echo get_the_title(); ?>" data-src="<?php echo $image_url; ?>" />
         </div>
         <?php if ($image_caption) { ?>
           <div class="entry-details px-4">
