@@ -29,7 +29,8 @@ get_header();
      /* Start the Loop */
      while ($the_query->have_posts()) {
        $the_query->the_post();
-       get_template_part('template-parts/content-grid-item');
+       _seattle_grid_item(get_the_ID(), $is_fixed_width=false);
+       //get_template_part('template-parts/content-grid-item');
      }
      wp_reset_postdata();
    } else {

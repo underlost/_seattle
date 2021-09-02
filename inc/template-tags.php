@@ -151,10 +151,7 @@ endif;
 
 if (!function_exists('_seattle_pagination')) :
 	/**
-	 * Displays an optional post thumbnail.
-	 *
-	 * Wraps the post thumbnail in an anchor element on index views, or a div
-	 * element when on single views.
+	 * Displays pagination
 	 */
 	function _seattle_pagination()
 	{
@@ -258,69 +255,117 @@ if (!function_exists('_seattle_pagination')) :
 	}
 endif;
 
+if (!function_exists('_seattle_grid_item')) :
+	/**
+	 * Displays a grid item.
+	 */
+	function _seattle_grid_item($ID, $is_fixed_width = true)
+	{
 
+		$format = get_post_format($ID);
+		$square_thumbnail = true;
+		$thumbnail_arr = wp_get_attachment_image_src(get_post_thumbnail_id($ID), 'large');
+		$thumbnail_url = !empty($thumbnail_arr[0]) ? $thumbnail_arr[0] : '';
+		$url = get_the_permalink();
+		$sizeWidth = get_post_meta($ID, 'display-img-size', true);
+		$sizeHeight = get_post_meta($ID, 'display-img-height', true);
+		$location = get_post_meta($ID, 'location', true);
+		$nsfw = get_post_meta($ID, 'nsfw', true);
+		$lightboxEndabled = get_post_meta($ID, 'lightbox', true);
+		$image_min_height = $thumbnail_arr[1];
+		$image_min_width = $thumbnail_arr[2];
+		//print_r($thumbnail_arr);
+
+		if (empty($sizeWidth)) {
+			$sizeWidth = 'col-md-4';
+		}
+		if (empty($sizeHeight)) {
+			$sizeHeight = 'd-block-square';
+		}
+
+		if ($is_fixed_width == true) {
+			$sizeWidth = 'col-md-4';
+			$sizeHeight = 'grid-md d-block-square';
+		}
+
+		if (!empty($nsfw)) {
+			$nsfwClass = 'grid-item-nsfw';
+		} else {
+			$nsfwClass = null;
+		}
+		$classes = array($sizeWidth, $sizeHeight, $nsfwClass, 'grid-item', 'grid-item-clickable');
+
+		$lightbox = null;
+		$element = 'article';
+
+		if ($format == 'aside') {
+			$element = 'aside';
+			$lightbox = 'data-featherlight="' . $thumbnail_url . '"';
+		}
+		if (!empty($lightboxEndabled)) {
+			$lightbox = 'data-featherlight="' . $thumbnail_url . '"';
+		}
+?>
+
+		<<?php echo $element . ' id="post-' . $ID; ?>" <?php post_class($classes); ?>>
+			<a href="<?php echo $url; ?>" rel="bookmark" <?php echo $lightbox; ?> class="post-inner d-flex align-items-center h-100">
+				<?php if (!empty($nsfw)) { ?>
+					<div class="badge-group">
+						<span class="badge text-dark bg-secondary">NSFW</span>
+					</div>
+				<?php } ?>
+				<div class="image-wrapper">
+					<img class="image-cover-overlay" src="<?php echo get_template_directory_uri() . '/dist/images/1x1.png'; ?>" />
+					<img class="fsr-lazy" alt="<?php echo get_the_title($ID); ?>" data-src="<?php echo $thumbnail_url; ?>" />
+				</div>
+				<header class="entry-header text-center">
+					<h2 class="entry-title h4 px-lg-5"><?php echo get_the_title($ID); ?></h2>
+						<?php
+						if ('post' === get_post_type()) : ?>
+							<div class="entry-meta">
+								<span class="sr-only"><?php seattle_posted_on(); ?></span>
+								<?php if (!empty($location)) { ?>
+									<span class="location"><span class="sr-only">In: </span><?php echo $location; ?></span>
+								<?php } ?>
+							</div><!-- .entry-meta -->
+						<?php endif; ?>
+				</header><!-- .entry-header -->
+			</a>
+		</<?php echo $element;
+			'><!-- #post-' . $ID ?> -->
+
+
+	<?php
+	}
+endif;
 
 if (!function_exists('_seattle_post_navigation')) :
 	/**
-	 * Displays an optional post thumbnail.
-	 *
-	 * Wraps the post thumbnail in an anchor element on index views, or a div
-	 * element when on single views.
+	 * Displays previous/next cards
 	 */
 	function _seattle_post_navigation()
 	{
-?>
+	?>
 
 		<h3 class="text-white pt-4 h4">View More</h3>
 		<div class="row pb-4">
-			<div class="col-lg-8">
+			<div class="col-lg-12">
 				<div class="row">
 					<?php
 					$prev_post = get_previous_post();
-					$image_settings_previous = null;
-					$thumbnail_arr_prev = wp_get_attachment_image_src(get_post_thumbnail_id($prev_post->ID), 'large');
-					if (!empty($thumbnail_arr_prev[0])) {
-						$image_settings_previous = 'data-bg=" ' . $thumbnail_arr_prev[0] . '"';
-					}
-					if (!empty($prev_post)) : ?>
-						<div class="col-md-6">
-							<a class="bg-tertiary d-block d-block-square" href="<?php echo get_permalink($prev_post->ID); ?>">
-								<div class="post-inner d-flex align-items-center h-100 position-relative">
-									<div class="entry-header text-center w-100 position-relative z-10">
-										<h2 class="px-4 h4"><?php echo get_the_title($prev_post->ID); ?></h2>
-									</div>
-									<div class="archive-cover fsr-lazy bg-cover" <?php echo $image_settings_previous; ?>></div>
-								</div>
-							</a>
-						</div>
-					<?php endif;
-
 					$next_post = get_next_post();
-					$image_settings_next = null;
-					$thumbnail_arr_next = wp_get_attachment_image_src(get_post_thumbnail_id($next_post->ID), 'large');
-					if (!empty($thumbnail_arr_next[0])) {
-						$image_settings_next = 'data-bg=" ' . $thumbnail_arr_next[0] . '"';
-					}
-					if (is_a($next_post, 'WP_Post')) : ?>
-						<div class="col-md-6">
-							<a class="bg-tertiary d-block d-block-square" href="<?php echo get_permalink($next_post->ID); ?>">
-								<div class="post-inner d-flex align-items-center h-100 position-relative">
-									<div class="entry-header text-center w-100 position-relative z-10">
-										<h2 class="px-4 h4"><?php echo get_the_title($next_post->ID); ?></h2>
-									</div>
-									<div class="archive-cover fsr-lazy bg-cover" <?php echo $image_settings_next; ?>></div>
-								</div>
-							</a>
-						</div>
-					<?php endif;
 
+					if (!empty($prev_post)) :
+						_seattle_grid_item($prev_post->ID);
+					endif;
+
+					if (!empty($next_post)) :
+						_seattle_grid_item($next_post->ID);
+					endif;
 					?>
 				</div>
 			</div>
 		</div>
-
-
 <?php
-
 	}
 endif;

@@ -44,8 +44,7 @@ get_header();
 
         <?php while (have_posts()) :
           the_post();
-          $is_fixed_width = true;
-          include get_template_directory() . '/template-parts/content-grid-item.php';
+          _seattle_grid_item(get_the_ID(), $is_fixed_width = true);
         endwhile; ?>
       </div>
 
