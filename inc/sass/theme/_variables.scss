@@ -71,3 +71,14 @@ $container-max-widths: (
   lg: 960px,
   xl: 1400px
 );
+
+//Pagination
+$pagination-bg: transparent;
+$pagination-border-color: transparent;
+$pagination-active-bg: transparent;
+
+$pagination-hover-bg: $secondary;
+$pagination-hover-border-color: transparent;
+$pagination-hover-color: $tertiary;
+
+$pagination-focus-bg: transparent;

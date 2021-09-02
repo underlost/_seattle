@@ -12,9 +12,13 @@
 
 .comment {
   position: relative;
-  background-color: #16151a;
   padding: 20px;
   margin: 20px auto;
+  border-bottom: 1px solid $primary;
+
+  .comment-author {
+    padding-bottom: 1rem;
+  }
 
   .comment-metadata {
     position: absolute;
@@ -40,6 +44,15 @@
       text-transform: uppercase;
       font-size: 13px;
       letter-spacing: 1px;
+    }
+  }
+
+  .children {
+    list-style: none;
+    padding-left: 0;
+    .comment {
+      border-top: 1px solid $primary;
+      border-bottom-color: transparent;
     }
   }
 }

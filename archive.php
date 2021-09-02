@@ -11,7 +11,7 @@
 $term = get_queried_object();
 $archive_photo = null;
 $image_settings = null;
-if (is_plugin_active('advanced-custom-fields/acf.php')) {
+if (function_exists('get_field')) {
   $archive_photo = get_field('image', $term);
 }
 if (!empty($archive_photo['url'])) {
@@ -49,7 +49,11 @@ get_header();
         endwhile; ?>
       </div>
 
-    <?php the_posts_navigation();
+    <?php
+
+      // the_posts_navigation();
+      _seattle_pagination();
+    
     else :
       get_template_part('template-parts/content', 'none');
     endif; ?>

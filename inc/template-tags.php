@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Custom template tags for this theme
  *
@@ -7,59 +8,62 @@
  * @package Seattle
  */
 
-if ( ! function_exists( '_seattle_meta' ) ) :
+if (!function_exists('_seattle_meta')) :
 	/**
 	 * Prints HTML with meta information for the current post-date/time and author.
 	 */
-	function _seattle_meta() {
+	function _seattle_meta()
+	{
 		$time_string = '<time class="entry-date published updated" datetime="%1$s">%2$s</time>';
-		if ( get_the_time( 'U' ) !== get_the_modified_time( 'U' ) ) {
+		if (get_the_time('U') !== get_the_modified_time('U')) {
 			$time_string = '<time class="entry-date published" datetime="%1$s">%2$s</time><time class="updated sr-only" datetime="%3$s">%4$s</time>';
 		}
 
-		$time_string = sprintf( $time_string,
-			esc_attr( get_the_date( 'c' ) ),
-			esc_html( get_the_date() ),
-			esc_attr( get_the_modified_date( 'c' ) ),
-			esc_html( get_the_modified_date() )
+		$time_string = sprintf(
+			$time_string,
+			esc_attr(get_the_date('c')),
+			esc_html(get_the_date()),
+			esc_attr(get_the_modified_date('c')),
+			esc_html(get_the_modified_date())
 		);
 
 		$posted_on = sprintf(
 			/* translators: %s: post date. */
-			esc_html_x( '%s', 'post date', 'seattle' ),
+			esc_html_x('%s', 'post date', 'seattle'),
 			'<span class="datetime">' . $time_string . '</span>'
 		);
 		$byline = sprintf(
 			/* translators: %s: post author. */
-			esc_html_x( '%s', 'post author', 'seattle' ),
-			'<span class="author vcard">' . esc_html( get_the_author() ) . '</span>'
+			esc_html_x('%s', 'post author', 'seattle'),
+			'<span class="author vcard">' . esc_html(get_the_author()) . '</span>'
 		);
 		echo '<span class="posted-on d-block mb-2"><span class="posted-on-text d-block h6 text-secondary mb-1 fw-bold text-uppercase">Published</span>' . $posted_on . '</span>';
 		echo '<span class="byline d-block mb-3 sr-only"><span class="byline-txext d-block h6 text-secondary mb-0">Written by</span> ' . $byline . '</span>';
-
 	}
 endif;
 
-if ( ! function_exists( 'seattle_posted_on' ) ) :
+if (!function_exists('seattle_posted_on')) :
 	/**
 	 * Prints HTML with meta information for the current post-date/time.
 	 */
-	function seattle_posted_on() {
+	function seattle_posted_on()
+	{
 		$time_string = '<time class="entry-date published updated" datetime="%1$s">%2$s</time>';
-		if ( get_the_time( 'U' ) !== get_the_modified_time( 'U' ) ) {
+		if (get_the_time('U') !== get_the_modified_time('U')) {
 			$time_string = '<time class="entry-date published" datetime="%1$s">%2$s</time><time class="updated sr-only" datetime="%3$s">%4$s</time>';
 		}
 
-		$time_string = sprintf( $time_string,
-			esc_attr( get_the_date( 'c' ) ),
-			esc_html( get_the_date() ),
-			esc_attr( get_the_modified_date( 'c' ) ),
-			esc_html( get_the_modified_date() )
+		$time_string = sprintf(
+			$time_string,
+			esc_attr(get_the_date('c')),
+			esc_html(get_the_date()),
+			esc_attr(get_the_modified_date('c')),
+			esc_html(get_the_modified_date())
 		);
 
 		$posted_on = sprintf(
 			/* translators: %s: post date. */
-			esc_html_x( '%s', 'post date', 'seattle' ),
+			esc_html_x('%s', 'post date', 'seattle'),
 			'<span class="datetime">' . $time_string . '</span>'
 		);
 		echo '<span class="posted-on"><span class="posted-on-text">Published </span>' . $posted_on . '</span>'; // WPCS: XSS OK.
@@ -67,51 +71,53 @@ if ( ! function_exists( 'seattle_posted_on' ) ) :
 	}
 endif;
 
-if ( ! function_exists( 'seattle_author' ) ) :
+if (!function_exists('seattle_author')) :
 	/**
 	 * Prints HTML with meta information for the current post author.
 	 */
-	function seattle_author() {
+	function seattle_author()
+	{
 
 		$byline = sprintf(
 			/* translators: %s: post author. */
-			esc_html_x( 'by %s', 'post author', 'seattle' ),
-			'<span class="author vcard">' . esc_html( get_the_author() ) . '</span>'
+			esc_html_x('by %s', 'post author', 'seattle'),
+			'<span class="author vcard">' . esc_html(get_the_author()) . '</span>'
 		);
 		echo '<span class="byline h6"> ' . $byline . '</span>'; // WPCS: XSS OK.
 
 	}
 endif;
 
-if ( ! function_exists( 'seattle_entry_footer' ) ) :
+if (!function_exists('seattle_entry_footer')) :
 	/**
 	 * Prints HTML with meta information for the categories, tags and comments.
 	 */
-	function seattle_entry_footer() {
+	function seattle_entry_footer()
+	{
 		// Hide category and tag text for pages.
-		if ( 'post' === get_post_type() ) {
+		if ('post' === get_post_type()) {
 			/* translators: used between list items, there is a space after the comma */
-			$categories_list = get_the_category_list( esc_html__( ', ', 'seattle' ) );
-			if ( $categories_list ) {
+			$categories_list = get_the_category_list(esc_html__(', ', 'seattle'));
+			if ($categories_list) {
 				/* translators: 1: list of categories. */
-				printf( '<span class="cat-links">' . esc_html__( 'Posted in: %1$s', 'seattle' ) . '</span>', $categories_list ); // WPCS: XSS OK.
+				printf('<span class="cat-links">' . esc_html__('Posted in: %1$s', 'seattle') . '</span>', $categories_list); // WPCS: XSS OK.
 			}
 
 			/* translators: used between list items, there is a space after the comma */
-			$tags_list = get_the_tag_list( '', esc_html_x( ', ', 'list item separator', 'seattle' ) );
-			if ( $tags_list ) {
+			$tags_list = get_the_tag_list('', esc_html_x(', ', 'list item separator', 'seattle'));
+			if ($tags_list) {
 				/* translators: 1: list of tags. */
-				printf( '<span class="tags-links">' . esc_html__( 'Tagged with: %1$s', 'seattle' ) . '</span>', $tags_list ); // WPCS: XSS OK.
+				printf('<span class="tags-links">' . esc_html__('Tagged with: %1$s', 'seattle') . '</span>', $tags_list); // WPCS: XSS OK.
 			}
 		}
 
-		if ( ! is_single() && ! post_password_required() && ( comments_open() || get_comments_number() ) ) {
+		if (!is_single() && !post_password_required() && (comments_open() || get_comments_number())) {
 			echo '<span class="comments-link">';
 			comments_popup_link(
 				sprintf(
 					wp_kses(
 						/* translators: %s: post title */
-						__( 'Leave a Comment<span class="sr-only"> on %s</span>', 'seattle' ),
+						__('Leave a Comment<span class="sr-only"> on %s</span>', 'seattle'),
 						array(
 							'span' => array(
 								'class' => array(),
@@ -128,7 +134,7 @@ if ( ! function_exists( 'seattle_entry_footer' ) ) :
 			sprintf(
 				wp_kses(
 					/* translators: %s: Name of current post. Only visible to screen readers */
-					__( 'Edit <span class="sr-only">%s</span>', 'seattle' ),
+					__('Edit <span class="sr-only">%s</span>', 'seattle'),
 					array(
 						'span' => array(
 							'class' => array(),
@@ -140,5 +146,181 @@ if ( ! function_exists( 'seattle_entry_footer' ) ) :
 			'<span class="edit-link">',
 			'</span>'
 		);
+	}
+endif;
+
+if (!function_exists('_seattle_pagination')) :
+	/**
+	 * Displays an optional post thumbnail.
+	 *
+	 * Wraps the post thumbnail in an anchor element on index views, or a div
+	 * element when on single views.
+	 */
+	function _seattle_pagination()
+	{
+		if (is_singular()) {
+			return;
+		}
+
+		global $wp_query;
+
+		/** Stop execution if there's only 1 page */
+		if ($wp_query->max_num_pages <= 1) {
+			return;
+		}
+
+		$paged = get_query_var('paged') ? absint(get_query_var('paged')) : 1;
+		$max = intval($wp_query->max_num_pages);
+
+		/** Add current page to the array */
+		if ($paged >= 1) {
+			$links[] = $paged;
+		}
+
+		/** Add the pages around the current page to the array */
+		if ($paged >= 3) {
+			$links[] = $paged - 1;
+			$links[] = $paged - 2;
+		}
+
+		if ($paged + 2 <= $max) {
+			$links[] = $paged + 2;
+			$links[] = $paged + 1;
+		}
+
+		echo '<nav class="navigation text-center py-5 mb-lg-5" aria-label="Page Navigation"><ul class="pagination justify-content-center">' .
+			"\n";
+
+		/** Previous Post Link */
+		if (get_previous_posts_link()) {
+			printf(
+				'<li class="page-item previous-page">%s</li>' . "\n",
+				get_previous_posts_link('Previous')
+			);
+		}
+
+		/** Link to first page, plus ellipses if necessary */
+		if (!in_array(1, $links)) {
+			$class = 1 == $paged ? 'active' : '';
+
+			printf(
+				'<li class="page-item %s"><a class="page-link" href="%s">%s</a></li>' .
+					"\n",
+				$class,
+				esc_url(get_pagenum_link(1)),
+				'1'
+			);
+
+			if (!in_array(2, $links)) {
+				echo '<li class="page-item"><span class="page-link">…</span></li>';
+			}
+		}
+
+		/** Link to current page, plus 2 pages in either direction if necessary */
+		sort($links);
+		foreach ((array) $links as $link) {
+			$class = $paged == $link ? 'active' : '';
+			printf(
+				'<li class="page-item %s"><a class="page-link" href="%s">%s</a></li>' .
+					"\n",
+				$class,
+				esc_url(get_pagenum_link($link)),
+				$link
+			);
+		}
+
+		/** Link to last page, plus ellipses if necessary */
+		if (!in_array($max, $links)) {
+			if (!in_array($max - 1, $links)) {
+				echo '<li class="page-item"><span class="page-link">…</span></li>' .
+					"\n";
+			}
+
+			$class = $paged == $max ? 'active' : '';
+			printf(
+				'<li class="page-item %s"><a class="page-link" href="%s">%s</a></li>' .
+					"\n",
+				$class,
+				esc_url(get_pagenum_link($max)),
+				$max
+			);
+		}
+
+		/** Next Post Link */
+		if (get_next_posts_link()) {
+			printf(
+				'<li class="page-item next-page">%s</li>' . "\n",
+				get_next_posts_link('Next')
+			);
+		}
+
+		echo '</ul></nav>' . "\n";
+	}
+endif;
+
+
+
+if (!function_exists('_seattle_post_navigation')) :
+	/**
+	 * Displays an optional post thumbnail.
+	 *
+	 * Wraps the post thumbnail in an anchor element on index views, or a div
+	 * element when on single views.
+	 */
+	function _seattle_post_navigation()
+	{
+?>
+
+		<h3 class="text-white pt-4 h4">View More</h3>
+		<div class="row pb-4">
+			<div class="col-lg-8">
+				<div class="row">
+					<?php
+					$prev_post = get_previous_post();
+					$image_settings_previous = null;
+					$thumbnail_arr_prev = wp_get_attachment_image_src(get_post_thumbnail_id($prev_post->ID), 'large');
+					if (!empty($thumbnail_arr_prev[0])) {
+						$image_settings_previous = 'data-bg=" ' . $thumbnail_arr_prev[0] . '"';
+					}
+					if (!empty($prev_post)) : ?>
+						<div class="col-md-6">
+							<a class="bg-tertiary d-block d-block-square" href="<?php echo get_permalink($prev_post->ID); ?>">
+								<div class="post-inner d-flex align-items-center h-100 position-relative">
+									<div class="entry-header text-center w-100 position-relative z-10">
+										<h2 class="px-4 h4"><?php echo get_the_title($prev_post->ID); ?></h2>
+									</div>
+									<div class="archive-cover fsr-lazy bg-cover" <?php echo $image_settings_previous; ?>></div>
+								</div>
+							</a>
+						</div>
+					<?php endif;
+
+					$next_post = get_next_post();
+					$image_settings_next = null;
+					$thumbnail_arr_next = wp_get_attachment_image_src(get_post_thumbnail_id($next_post->ID), 'large');
+					if (!empty($thumbnail_arr_next[0])) {
+						$image_settings_next = 'data-bg=" ' . $thumbnail_arr_next[0] . '"';
+					}
+					if (is_a($next_post, 'WP_Post')) : ?>
+						<div class="col-md-6">
+							<a class="bg-tertiary d-block d-block-square" href="<?php echo get_permalink($next_post->ID); ?>">
+								<div class="post-inner d-flex align-items-center h-100 position-relative">
+									<div class="entry-header text-center w-100 position-relative z-10">
+										<h2 class="px-4 h4"><?php echo get_the_title($next_post->ID); ?></h2>
+									</div>
+									<div class="archive-cover fsr-lazy bg-cover" <?php echo $image_settings_next; ?>></div>
+								</div>
+							</a>
+						</div>
+					<?php endif;
+
+					?>
+				</div>
+			</div>
+		</div>
+
+
+<?php
+
 	}
 endif;

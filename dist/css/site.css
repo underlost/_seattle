@@ -4674,8 +4674,8 @@ textarea.form-control-lg {
   display: block;
   color: #febf4b;
   text-decoration: none;
-  background-color: #fff;
-  border: 1px solid #dee2e6;
+  background-color: transparent;
+  border: 1px solid transparent;
   transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 }
 @media (prefers-reduced-motion: reduce) {
@@ -4685,14 +4685,14 @@ textarea.form-control-lg {
 }
 .page-link:hover {
   z-index: 2;
-  color: #cb993c;
-  background-color: #e9ecef;
-  border-color: #dee2e6;
+  color: #222028;
+  background-color: #febf4b;
+  border-color: transparent;
 }
 .page-link:focus {
   z-index: 3;
   color: #cb993c;
-  background-color: #e9ecef;
+  background-color: transparent;
   outline: 0;
   box-shadow: 0 0 0 0.25rem rgba(9, 8, 13, 0.25);
 }
@@ -4703,8 +4703,8 @@ textarea.form-control-lg {
 .page-item.active .page-link {
   z-index: 3;
   color: #febf4b;
-  background-color: #09080d;
-  border-color: #09080d;
+  background-color: transparent;
+  border-color: transparent;
 }
 .page-item.disabled .page-link {
   color: #6c757d;
@@ -17620,9 +17620,12 @@ body {
 
 .comment {
   position: relative;
-  background-color: #16151a;
   padding: 20px;
   margin: 20px auto;
+  border-bottom: 1px solid #222028;
+}
+.comment .comment-author {
+  padding-bottom: 1rem;
 }
 .comment .comment-metadata {
   position: absolute;
@@ -17649,6 +17652,14 @@ body {
   text-transform: uppercase;
   font-size: 13px;
   letter-spacing: 1px;
+}
+.comment .children {
+  list-style: none;
+  padding-left: 0;
+}
+.comment .children .comment {
+  border-top: 1px solid #222028;
+  border-bottom-color: transparent;
 }
 
 .comment-respond {
@@ -17941,6 +17952,65 @@ body {
 }
 .archive-cover.fsr-lazy.loaded {
   opacity: 0.25 !important;
+}
+
+.pagination .page-link {
+  position: relative;
+  font-weight: bold;
+}
+.pagination .page-item.active .page-link::after {
+  content: "";
+  height: 4px;
+  width: 100%;
+  background-color: #febf4b;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+.pagination .previous-page a,
+.pagination .next-page a {
+  position: relative;
+  display: block;
+  padding: 0.5rem 0.75rem;
+  margin-left: -1px;
+  line-height: 1.25;
+  color: #febf4b;
+  background-color: transparent;
+  border-width: 0;
+  text-decoration: none;
+  font-weight: bold;
+}
+.pagination ul.page-numbers {
+  list-style: none;
+  padding-left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  width: 100%;
+}
+.pagination ul.page-numbers li {
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
+}
+.pagination ul.page-numbers .page-numbers {
+  font-weight: 600;
+  font-size: 1.18rem;
+  letter-spacing: 1.2px;
+  color: #222028;
+  line-height: 1;
+}
+.pagination ul.page-numbers .page-numbers.current {
+  color: #febf4b;
+  border-bottom: 2px solid #febf4b;
+}
+.pagination ul.page-numbers .previous-icon,
+.pagination ul.page-numbers .next-icon {
+  display: flex;
+  align-items: center;
+}
+.pagination ul.page-numbers .previous-icon svg {
+  transform: rotate(180deg);
 }
 
 .not-found .page-content {
