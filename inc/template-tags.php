@@ -12,19 +12,22 @@ if (!function_exists('_seattle_meta')) :
 	/**
 	 * Prints HTML with meta information for the current post-date/time and author.
 	 */
-	function _seattle_meta()
-	{
+	function _seattle_meta($ID = '') {
+		if (empty($ID)) {
+			$ID = get_the_ID();
+		}
+
 		$time_string = '<time class="entry-date published updated" datetime="%1$s">%2$s</time>';
-		if (get_the_time('U') !== get_the_modified_time('U')) {
+		if (get_the_time('U', $ID) !== get_the_modified_time('U', $ID)) {
 			$time_string = '<time class="entry-date published" datetime="%1$s">%2$s</time><time class="updated sr-only" datetime="%3$s">%4$s</time>';
 		}
 
 		$time_string = sprintf(
 			$time_string,
-			esc_attr(get_the_date('c')),
-			esc_html(get_the_date()),
-			esc_attr(get_the_modified_date('c')),
-			esc_html(get_the_modified_date())
+			esc_attr(get_the_date('c', $ID)),
+			esc_html(get_the_date('', $ID)),
+			esc_attr(get_the_modified_date('c', $ID)),
+			esc_html(get_the_modified_date('', $ID))
 		);
 
 		$posted_on = sprintf(
@@ -35,7 +38,7 @@ if (!function_exists('_seattle_meta')) :
 		$byline = sprintf(
 			/* translators: %s: post author. */
 			esc_html_x('%s', 'post author', 'seattle'),
-			'<span class="author vcard">' . esc_html(get_the_author()) . '</span>'
+			'<span class="author vcard">' . esc_html(get_the_author($ID)) . '</span>'
 		);
 		echo '<span class="posted-on d-block mb-2"><span class="posted-on-text d-block h6 text-secondary mb-1 fw-bold text-uppercase">Published</span>' . $posted_on . '</span>';
 		echo '<span class="byline d-block mb-3 sr-only"><span class="byline-txext d-block h6 text-secondary mb-0">Written by</span> ' . $byline . '</span>';
@@ -46,19 +49,22 @@ if (!function_exists('seattle_posted_on')) :
 	/**
 	 * Prints HTML with meta information for the current post-date/time.
 	 */
-	function seattle_posted_on()
+	function seattle_posted_on($ID = '')
 	{
+		if (empty($ID)) {
+			$ID = get_the_ID();
+		}
 		$time_string = '<time class="entry-date published updated" datetime="%1$s">%2$s</time>';
-		if (get_the_time('U') !== get_the_modified_time('U')) {
+		if (get_the_time('U', $ID) !== get_the_modified_time('U', $ID)) {
 			$time_string = '<time class="entry-date published" datetime="%1$s">%2$s</time><time class="updated sr-only" datetime="%3$s">%4$s</time>';
 		}
 
 		$time_string = sprintf(
 			$time_string,
-			esc_attr(get_the_date('c')),
-			esc_html(get_the_date()),
-			esc_attr(get_the_modified_date('c')),
-			esc_html(get_the_modified_date())
+			esc_attr(get_the_date('c', $ID)),
+			esc_html(get_the_date('', $ID)),
+			esc_attr(get_the_modified_date('c', $ID)),
+			esc_html(get_the_modified_date('', $ID))
 		);
 
 		$posted_on = sprintf(
@@ -75,13 +81,16 @@ if (!function_exists('seattle_author')) :
 	/**
 	 * Prints HTML with meta information for the current post author.
 	 */
-	function seattle_author()
-	{
+	function seattle_author($ID = '') {
+
+		if (empty($ID)) {
+			$ID = get_the_ID();
+		}
 
 		$byline = sprintf(
 			/* translators: %s: post author. */
 			esc_html_x('by %s', 'post author', 'seattle'),
-			'<span class="author vcard">' . esc_html(get_the_author()) . '</span>'
+			'<span class="author vcard">' . esc_html(get_the_author($ID)) . '</span>'
 		);
 		echo '<span class="byline h6"> ' . $byline . '</span>'; // WPCS: XSS OK.
 
@@ -92,8 +101,8 @@ if (!function_exists('seattle_entry_footer')) :
 	/**
 	 * Prints HTML with meta information for the categories, tags and comments.
 	 */
-	function seattle_entry_footer()
-	{
+	function seattle_entry_footer() {
+
 		// Hide category and tag text for pages.
 		if ('post' === get_post_type()) {
 			/* translators: used between list items, there is a space after the comma */
@@ -153,8 +162,7 @@ if (!function_exists('_seattle_pagination')) :
 	/**
 	 * Displays pagination
 	 */
-	function _seattle_pagination()
-	{
+	function _seattle_pagination() {
 		if (is_singular()) {
 			return;
 		}
@@ -323,7 +331,7 @@ if (!function_exists('_seattle_grid_item')) :
 						<?php
 						if ('post' === get_post_type()) : ?>
 							<div class="entry-meta">
-								<span class="sr-only"><?php seattle_posted_on(); ?></span>
+								<span class="sr-only"><?php seattle_posted_on($ID); ?></span>
 								<?php if (!empty($location)) { ?>
 									<span class="location"><span class="sr-only">In: </span><?php echo $location; ?></span>
 								<?php } ?>
@@ -331,10 +339,7 @@ if (!function_exists('_seattle_grid_item')) :
 						<?php endif; ?>
 				</header><!-- .entry-header -->
 			</a>
-		</<?php echo $element;
-			'><!-- #post-' . $ID ?> -->
-
-
+		</<?php echo $element . '><!-- #post-' . $ID ?> -->
 	<?php
 	}
 endif;
@@ -366,6 +371,6 @@ if (!function_exists('_seattle_post_navigation')) :
 				</div>
 			</div>
 		</div>
-<?php
+	<?php
 	}
 endif;
