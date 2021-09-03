@@ -12,7 +12,8 @@ if (!function_exists('_seattle_meta')) :
 	/**
 	 * Prints HTML with meta information for the current post-date/time and author.
 	 */
-	function _seattle_meta($ID = '') {
+	function _seattle_meta($ID = '')
+	{
 		if (empty($ID)) {
 			$ID = get_the_ID();
 		}
@@ -81,7 +82,8 @@ if (!function_exists('seattle_author')) :
 	/**
 	 * Prints HTML with meta information for the current post author.
 	 */
-	function seattle_author($ID = '') {
+	function seattle_author($ID = '')
+	{
 
 		if (empty($ID)) {
 			$ID = get_the_ID();
@@ -101,7 +103,8 @@ if (!function_exists('seattle_entry_footer')) :
 	/**
 	 * Prints HTML with meta information for the categories, tags and comments.
 	 */
-	function seattle_entry_footer() {
+	function seattle_entry_footer()
+	{
 
 		// Hide category and tag text for pages.
 		if ('post' === get_post_type()) {
@@ -162,7 +165,8 @@ if (!function_exists('_seattle_pagination')) :
 	/**
 	 * Displays pagination
 	 */
-	function _seattle_pagination() {
+	function _seattle_pagination()
+	{
 		if (is_singular()) {
 			return;
 		}
@@ -291,6 +295,10 @@ if (!function_exists('_seattle_grid_item')) :
 			$sizeHeight = 'd-block-square';
 		}
 
+		$has_image_class = 'no-image';
+		if (!empty($thumbnail_url)) : $has_image_class = 'has-image';
+		endif;
+
 		if ($is_fixed_width == true) {
 			$sizeWidth = 'col-md-4';
 			$sizeHeight = 'grid-md d-block-square';
@@ -301,7 +309,7 @@ if (!function_exists('_seattle_grid_item')) :
 		} else {
 			$nsfwClass = null;
 		}
-		$classes = array($sizeWidth, $sizeHeight, $nsfwClass, 'grid-item', 'grid-item-clickable');
+		$classes = array($sizeWidth, $sizeHeight, $nsfwClass, $has_image_class, 'grid-item', 'grid-item-clickable');
 
 		$lightbox = null;
 		$element = 'article';
@@ -324,19 +332,19 @@ if (!function_exists('_seattle_grid_item')) :
 				<?php } ?>
 				<div class="image-wrapper">
 					<img class="image-cover-overlay" src="<?php echo get_template_directory_uri() . '/dist/images/1x1.png'; ?>" />
-					<img class="fsr-lazy" alt="<?php echo get_the_title($ID); ?>" data-src="<?php echo $thumbnail_url; ?>" />
+					<img class="fsr-lazy" alt="<?php echo get_the_title($ID); ?>" data-src="<?php echo $thumbnail_url; ?>" src="<?php echo get_template_directory_uri() . '/dist/images/1x1.png'; ?>" />
 				</div>
 				<header class="entry-header text-center">
 					<h2 class="entry-title h4 px-lg-5"><?php echo get_the_title($ID); ?></h2>
-						<?php
-						if ('post' === get_post_type()) : ?>
-							<div class="entry-meta">
-								<span class="sr-only"><?php seattle_posted_on($ID); ?></span>
-								<?php if (!empty($location)) { ?>
-									<span class="location"><span class="sr-only">In: </span><?php echo $location; ?></span>
-								<?php } ?>
-							</div><!-- .entry-meta -->
-						<?php endif; ?>
+					<?php
+					if ('post' === get_post_type()) : ?>
+						<div class="entry-meta">
+							<span class="sr-only"><?php seattle_posted_on($ID); ?></span>
+							<?php if (!empty($location)) { ?>
+								<span class="location"><span class="sr-only">In: </span><?php echo $location; ?></span>
+							<?php } ?>
+						</div><!-- .entry-meta -->
+					<?php endif; ?>
 				</header><!-- .entry-header -->
 			</a>
 		</<?php echo $element . '><!-- #post-' . $ID ?> -->
@@ -371,6 +379,6 @@ if (!function_exists('_seattle_post_navigation')) :
 				</div>
 			</div>
 		</div>
-	<?php
+<?php
 	}
 endif;

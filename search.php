@@ -19,7 +19,7 @@ get_header(); ?>
         <div class="row">
           <div class="col-md-6">
             <h1 class="page-title mb-0">
-            <?php printf(esc_html__('Search Results for: %s', 'seattle'), '<span>' . get_search_query() . '</span>'); ?></h1>
+            <?php printf(esc_html__('Search Results for: %s', 'seattle'), '<span class="text-white">' . get_search_query() . '</span>'); ?></h1>
           </div>
         </div>
       </header><!-- .page-header -->
@@ -36,7 +36,6 @@ get_header(); ?>
             get_template_part('template-parts/content', 'none');
           endif; ?>
       </div>
-
       <div>
         <?php _seattle_pagination(); ?>
       </div>

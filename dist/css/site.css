@@ -17745,6 +17745,7 @@ body {
   height: 900px;
 }
 .grid-item .post-inner {
+  cursor: pointer;
   min-height: 150px;
   position: relative;
   overflow: hidden;
@@ -17773,8 +17774,45 @@ body {
 .grid-item .post-inner:hover .entry-header, .grid-item .post-inner:hover:after, .grid-item .post-inner:hover:before {
   opacity: 1 !important;
 }
-.grid-item .entry-meta {
+.grid-item .entry-header {
+  transition: all 0.3s, color 0.3s;
+  opacity: 0;
+  width: 100%;
+  text-shadow: 1px 1px #333;
+  position: relative;
+  z-index: 10;
+}
+.grid-item .entry-header .entry-title {
+  text-transform: uppercase;
+  font-weight: 200;
+  letter-spacing: 3px;
+  font-size: 1.5rem;
+}
+.grid-item .entry-header .entry-meta {
   color: #fff;
+  font-weight: 100;
+  font-size: 0.75rem;
+  letter-spacing: 4px;
+}
+.grid-item .entry-header .byline {
+  display: none;
+}
+.grid-item .entry-content {
+  display: none;
+}
+.grid-item .entry-footer {
+  display: none;
+}
+.grid-item.no-image .post-inner {
+  background-color: #febf4b;
+}
+.grid-item.no-image .entry-header {
+  opacity: 1;
+}
+.grid-item.no-image .entry-header .entry-title,
+.grid-item.no-image .entry-header .entry-meta {
+  color: #222028;
+  text-shadow: none;
 }
 
 .grid-item-full .post-inner:before {
@@ -17786,39 +17824,6 @@ body {
   z-index: 10;
 }
 
-.grid-item-clickable .post-inner {
-  cursor: pointer;
-}
-.grid-item-clickable .entry-header {
-  transition: all 0.3s, color 0.3s;
-  opacity: 0;
-  width: 100%;
-  text-shadow: 1px 1px #333;
-  position: relative;
-  z-index: 10;
-}
-.grid-item-clickable .entry-header .entry-title {
-  text-transform: uppercase;
-  font-weight: 200;
-  letter-spacing: 3px;
-  font-size: 1.5rem;
-}
-.grid-item-clickable .entry-header .entry-meta {
-  color: #fff;
-  font-weight: 100;
-  font-size: 0.75rem;
-  letter-spacing: 4px;
-}
-.grid-item-clickable .entry-header .byline {
-  display: none;
-}
-.grid-item-clickable .entry-content {
-  display: none;
-}
-.grid-item-clickable .entry-footer {
-  display: none;
-}
-
 .grid-item-nsfw .image-wrapper img {
   filter: blur(15px);
 }
@@ -17828,7 +17833,7 @@ body {
   opacity: 0;
 }
 .fsr-lazy.loaded {
-  opacity: 1 !important;
+  opacity: 1;
 }
 
 .image-cover-overlay {
@@ -17895,7 +17900,6 @@ body {
 }
 
 .gallery-item .featured-image > img {
-  opacity: 0;
   display: block;
   width: 100%;
   height: auto;

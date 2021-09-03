@@ -158,3 +158,13 @@ require get_template_directory() . '/inc/gallery-metabox/gallery.php';
 
 // Theme Options
 require get_template_directory() . '/inc/theme_settings.php';
+
+
+add_filter('lazyload_the_content', function ($content) {
+  $content = preg_replace("/<img(.*?)(src=)(.*?)>/i", '<img$1data-$2$3>', $content);
+  $content = preg_replace("/<img(.*?)(srcset=)(.*?)>/i", '<img$1data-$2$3>', $content);
+  $content = preg_replace('/<img(.*?)class=\"(.*?)\"(.*?)>/i', '<img$1class="$2 fsr-lazy"$3>', $content);
+  $content = preg_replace('/<img((.(?!class=))*)\/?>/i', '<img class="fsr-lazy"$1>', $content);
+  // $content = preg_replace("/<img(.*?)(\/?)>/i", '<img$1 data-pagespeed-no-transform $2>', $content);
+  return $content;
+});
