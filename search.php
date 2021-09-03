@@ -17,30 +17,28 @@ get_header(); ?>
 		<main id="main" class="site-main">
       <header class="page-header px-4 py-3 mb-2">
         <div class="row">
-        <div class="col-md-6">
-          <h1 class="page-title mb-0">
-          <?php printf(esc_html__('Search Results for: %s', 'seattle'), '<span>' . get_search_query() . '</span>'); ?></h1>
-        </div>
-        <div class="col-md-6">
-          <?php the_posts_navigation(); ?>
-        </div>
+          <div class="col-md-6">
+            <h1 class="page-title mb-0">
+            <?php printf(esc_html__('Search Results for: %s', 'seattle'), '<span>' . get_search_query() . '</span>'); ?></h1>
+          </div>
         </div>
       </header><!-- .page-header -->
       <div class="row grid">
         <div class="grid-sizer col-md-1 col-sm-6"></div>
 		      <?php if (have_posts()):
-            if (is_home() && !is_front_page()): ?>
-			      <?php endif;
             /* Start the Loop */
             while (have_posts()):
               the_post();
-              $is_fixed_width = true;
-              include get_template_directory() . '/template-parts/content-grid-item.php';
+              _seattle_grid_item(get_the_ID(), $is_fixed_width = true);
             endwhile;
             
           else:
             get_template_part('template-parts/content', 'none');
           endif; ?>
+      </div>
+
+      <div>
+        <?php _seattle_pagination(); ?>
       </div>
 		</main><!-- #main -->
 	</div><!-- #primary -->
