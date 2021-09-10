@@ -278,7 +278,7 @@ if (!function_exists('_seattle_grid_item')) :
 		$square_thumbnail = true;
 		$thumbnail_arr = wp_get_attachment_image_src(get_post_thumbnail_id($ID), 'large');
 		$thumbnail_url = !empty($thumbnail_arr[0]) ? $thumbnail_arr[0] : '';
-		$url = get_the_permalink();
+		$url = get_the_permalink($ID);
 		$sizeWidth = get_post_meta($ID, 'display-img-size', true);
 		$sizeHeight = get_post_meta($ID, 'display-img-height', true);
 		$location = get_post_meta($ID, 'location', true);

@@ -11,11 +11,14 @@
 $term = get_queried_object();
 $archive_photo = null;
 $image_settings = null;
+$grid_classes = 'no-image';
+
 if (function_exists('get_field')) {
   $archive_photo = get_field('image', $term);
 }
 if (!empty($archive_photo['url'])) {
   $image_settings = 'data-bg=" ' . $archive_photo['url'] . '"';
+  $grid_classes = 'has-image';
 }
 
 get_header();
@@ -28,12 +31,12 @@ get_header();
       <div class="row grid">
         <div class="grid-sizer col-md-1 col-sm-6"></div>
 
-        <article class="grid-item col-md-4 d-block-square">
+        <article class="grid-item col-md-4 d-block-square <?php echo $grid_classes; ?>">
           <div class="post-inner d-flex align-items-center h-100">
 
-            <header class="entry-header text-center w-100 position-relative z-10">
+            <header class="archive-header entry-header text-center w-100 position-relative z-10 ">
               <?php
-              the_archive_title('<h1 class="page-title h3 px-4 text-center">', '</h1>');
+              the_archive_title('<h1 class="archive-title entry-title h4 px-lg-5">', '</h1>');
               the_archive_description('<div class="archive-description">', '</div>');
               ?>
             </header>

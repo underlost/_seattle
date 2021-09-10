@@ -17797,6 +17797,10 @@ body {
 .grid-item .entry-header .byline {
   display: none;
 }
+.grid-item .archive-header,
+.grid-item .archive-title {
+  opacity: 1;
+}
 .grid-item .entry-content {
   display: none;
 }
@@ -17844,6 +17848,7 @@ body {
   bottom: 0;
   height: 100%;
   width: 100%;
+  opacity: 0;
 }
 
 .widget-content {
@@ -17897,12 +17902,6 @@ body {
 .hentry .entry-footer .tags-links,
 .hentry .entry-footer .cat-links {
   display: block;
-}
-
-.gallery-item .featured-image > img {
-  display: block;
-  width: 100%;
-  height: auto;
 }
 
 .post-template-featured .page-container {

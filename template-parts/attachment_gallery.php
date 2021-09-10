@@ -22,7 +22,7 @@ if ($images) {
   ?>
     <div class="hentry gallery-item grid-item <?php echo $image_sizeWidth; ?>">
       <div class="entry-inner">
-        <a class="featured-image" rel="bookmark" data-featherlight="<?php echo $image_url; ?>" href="<?php echo $image_url; ?>">
+        <a class="featured-image position-relative d-block" rel="bookmark" data-featherlight="<?php echo $image_url; ?>" href="<?php echo $image_url; ?>">
           <img class="image-cover-overlay" src="<?php echo get_template_directory_uri() . '/dist/images/1x1.png'; ?>" />
             <img class="fsr-lazy" alt="<?php echo get_the_title(); ?>" data-src="<?php echo $image_url; ?>" />
         </a>

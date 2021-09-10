@@ -119,6 +119,11 @@
     }
   }
 
+  .archive-header,
+  .archive-title {
+    opacity: 1;
+  }
+
   .entry-content {
     display: none;
   }
@@ -181,5 +186,5 @@
   bottom: 0;
   height: 100%;
   width: 100%;
-
+  opacity: 0;
 }
