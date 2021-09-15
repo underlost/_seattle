@@ -53,7 +53,6 @@ get_header();
 
     <?php
 
-      // the_posts_navigation();
       _seattle_pagination();
     
     else :
