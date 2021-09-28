@@ -29,7 +29,7 @@ get_header();
   <main id="main" class="site-main">
     <?php if (have_posts()) : ?>
       <div class="row grid">
-        <div class="grid-sizer col-md-1 col-sm-6"></div>
+        <div class="grid-sizer col-1 col-md-1"></div>
 
         <article class="grid-item col-md-4 d-block-square <?php echo $grid_classes; ?>">
           <div class="post-inner d-flex align-items-center h-100">
@@ -40,7 +40,7 @@ get_header();
               the_archive_description('<div class="archive-description">', '</div>');
               ?>
             </header>
-            <div class="archive-cover fsr-lazy" <?php echo $image_settings; ?>></div>
+            <div class="archive-cover fsr-lazy bg-cover" <?php echo $image_settings; ?>></div>
 
           </div>
         </article>

@@ -300,7 +300,7 @@ if (!function_exists('_seattle_grid_item')) :
 		endif;
 
 		if ($is_fixed_width == true) {
-			$sizeWidth = 'col-md-4';
+			$sizeWidth = 'col-6 col-md-4';
 			$sizeHeight = 'grid-md d-block-square';
 		}
 

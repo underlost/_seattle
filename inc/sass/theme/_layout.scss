@@ -13,6 +13,14 @@ body {
   background-size: cover;
 }
 
+.nav-container {
+  background-color: $tertiary;
+  border-bottom: 1px solid lighten($tertiary, 15%);
+  color: $primary;
+  font-family: $font-family-serif;
+  text-transform: uppercase;
+}
+
 .page-container {
   padding-top: 10px;
   position: relative;

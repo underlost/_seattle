@@ -17,10 +17,25 @@ $instagram = get_option('social_instagram');
 
 </div><!-- #content -->
 
+<div class="nav-container container px-lg-0 my-2">
+  <nav class="navbar navbar-expand navbar-dark px-3">
+    <div class="collapse navbar-collapse order-2 order-md-1">
+      <?php wp_nav_menu(array(
+        'menu' => 'menu-2',
+        'theme_location' => 'menu-2',
+        'depth' => 4,
+        'menu_class' => 'navbar-nav mr-auto',
+        'fallback_cb' => 'wp_bootstrap_navwalker::fallback',
+        'walker' => new wp_bootstrap_navwalker(),
+      )); ?>
+    </div>
+  </nav>
+</div>
+
 <footer id="colophon" class="site-footer container py-4 mb-4 px-2 px-md-5">
   <div class="site-info">
     <div class="row">
-      <div class="col-md-6">
+      <div class="col-md-12">
 
         <div class="social-icons">
           <ul class="list-inline">
@@ -48,20 +63,6 @@ $instagram = get_option('social_instagram');
           </ul>
         </div>
 
-        <div class="navbar navbar-expand-lg" id="navbarFooterContent">
-          <?php wp_nav_menu(array(
-            'menu' => 'menu-2',
-            'theme_location' => 'menu-2',
-            'depth' => 4,
-            'menu_class' => 'navbar-nav mr-auto',
-            'fallback_cb' => 'wp_bootstrap_navwalker::fallback',
-            'walker' => new wp_bootstrap_navwalker(),
-          )); ?>
-        </div>
-
-
-      </div>
-      <div class="col-md-6">
       </div>
     </div>
     <div class="row">

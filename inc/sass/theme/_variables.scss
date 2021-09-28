@@ -10,6 +10,8 @@ $primary: lighten($darkGray, 5%);
 $secondary: #febf4b;
 $tertiary: lighten($darkGray, 5%);
 
+$dark: $tertiary;
+
 $link-color: $secondary;
 $component-active-bg:$almostBlack;
 $component-active-color: $secondary;

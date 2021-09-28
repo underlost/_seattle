@@ -68,21 +68,22 @@ gulp.task('build-css', function() {
 
 // Concat All JS into unminified single file
 gulp.task('concat-js', function() {
-  return gulp.src([
-    //'node_modules/jquery/dist/jquery.js',
-    //'inc/js/skip-link-focus-fix.js',
-    'node_modules/vanilla-lazyload/dist/lazyload.min.js',
-    'node_modules/bootstrap/dist/js/bootstrap.min.js',
-    'node_modules/packery/dist/packery.pkgd.min.js',
-    'node_modules/featherlight/release/featherlight.min.js',
-    'inc/js/theme.js',
-    //'inc/js/_isotope.js',
-    //'inc/js/_packery.js',
-  ])
-  .pipe(sourcemaps.init())
-  .pipe(concat('site.js'))
-  .pipe(sourcemaps.write('./maps'))
-  .pipe(gulp.dest('dist/js'));
+  return gulp
+    .src([
+      //'node_modules/jquery/dist/jquery.js',
+      //'inc/js/skip-link-focus-fix.js',
+      "node_modules/vanilla-lazyload/dist/lazyload.min.js",
+      "node_modules/bootstrap/dist/js/bootstrap.bundle.js",
+      "node_modules/packery/dist/packery.pkgd.min.js",
+      "node_modules/featherlight/release/featherlight.min.js",
+      "inc/js/theme.js",
+      //'inc/js/_isotope.js',
+      //'inc/js/_packery.js',
+    ])
+    .pipe(sourcemaps.init())
+    .pipe(concat("site.js"))
+    .pipe(sourcemaps.write("./maps"))
+    .pipe(gulp.dest("dist/js"));
 });
 
 // configure the jshint task

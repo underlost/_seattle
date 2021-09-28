@@ -46,6 +46,7 @@ if (!function_exists('seattle_setup')):
     register_nav_menus(array(
       'menu-1' => esc_html__('Primary', 'seattle'),
       'menu-2' => esc_html__('Footer', 'seattle'),
+      'menu-3' => esc_html__('Featured Links', 'seattle'),
     ));
 
     /*

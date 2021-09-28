@@ -2,6 +2,7 @@
 
     var $win = $(window);
     var $doc = $(document);
+    var $body = $("body");
     var $grid_elements = $('.fade-item');
     var $classes = {
         FsrHolder: 'fsr-holder',
@@ -10,22 +11,20 @@
     };
     var $body;
 
+    var $grid = $(".grid").packery({
+      itemSelector: ".grid-item", // use a separate class for itemSelector, other than .col-
+      percentPosition: true,
+      initLayout: true,
+      layoutMode: "packery",
+      //layoutMode: 'fitRows',
+      columnWidth: ".grid-sizer",
+      onLayout: function () {
+        //$win.trigger("DOMContentLoaded");
+        $win.trigger("scroll");
+      },
+    });
+
     $(function () {
-
-        var $grid = $('.grid').packery({
-            itemSelector: '.grid-item', // use a separate class for itemSelector, other than .col-
-            percentPosition: true,
-            initLayout: true,
-            layoutMode: 'packery',
-            //layoutMode: 'fitRows',
-            columnWidth: '.grid-sizer',
-            onLayout: function () {
-                //$win.trigger("DOMContentLoaded");
-                $win.trigger("scroll");
-            }
-        });
-
-        $body = $('body');
         fullscreener($('.' + $classes.FsrImage));
         makeSquare();
         makeRectH();
@@ -47,7 +46,7 @@
 
     });
     document.addEventListener('scroll', function(e) {
-        console.log('scrolling...');
+        //console.log('scrolling...');
         $grid.packery();
     });
 
@@ -134,8 +133,6 @@
       $element.css("height", elementWidth);
     });
   }
-
-
 
 })(jQuery);
 
