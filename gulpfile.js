@@ -1,8 +1,9 @@
 /*!
  * Based on UnderTasker by Tyler Rilling
- * Copyright 2021 Tyler Rilling
+ * Copyright 2016 - 2022 Tyler Rilling
  * Licensed under MIT (https://github.com/underlost/Undertasker/blob/master/LICENSE)
  */
+
 
 // grab our packages
 var gulp   = require('gulp'),
@@ -16,7 +17,7 @@ var gulp   = require('gulp'),
     uglify = require('gulp-uglify-es').default;
     del = require('del');
     stylish = require('jshint-stylish');
-    imagemin = require('gulp-imagemin');
+    imagemin = import("gulp-imagemin");
 
 
 // Cleans the web dist folder
@@ -35,11 +36,11 @@ gulp.task('copy-fonts', function() {
 // Copy Components
 gulp.task('copy-bootstrap', function() {
   return gulp.src('node_modules/bootstrap/scss/**/*.*')
-  .pipe(gulp.dest('inc/sass/bootstrap'));
+  .pipe(gulp.dest('inc/scss/bootstrap'));
 });
 gulp.task('copy-font-awesome', function() {
   return gulp.src('node_modules/@fortawesome/fontawesome-free/scss/**/*.*')
-  .pipe(gulp.dest('inc/sass/font-awesome'));
+  .pipe(gulp.dest('inc/scss/font-awesome'));
 });
 
 // Install task
@@ -54,7 +55,7 @@ gulp.task('imagemin', function() {
 
 // CSS Build Task
 gulp.task('build-css', function() {
-  return gulp.src('inc/sass/site.scss')
+  return gulp.src('inc/scss/site.scss')
   //.pipe(sourcemaps.init())  // Process the original sources
   .pipe(sass().on('error', sass.logError))
   //.pipe(sourcemaps.write()) // Add the map to modified source.
@@ -107,7 +108,7 @@ gulp.task('build-js', gulp.series('concat-js', 'shrink-js'));
 // configure which files to watch and what tasks to use on file changes
 gulp.task('watch', function() {
   gulp.watch('inc/js/**/*.js', gulp.series('build-js'));
-  gulp.watch('inc/sass/**/*.scss', gulp.series('build-css'));
+  gulp.watch('inc/scss/**/*.scss', gulp.series('build-css'));
   gulp.watch('inc/img/**/*.{jpg,png,gif,ico}', gulp.series('imagemin'));
 });
 

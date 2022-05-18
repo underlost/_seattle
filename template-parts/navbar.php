@@ -23,8 +23,8 @@ $categories = get_categories(array(
   </form>
   <div class="collapse navbar-collapse order-2 order-md-1" id="navbarSupportedContent">
     <?php wp_nav_menu(array(
-      'menu' => 'primary',
-      'theme_location' => 'primary',
+      'menu' => 'menu-1',
+      'theme_location' => 'menu-1',
       'depth' => 4,
       'menu_class' => 'navbar-nav mr-auto',
       'fallback_cb' => 'wp_bootstrap_navwalker::fallback',
